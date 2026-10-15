@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 720" width="850" height="720" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8e8e8" stroke-width="0.8" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#d5d5d5" stroke-width="1.2" />
+    </pattern>
+
+    <marker id="solid-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#222222" />
+    </marker>
+
+    <marker id="open-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#222222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+  <!-- 1. ACTOR: Administrador del sistema -->
+  <g id="actor-admin" transform="translate(10, 0)">
+    <circle cx="110" cy="300" r="22" fill="#ffffff" stroke="#222222" stroke-width="2.4" />
+    <line x1="110" y1="322" x2="110" y2="400" stroke="#222222" stroke-width="2.4" />
+    <line x1="60" y1="350" x2="160" y2="350" stroke="#222222" stroke-width="2.4" />
+    <line x1="110" y1="400" x2="72" y2="475" stroke="#222222" stroke-width="2.4" stroke-linecap="round" />
+    <line x1="110" y1="400" x2="148" y2="475" stroke="#222222" stroke-width="2.4" stroke-linecap="round" />
+    <text x="110" y="505" text-anchor="middle" font-size="14" font-weight="600" fill="#222222">Administrador</text>
+    <text x="110" y="524" text-anchor="middle" font-size="14" font-weight="600" fill="#222222">del sistema</text>
+  </g>
+
+  <!-- 2. FLECHA SÓLIDA DE ASOCIACIÓN -->
+  <line x1="170" y1="365" x2="275" y2="365" stroke="#222222" stroke-width="2" marker-end="url(#solid-arrow)" />
+
+  <!-- 3. CASO DE USO PRINCIPAL: Auditar eventos -->
+  <g id="cu-principal">
+    <ellipse cx="375" cy="365" rx="92" ry="48" fill="#ffffff" stroke="#222222" stroke-width="2.2" />
+    <text x="375" y="358" text-anchor="middle" font-size="15" font-weight="600" fill="#222222">Auditar eventos</text>
+    <text x="375" y="377" text-anchor="middle" font-size="15" font-weight="600" fill="#222222">del sistema</text>
+  </g>
+
+  <!-- 4. FLECHAS DISCONTINUAS <<extend>> -->
+  <!-- Hacia 1 -->
+  <path d="M 440 330 L 602 145" fill="none" stroke="#222222" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#open-arrow)" />
+  <g transform="translate(506, 218) rotate(-48)">
+    <rect x="-35" y="-10" width="70" height="18" fill="#ffffff" opacity="0.9" />
+    <text x="0" y="3" text-anchor="middle" font-size="12" font-style="italic" fill="#333333">&lt;&lt;extend&gt;&gt;</text>
+  </g>
+
+  <!-- Hacia 2 -->
+  <path d="M 462 350 L 598 296" fill="none" stroke="#222222" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#open-arrow)" />
+  <g transform="translate(520, 312) rotate(-21)">
+    <rect x="-35" y="-10" width="70" height="18" fill="#ffffff" opacity="0.9" />
+    <text x="0" y="3" text-anchor="middle" font-size="12" font-style="italic" fill="#333333">&lt;&lt;extend&gt;&gt;</text>
+  </g>
+
+  <!-- Hacia 3 -->
+  <path d="M 462 380 L 598 434" fill="none" stroke="#222222" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#open-arrow)" />
+  <g transform="translate(522, 417) rotate(21)">
+    <rect x="-35" y="-10" width="70" height="18" fill="#ffffff" opacity="0.9" />
+    <text x="0" y="3" text-anchor="middle" font-size="12" font-style="italic" fill="#333333">&lt;&lt;extend&gt;&gt;</text>
+  </g>
+
+  <!-- Hacia 4 -->
+  <path d="M 440 400 L 602 585" fill="none" stroke="#222222" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#open-arrow)" />
+  <g transform="translate(508, 510) rotate(48)">
+    <rect x="-35" y="-10" width="70" height="18" fill="#ffffff" opacity="0.9" />
+    <text x="0" y="3" text-anchor="middle" font-size="12" font-style="italic" fill="#333333">&lt;&lt;extend&gt;&gt;</text>
+  </g>
+
+  <!-- 5. CASOS DE USO ESPECÍFICOS -->
+  <!-- CU 1 -->
+  <g id="cu-bitacora">
+    <ellipse cx="690" cy="110" rx="88" ry="46" fill="#ffffff" stroke="#222222" stroke-width="2.2" />
+    <text x="690" y="103" text-anchor="middle" font-size="14" font-weight="600" fill="#222222">consultar bitácora</text>
+    <text x="690" y="122" text-anchor="middle" font-size="14" font-weight="600" fill="#222222">de actividad</text>
+  </g>
+
+  <!-- CU 2 -->
+  <g id="cu-filtrar">
+    <ellipse cx="690" cy="280" rx="88" ry="46" fill="#ffffff" stroke="#222222" stroke-width="2.2" />
+    <text x="690" y="273" text-anchor="middle" font-size="14" font-weight="600" fill="#222222">filtrar logs por</text>
+    <text x="690" y="292" text-anchor="middle" font-size="14" font-weight="600" fill="#222222">usuario o módulo</text>
+  </g>
+
+  <!-- CU 3 -->
+  <g id="cu-payload">
+    <ellipse cx="690" cy="450" rx="88" ry="46" fill="#ffffff" stroke="#222222" stroke-width="2.2" />
+    <text x="690" y="443" text-anchor="middle" font-size="14" font-weight="600" fill="#222222">visualizar payload</text>
+    <text x="690" y="462" text-anchor="middle" font-size="14" font-weight="600" fill="#222222">JSON de cambios</text>
+  </g>
+
+  <!-- CU 4 -->
+  <g id="cu-actualizar">
+    <ellipse cx="690" cy="620" rx="88" ry="46" fill="#ffffff" stroke="#222222" stroke-width="2.2" />
+    <text x="690" y="613" text-anchor="middle" font-size="14" font-weight="600" fill="#222222">actualizar registros</text>
+    <text x="690" y="632" text-anchor="middle" font-size="14" font-weight="600" fill="#222222">en tiempo real</text>
+  </g>
+</svg>

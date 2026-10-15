@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 980" width="960" height="980" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <!-- Patrón de cuadrícula técnica -->
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ebebeb" stroke-width="0.8" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#d8d8d8" stroke-width="1.2" />
+    </pattern>
+
+    <!-- Flecha de flujo UML -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#222222" />
+    </marker>
+  </defs>
+
+  <!-- Fondo cuadrícula -->
+  <rect id="bgRect" width="100%" height="100%" fill="url(#grid)" />
+
+  <!-- TÍTULO DEL DIAGRAMA -->
+  <text x="480" y="36" text-anchor="middle" font-size="16" font-weight="800" fill="#222222" letter-spacing="0.5">
+    DIAGRAMA DE ACTIVIDADES: MONITOREO EN TIEMPO REAL Y ALERTAS (UML 2.5)
+  </text>
+
+  <!-- ─── SWIMLANES / CALLES DE RESPONSABILIDAD ─── -->
+  <!-- Cabecera de columnas -->
+  <g id="swimlanes-headers">
+    <!-- Col 1: Nodo IoT ESP32 -->
+    <rect x="30" y="55" width="225" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="142" y="79" text-anchor="middle" font-size="13" font-weight="800" fill="#222222">NODO IOT (ESP32)</text>
+
+    <!-- Col 2: Backend API -->
+    <rect x="255" y="55" width="235" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="372" y="79" text-anchor="middle" font-size="13" font-weight="800" fill="#222222">BACKEND (API FASTAPI)</text>
+
+    <!-- Col 3: Frontend Dashboard -->
+    <rect x="490" y="55" width="235" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="607" y="79" text-anchor="middle" font-size="13" font-weight="800" fill="#222222">FRONTEND (DASHBOARD)</text>
+
+    <!-- Col 4: Operador -->
+    <rect x="725" y="55" width="205" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="827" y="79" text-anchor="middle" font-size="13" font-weight="800" fill="#222222">OPERADOR DE PISCINA</text>
+  </g>
+
+  <!-- Líneas divisorias de columnas -->
+  <line x1="30" y1="93" x2="30" y2="940" stroke="#222222" stroke-width="2" />
+  <line x1="255" y1="93" x2="255" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="490" y1="93" x2="490" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="725" y1="93" x2="725" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="930" y1="93" x2="930" y2="940" stroke="#222222" stroke-width="2" />
+  <line x1="30" y1="940" x2="930" y2="940" stroke="#222222" stroke-width="2" />
+
+  <!-- ─── ELEMENTOS DEL FLUJO DE ACTIVIDADES ─── -->
+
+  <!-- 1. NODO INICIAL (● Inicio) -->
+  <circle cx="142" cy="125" r="14" fill="#222222" />
+  <line x1="142" y1="139" x2="142" y2="170" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 1: Captura de sensores -->
+  <g id="act-1">
+    <rect x="52" y="170" width="180" height="54" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="142" y="193" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Capturar lecturas de</text>
+    <text x="142" y="210" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">sensores (pH, Turb, Temp)</text>
+  </g>
+
+  <line x1="142" y1="224" x2="142" y2="255" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 2: Empaquetar JSON -->
+  <g id="act-2">
+    <rect x="52" y="255" width="180" height="54" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="142" y="278" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Empaquetar mediciones</text>
+    <text x="142" y="295" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">en JSON con timestamp</text>
+  </g>
+
+  <!-- Flecha de Col 1 a Col 2 (Transmisión WiFi) -->
+  <path d="M 232 282 L 285 282 L 285 340 L 372 340" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="260" y="274" font-size="10" font-weight="700" fill="#555555" font-style="italic">WiFi / HTTP POST</text>
+
+  <!-- Actividad 3: Guardar en BD (Backend) -->
+  <g id="act-3">
+    <rect x="282" y="340" width="180" height="54" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="372" y="363" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Almacenar medición en</text>
+    <text x="372" y="380" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Base de Datos (PostgreSQL)</text>
+  </g>
+
+  <line x1="372" y1="394" x2="372" y2="430" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Decisión 1: ¿Fuera de rango? (Rombo) -->
+  <g id="dec-1">
+    <polygon points="372,430 442,465 372,500 302,465" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="372" y="461" text-anchor="middle" font-size="10" font-weight="800" fill="#222222">¿Parámetros fuera</text>
+    <text x="372" y="474" text-anchor="middle" font-size="10" font-weight="800" fill="#222222">de rango normativo?</text>
+  </g>
+
+  <!-- RAMA SÍ (Alerta Crítica / Fuera de rango) -->
+  <line x1="302" y1="465" x2="275" y2="465" stroke="#222222" stroke-width="1.8" />
+  <line x1="275" y1="465" x2="275" y2="550" stroke="#222222" stroke-width="1.8" />
+  <line x1="275" y1="550" x2="295" y2="550" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="250" y="485" font-size="11" font-weight="800" fill="#b91c1c">[ Sí ]</text>
+
+  <!-- Actividad 4A: Generar Alerta -->
+  <g id="act-4a">
+    <rect x="295" y="525" width="175" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="382" y="546" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Emitir alerta crítica y</text>
+    <text x="382" y="561" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">registrar tipo de incidencia</text>
+  </g>
+
+  <!-- RAMA NO (Parámetros Normales) -->
+  <line x1="442" y1="465" x2="475" y2="465" stroke="#222222" stroke-width="1.8" />
+  <line x1="475" y1="465" x2="475" y2="550" stroke="#222222" stroke-width="1.8" />
+  <line x1="475" y1="550" x2="455" y2="550" stroke="#222222" stroke-width="1.8" />
+  <text x="448" y="485" font-size="11" font-weight="800" fill="#15803d">[ No ]</text>
+
+  <!-- Actividad 4B: Estado Óptimo -->
+  <!-- Flujo hacia Frontend Estado Óptimo -->
+  <path d="M 475 550 L 525 550 L 525 615 L 545 615" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Flujo desde 4A hacia Frontend Alerta -->
+  <path d="M 382 575 L 382 615 L 515 615" fill="none" stroke="#222222" stroke-width="1.8" />
+
+  <!-- Actividad 5A (Frontend): Desplegar Alerta Roja -->
+  <g id="act-5a">
+    <rect x="520" y="525" width="180" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="610" y="546" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Desplegar banner de alerta</text>
+    <text x="610" y="561" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">y resaltar KPI en rojo</text>
+  </g>
+  <line x1="470" y1="550" x2="520" y2="550" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 5B (Frontend): Actualizar Dashboard Normal -->
+  <g id="act-5b">
+    <rect x="520" y="615" width="180" height="54" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="610" y="638" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Actualizar KPIs en verde</text>
+    <text x="610" y="654" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">y trazar curva en tiempo real</text>
+  </g>
+
+  <!-- Flujo 5A -> Operador Acción Correctiva -->
+  <line x1="700" y1="550" x2="745" y2="550" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 6A (Operador): Revisar Alerta -->
+  <g id="act-6a">
+    <rect x="745" y="525" width="165" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="827" y="546" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Revisar alerta y ejecutar</text>
+    <text x="827" y="561" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">protocolo correctivo</text>
+  </g>
+
+  <!-- Flujo 5B -> Operador Visualización -->
+  <line x1="700" y1="642" x2="745" y2="642" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 6B (Operador): Monitorear Normal -->
+  <g id="act-6b">
+    <rect x="745" y="617" width="165" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="827" y="638" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Verificar estado óptimo</text>
+    <text x="827" y="653" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">del agua en el panel</text>
+  </g>
+
+  <!-- Rombo de Fusión / Join (Merge Node) -->
+  <polygon points="827,715 852,735 827,755 802,735" fill="#ffffff" stroke="#222222" stroke-width="2" />
+
+  <line x1="827" y1="575" x2="827" y2="715" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <line x1="827" y1="667" x2="827" y2="715" stroke="#222222" stroke-width="1.8" />
+
+  <line x1="827" y1="755" x2="827" y2="795" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 7: Esperar siguiente ciclo (10 seg) -->
+  <g id="act-7">
+    <rect x="745" y="795" width="165" height="46" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="827" y="815" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Aguardar intervalo</text>
+    <text x="827" y="830" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">de refresco (10 seg)</text>
+  </g>
+
+  <!-- Flecha de retorno cíclico hacia Col 1 (Inicio de nueva muestra) -->
+  <path d="M 745 818 L 142 818 L 142 870" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="440" y="810" text-anchor="middle" font-size="10" font-weight="700" fill="#555555" font-style="italic">Nuevo ciclo de muestreo periódico</text>
+
+  <!-- 8. NODO FINAL (◉ Fin de Jornada / Cierre) -->
+  <g id="nodo-final" transform="translate(142, 895)">
+    <circle cx="0" cy="0" r="16" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <circle cx="0" cy="0" r="10" fill="#222222" />
+  </g>
+  <text x="142" y="930" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Fin de Jornada</text>
+
+</svg>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe Mockup - Auditoría y Bitácora de Eventos (Playa Azul)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Comic Neue & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    .wf-font {
+      font-family: 'Comic Neue', 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-200 text-slate-900 min-h-screen p-4 md:p-8 flex flex-col items-center wf-font">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR -->
+  <div class="w-full max-w-[1100px] mb-4 flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 rounded-xl border-2 border-slate-800 shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold uppercase tracking-wide bg-slate-900 text-white px-2.5 py-1 rounded">Wireframe / Boceto</span>
+      <span class="text-xs text-slate-700 font-semibold">Prototipo Fiel al Sistema Real · Módulo de Auditoría (Auditoria/index.jsx)</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="toggleModal()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs rounded-lg border-2 border-slate-800 transition-all flex items-center gap-1.5">
+        <span>👁️ Ver/Ocultar Modal Detalle Auditoría</span>
+      </button>
+      <button id="btnDescargar" onclick="descargarWireframe()" class="px-4 py-2 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-lg border-2 border-slate-900 shadow transition-all flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        Descargar Imagen PNG (Wireframe Auditoría)
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR WIREFRAME ESTILO BALSAMIQ -->
+  <div id="wireframe-container" class="w-full max-w-[1100px] bg-white border-2 border-slate-900 shadow-2xl p-0 overflow-hidden relative">
+    
+    <!-- 1. BARRA DE NAVEGADOR WIREFRAME -->
+    <div class="border-b-2 border-slate-900 bg-slate-100 px-3 py-2 flex items-center justify-between gap-3 text-slate-800 select-none">
+      <div class="flex items-center gap-3">
+        <span class="text-lg font-bold">&larr;</span>
+        <span class="text-lg font-bold">&rarr;</span>
+        <span class="text-base font-bold">&#x21bb;</span>
+        <svg class="w-4 h-4 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      </div>
+
+      <div class="flex-1 bg-white border-2 border-slate-800 px-3 py-1 rounded text-xs flex items-center justify-between">
+        <span class="font-mono text-slate-800">http://sistema-piscina.playa-azul/auditoria</span>
+        <span class="text-[10px] text-slate-500 font-bold">100%</span>
+      </div>
+
+      <div class="hidden sm:block text-xs font-bold text-slate-800">
+        [ Playa Azul - Auditoría y Bitácora ]
+      </div>
+    </div>
+
+    <!-- 2. CUERPO PRINCIPAL (SIDEBAR + MAIN) -->
+    <div class="flex flex-col md:flex-row min-h-[720px]">
+      
+      <!-- SIDEBAR REAL -->
+      <aside class="w-full md:w-56 border-b-2 md:border-b-0 md:border-r-2 border-slate-900 bg-white p-3 flex flex-col justify-between shrink-0">
+        <div>
+          <!-- Logo Playa Azul -->
+          <div class="border-2 border-slate-800 p-2 text-center rounded mb-4 bg-slate-50">
+            <div class="font-black text-sm tracking-wide uppercase">[ PLAYA AZUL ]</div>
+            <div class="text-[9px] text-slate-600 font-bold">Control & Monitoreo IoT</div>
+          </div>
+
+          <!-- Navegación real -->
+          <div class="space-y-1 text-xs">
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">MENÚ</div>
+            
+            <!-- Dashboard -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>📊 Dashboard</span>
+            </div>
+
+            <!-- Caja -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>🎟️ Caja</span>
+            </div>
+
+            <!-- Inventario -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>📦 Inventario</span>
+            </div>
+
+            <!-- Usuarios -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>👥 Usuarios</span>
+            </div>
+
+            <!-- Auditoría (ACTIVO) -->
+            <div class="p-2 border-2 border-slate-900 bg-slate-200 font-black rounded flex items-center justify-between">
+              <span>📑 Auditoría</span>
+              <span>&blacktriangleright;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Usuario al pie del sidebar -->
+        <div class="mt-6 border-2 border-slate-800 p-2 rounded text-[11px] bg-slate-50">
+          <div class="font-bold">Shakira Orosco</div>
+          <div class="text-[9px] text-slate-600">Rol: Administrador</div>
+        </div>
+      </aside>
+
+      <!-- CONTENIDO PRINCIPAL DE AUDITORIA/INDEX.JSX -->
+      <main class="flex-1 p-6 bg-slate-50/50 space-y-6">
+        
+        <!-- HEADER DE PÁGINA (Idéntico a Auditoria/index.jsx) -->
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between border-b-2 border-slate-800 pb-4">
+          <div>
+            <p class="text-[11px] font-bold tracking-widest uppercase text-slate-500 mb-0.5">Módulo de Administración</p>
+            <h1 class="text-xl md:text-2xl font-black text-slate-900">Auditoría y Bitácora de Eventos</h1>
+            <p class="text-xs text-slate-600 font-medium">Seguimiento detallado de cambios y operaciones del sistema</p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button type="button" class="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 px-4 py-2 rounded-lg font-bold text-xs border-2 border-slate-800 shadow-sm">
+              <span>🔄 Actualizar Logs</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CONTENEDOR PRINCIPAL: REGISTROS DE ACTIVIDAD -->
+        <div class="bg-white rounded-xl border-2 border-slate-900 shadow-sm overflow-hidden space-y-0">
+          
+          <!-- Barra superior de la tabla con filtro de búsqueda -->
+          <div class="flex flex-wrap items-center justify-between gap-3 px-5 py-3.5 border-b-2 border-slate-800 bg-slate-50">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-slate-900"></span>
+              <h2 class="font-black text-sm text-slate-900">Registros de Actividad</h2>
+            </div>
+            
+            <!-- Campo de búsqueda idéntico al código -->
+            <div class="w-72 border-2 border-slate-800 bg-white rounded px-3 py-1.5 text-xs text-slate-400 flex items-center justify-between">
+              <span>Buscar por usuario, acción o módulo...</span>
+              <span>🔍</span>
+            </div>
+          </div>
+
+          <!-- TABLA EXACTA DE AUDITORÍA -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="border-b-2 border-slate-800 bg-slate-100 text-[10px] font-black uppercase tracking-wider text-slate-600">
+                  <th class="px-4 py-3">Fecha y Hora</th>
+                  <th class="px-4 py-3">Usuario Responsable</th>
+                  <th class="px-4 py-3">IP Dispositivo</th>
+                  <th class="px-4 py-3">Acción</th>
+                  <th class="px-4 py-3">Módulo / Entidad</th>
+                  <th class="px-4 py-3 text-center">Detalles</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 font-medium text-xs">
+                
+                <!-- Log 1: INSERT Compra Químico -->
+                <tr class="hover:bg-slate-50">
+                  <td class="px-4 py-3 text-slate-700 whitespace-nowrap font-bold">
+                    15/10/2026, 09:30:15
+                  </td>
+                  <td class="px-4 py-3">
+                    <span class="font-bold text-slate-900 block">Shakira Orosco Gutierrez</span>
+                    <span class="text-[10px] text-slate-500 font-mono">shakira@playa-azul.com</span>
+                  </td>
+                  <td class="px-4 py-3 text-slate-600 font-mono text-[11px] whitespace-nowrap">
+                    192.168.1.45
+                  </td>
+                  <td class="px-4 py-3">
+                    <span class="inline-block border border-slate-800 bg-slate-100 px-2.5 py-0.5 rounded text-[10px] font-black text-slate-900">
+                      INSERT
+                    </span>
+                  </td>
+                  <td class="px-4 py-3 font-bold text-slate-800">
+                    inventario_quimicos
+                  </td>
+                  <td class="px-4 py-3 text-center">
+                    <button onclick="toggleModal()" type="button" class="px-2.5 py-1 rounded border border-slate-800 bg-white hover:bg-slate-100 font-bold text-[11px] text-slate-800 shadow-sm">
+                      Ver Datos
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Log 2: LOGIN_SUCCESS -->
+                <tr class="hover:bg-slate-50">
+                  <td class="px-4 py-3 text-slate-700 whitespace-nowrap font-bold">
+                    15/10/2026, 08:45:20
+                  </td>
+                  <td class="px-4 py-3">
+                    <span class="font-bold text-slate-900 block">Laura Flores Mamani</span>
+                    <span class="text-[10px] text-slate-500 font-mono">laura.caja@playa-azul.com</span>
+                  </td>
+                  <td class="px-4 py-3 text-slate-600 font-mono text-[11px] whitespace-nowrap">
+                    192.168.1.102
+                  </td>
+                  <td class="px-4 py-3">
+                    <span class="inline-block border border-slate-800 bg-slate-200 px-2.5 py-0.5 rounded text-[10px] font-black text-slate-900">
+                      LOGIN_SUCCESS
+                    </span>
+                  </td>
+                  <td class="px-4 py-3 font-bold text-slate-800">
+                    usuarios
+                  </td>
+                  <td class="px-4 py-3 text-center">
+                    <button onclick="toggleModal()" type="button" class="px-2.5 py-1 rounded border border-slate-800 bg-white hover:bg-slate-100 font-bold text-[11px] text-slate-800 shadow-sm">
+                      Ver Datos
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Log 3: UPDATE Dosificación LSTM -->
+                <tr class="hover:bg-slate-50">
+                  <td class="px-4 py-3 text-slate-700 whitespace-nowrap font-bold">
+                    14/10/2026, 16:02:10
+                  </td>
+                  <td class="px-4 py-3">
+                    <span class="font-bold text-slate-900 block">Carlos Mendoza Vargas</span>
+                    <span class="text-[10px] text-slate-500 font-mono">carlos.operador@playa-azul.com</span>
+                  </td>
+                  <td class="px-4 py-3 text-slate-600 font-mono text-[11px] whitespace-nowrap">
+                    192.168.1.80
+                  </td>
+                  <td class="px-4 py-3">
+                    <span class="inline-block border border-slate-800 bg-slate-100 px-2.5 py-0.5 rounded text-[10px] font-black text-slate-900">
+                      UPDATE
+                    </span>
+                  </td>
+                  <td class="px-4 py-3 font-bold text-slate-800">
+                    dosificacion_lstm
+                  </td>
+                  <td class="px-4 py-3 text-center">
+                    <button onclick="toggleModal()" type="button" class="px-2.5 py-1 rounded border border-slate-800 bg-white hover:bg-slate-100 font-bold text-[11px] text-slate-800 shadow-sm">
+                      Ver Datos
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Log 4: INSERT Mediciones Sensores (Automático) -->
+                <tr class="hover:bg-slate-50">
+                  <td class="px-4 py-3 text-slate-700 whitespace-nowrap font-bold">
+                    14/10/2026, 12:15:33
+                  </td>
+                  <td class="px-4 py-3">
+                    <span class="font-bold text-slate-900 block">Sistema / Automático</span>
+                    <span class="text-[10px] text-slate-500 font-mono">Sistema IoT (ESP32)</span>
+                  </td>
+                  <td class="px-4 py-3 text-slate-600 font-mono text-[11px] whitespace-nowrap">
+                    192.168.1.200
+                  </td>
+                  <td class="px-4 py-3">
+                    <span class="inline-block border border-slate-800 bg-slate-100 px-2.5 py-0.5 rounded text-[10px] font-black text-slate-900">
+                      INSERT
+                    </span>
+                  </td>
+                  <td class="px-4 py-3 font-bold text-slate-800">
+                    mediciones_sensores
+                  </td>
+                  <td class="px-4 py-3 text-center">
+                    <button onclick="toggleModal()" type="button" class="px-2.5 py-1 rounded border border-slate-800 bg-white hover:bg-slate-100 font-bold text-[11px] text-slate-800 shadow-sm">
+                      Ver Datos
+                    </button>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+
+    <!-- MODAL WIREFRAME: DETALLES DE AUDITORÍA (logDetalle) -->
+    <div id="auditoriaModal" class="hidden absolute inset-0 z-50 bg-slate-900/40 backdrop-blur-[2px] flex items-center justify-center p-4">
+      <div class="w-full max-w-lg rounded-xl border-2 border-slate-900 bg-white p-6 shadow-2xl space-y-4">
+        
+        <div class="flex items-center justify-between pb-3 border-b-2 border-slate-800">
+          <div>
+            <h3 class="text-base font-black text-slate-900">[ Detalle de Auditoría #1042 ]</h3>
+            <p class="text-[11px] text-slate-500 font-medium">Tabla: inventario_quimicos | Acción: INSERT</p>
+          </div>
+          <button onclick="toggleModal()" class="border border-slate-800 px-2 py-0.5 rounded text-xs font-bold text-slate-700 hover:bg-slate-100">
+            ✕
+          </button>
+        </div>
+
+        <div class="space-y-3 text-xs">
+          <div>
+            <p class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+              Payload JSON de Cambios
+            </p>
+            <div class="border-2 border-slate-800 bg-slate-100 p-3 rounded font-mono text-[11px] text-slate-900 leading-relaxed overflow-x-auto">
+<pre>{
+  "nuevo": {
+    "id_quimico": 1,
+    "sigla": "ALU",
+    "nombre": "Sulfato de Aluminio",
+    "cantidad_comprada": 5000.0,
+    "unidad_medida": "g",
+    "stock_anterior": 4050.0,
+    "stock_resultante": 4500.0,
+    "proveedor_factura": "Factura 4501",
+    "id_usuario": 1
+  }
+}</pre>
+            </div>
+          </div>
+
+          <button onclick="toggleModal()" type="button" class="w-full mt-3 py-2 rounded bg-slate-900 border-2 border-slate-900 text-white font-bold text-xs shadow hover:bg-black">
+            Cerrar
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PIE DEL WIREFRAME -->
+    <div class="border-t-2 border-slate-900 bg-slate-100 p-2 text-center text-[10px] text-slate-700 font-bold">
+      Figura: Prototipo de Interfaz de Usuario (Wireframe) · Módulo de Auditoría y Bitácora de Eventos
+    </div>
+
+  </div>
+
+  <!-- SCRIPT PARA INTERACCIÓN Y DESCARGA EN PNG -->
+  <script>
+    function toggleModal() {
+      const modal = document.getElementById('auditoriaModal');
+      modal.classList.toggle('hidden');
+    }
+
+    async function descargarWireframe() {
+      const btn = document.getElementById('btnDescargar');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = `Generando PNG...`;
+      btn.disabled = true;
+
+      try {
+        const elemento = document.getElementById('wireframe-container');
+        const canvas = await html2canvas(elemento, {
+          scale: 2,
+          backgroundColor: '#ffffff'
+        });
+
+        const enlace = document.createElement('a');
+        enlace.download = 'Mockup_Wireframe_Auditoria_Logs.png';
+        enlace.href = canvas.toDataURL('image/png');
+        enlace.click();
+      } catch (err) {
+        alert('Error al descargar: ' + err.message);
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    }
+  </script>
+
+</body>
+</html>

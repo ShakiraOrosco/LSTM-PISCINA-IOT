@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ececec" stroke-width="0.8" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#dbdbdb" stroke-width="1.2" />
+    </pattern>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#222222" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+  <!-- LÍMITE DEL SISTEMA (System Boundary) -->
+  <rect x="220" y="40" width="560" height="720" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+  <text x="500" y="70" text-anchor="middle" font-size="16" font-weight="800" fill="#222222">SISTEMA INTELIGENTE DE MONITOREO Y DOSIFICACIÓN "PLAYA AZUL"</text>
+
+  <!-- ACTORES A LA IZQUIERDA (Humanos) -->
+  <!-- 1. Administrador -->
+  <g id="actor-admin" transform="translate(20, 60)">
+    <circle cx="70" cy="50" r="18" fill="#ffffff" stroke="#222222" stroke-width="2.2" />
+    <line x1="70" y1="68" x2="70" y2="125" stroke="#222222" stroke-width="2.2" />
+    <line x1="30" y1="90" x2="110" y2="90" stroke="#222222" stroke-width="2.2" />
+    <line x1="70" y1="125" x2="40" y2="175" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+    <line x1="70" y1="125" x2="100" y2="175" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+    <text x="70" y="198" text-anchor="middle" font-size="12" font-weight="700" fill="#222222">Administrador</text>
+  </g>
+
+  <!-- 2. Operador -->
+  <g id="actor-operador" transform="translate(20, 310)">
+    <circle cx="70" cy="50" r="18" fill="#ffffff" stroke="#222222" stroke-width="2.2" />
+    <line x1="70" y1="68" x2="70" y2="125" stroke="#222222" stroke-width="2.2" />
+    <line x1="30" y1="90" x2="110" y2="90" stroke="#222222" stroke-width="2.2" />
+    <line x1="70" y1="125" x2="40" y2="175" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+    <line x1="70" y1="125" x2="100" y2="175" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+    <text x="70" y="198" text-anchor="middle" font-size="12" font-weight="700" fill="#222222">Operador</text>
+  </g>
+
+  <!-- 3. Cajero -->
+  <g id="actor-cajero" transform="translate(20, 540)">
+    <circle cx="70" cy="50" r="18" fill="#ffffff" stroke="#222222" stroke-width="2.2" />
+    <line x1="70" y1="68" x2="70" y2="125" stroke="#222222" stroke-width="2.2" />
+    <line x1="30" y1="90" x2="110" y2="90" stroke="#222222" stroke-width="2.2" />
+    <line x1="70" y1="125" x2="40" y2="175" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+    <line x1="70" y1="125" x2="100" y2="175" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+    <text x="70" y="198" text-anchor="middle" font-size="12" font-weight="700" fill="#222222">Cajero</text>
+  </g>
+
+  <!-- ACTORES A LA DERECHA (Dispositivos / IA) -->
+  <!-- 4. Nodo Sensor ESP32 -->
+  <g id="actor-esp32" transform="translate(860, 210)">
+    <rect x="15" y="40" width="70" height="50" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="50" y="65" text-anchor="middle" font-size="11" font-weight="800" fill="#222222">&lt;&lt;device&gt;&gt;</text>
+    <text x="50" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">ESP32 IoT</text>
+    <text x="50" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#222222">Nodo Sensor</text>
+  </g>
+
+  <!-- 5. Cámara IA YOLOv8 -->
+  <g id="actor-camara" transform="translate(860, 500)">
+    <rect x="15" y="40" width="70" height="50" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="50" y="65" text-anchor="middle" font-size="11" font-weight="800" fill="#222222">&lt;&lt;system&gt;&gt;</text>
+    <text x="50" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">YOLOv8</text>
+    <text x="50" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#222222">Cámara IA</text>
+  </g>
+
+  <!-- CASOS DE USO PRINCIPALES (DENTRO DEL SISTEMA) -->
+  
+  <!-- CU-01: Autenticación / Inicio de Sesión -->
+  <g id="cu-login">
+    <ellipse cx="500" cy="120" rx="95" ry="32" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="500" y="125" text-anchor="middle" font-size="13" font-weight="600" fill="#222222">Autenticar Usuario / Login</text>
+  </g>
+
+  <!-- CU-02: Gestión de Usuarios -->
+  <g id="cu-usuarios">
+    <ellipse cx="500" cy="210" rx="95" ry="32" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="500" y="215" text-anchor="middle" font-size="13" font-weight="600" fill="#222222">Administrar Usuarios y Roles</text>
+  </g>
+
+  <!-- CU-03: Monitoreo de Sensores -->
+  <g id="cu-monitoreo">
+    <ellipse cx="500" cy="300" rx="100" ry="32" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="500" y="297" text-anchor="middle" font-size="12" font-weight="600" fill="#222222">Monitorear Parámetros</text>
+    <text x="500" y="313" text-anchor="middle" font-size="12" font-weight="600" fill="#222222">Fisicoquímicos del Agua</text>
+  </g>
+
+  <!-- CU-04: Predicción Dosificación LSTM -->
+  <g id="cu-lstm">
+    <ellipse cx="500" cy="390" rx="100" ry="32" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="500" y="387" text-anchor="middle" font-size="12" font-weight="600" fill="#222222">Predecir Dosificación</text>
+    <text x="500" y="403" text-anchor="middle" font-size="12" font-weight="600" fill="#222222">con Red Neuronal LSTM</text>
+  </g>
+
+  <!-- CU-05: Caja y Control de Aforo -->
+  <g id="cu-caja">
+    <ellipse cx="500" cy="480" rx="100" ry="32" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="500" y="477" text-anchor="middle" font-size="12" font-weight="600" fill="#222222">Registrar Ingresos en Caja</text>
+    <text x="500" y="493" text-anchor="middle" font-size="12" font-weight="600" fill="#222222">y Controlar Aforo de Bañistas</text>
+  </g>
+
+  <!-- CU-06: Inventario de Químicos -->
+  <g id="cu-inventario">
+    <ellipse cx="500" cy="570" rx="100" ry="32" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="500" y="567" text-anchor="middle" font-size="12" font-weight="600" fill="#222222">Gestionar Inventario</text>
+    <text x="500" y="583" text-anchor="middle" font-size="12" font-weight="600" fill="#222222">y Compras de Químicos</text>
+  </g>
+
+  <!-- CU-07: Auditoría y Bitácora -->
+  <g id="cu-auditoria">
+    <ellipse cx="500" cy="660" rx="95" ry="32" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="500" y="665" text-anchor="middle" font-size="13" font-weight="600" fill="#222222">Auditar Bitácora de Eventos</text>
+  </g>
+
+  <!-- LÍNEAS DE ASOCIACIÓN -->
+  <!-- Admin -> Login -->
+  <line x1="120" y1="140" x2="405" y2="120" stroke="#222222" stroke-width="1.8" />
+  <!-- Admin -> Usuarios -->
+  <line x1="120" y1="150" x2="405" y2="210" stroke="#222222" stroke-width="1.8" />
+  <!-- Admin -> Inventario -->
+  <line x1="120" y1="160" x2="402" y2="560" stroke="#222222" stroke-width="1.8" />
+  <!-- Admin -> Auditoría -->
+  <line x1="120" y1="170" x2="408" y2="650" stroke="#222222" stroke-width="1.8" />
+
+  <!-- Operador -> Login -->
+  <line x1="120" y1="380" x2="410" y2="135" stroke="#222222" stroke-width="1.8" />
+  <!-- Operador -> Monitoreo -->
+  <line x1="120" y1="395" x2="400" y2="305" stroke="#222222" stroke-width="1.8" />
+  <!-- Operador -> LSTM -->
+  <line x1="120" y1="405" x2="400" y2="390" stroke="#222222" stroke-width="1.8" />
+  <!-- Operador -> Inventario -->
+  <line x1="120" y1="415" x2="405" y2="570" stroke="#222222" stroke-width="1.8" />
+
+  <!-- Cajero -> Login -->
+  <line x1="120" y1="620" x2="420" y2="145" stroke="#222222" stroke-width="1.8" />
+  <!-- Cajero -> Caja y Aforo -->
+  <line x1="120" y1="630" x2="405" y2="490" stroke="#222222" stroke-width="1.8" />
+
+  <!-- ESP32 -> Monitoreo -->
+  <line x1="875" y1="275" x2="600" y2="300" stroke="#222222" stroke-width="1.8" />
+
+  <!-- Cámara IA -> Caja y Aforo -->
+  <line x1="875" y1="540" x2="600" y2="480" stroke="#222222" stroke-width="1.8" />
+</svg>

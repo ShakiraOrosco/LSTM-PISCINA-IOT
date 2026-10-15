@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe Mockup - Modal Registrar Ingreso en Caja (Playa Azul)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Comic Neue & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    .wf-font {
+      font-family: 'Comic Neue', 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-200 text-slate-900 min-h-screen p-4 md:p-8 flex flex-col items-center wf-font">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR -->
+  <div class="w-full max-w-[900px] mb-4 flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 rounded-xl border-2 border-slate-800 shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold uppercase tracking-wide bg-slate-900 text-white px-2.5 py-1 rounded">Wireframe / Boceto</span>
+      <span class="text-xs text-slate-700 font-semibold">Prototipo de Interfaz · Formulario Modal Registrar Ingreso (Caja/showModal)</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button id="btnDescargar" onclick="descargarWireframe()" class="px-4 py-2 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-lg border-2 border-slate-900 shadow transition-all flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        Descargar Imagen PNG (Modal Caja)
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR WIREFRAME ESTILO BALSAMIQ -->
+  <div id="wireframe-container" class="w-full max-w-[900px] bg-slate-100 border-2 border-slate-900 shadow-2xl p-0 overflow-hidden relative">
+    
+    <!-- BARRA DE NAVEGADOR WIREFRAME -->
+    <div class="border-b-2 border-slate-900 bg-white px-3 py-2 flex items-center justify-between gap-3 text-slate-800 select-none">
+      <div class="flex items-center gap-3">
+        <span class="text-lg font-bold">&larr;</span>
+        <span class="text-lg font-bold">&rarr;</span>
+        <span class="text-base font-bold">&#x21bb;</span>
+        <svg class="w-4 h-4 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      </div>
+
+      <div class="flex-1 bg-white border-2 border-slate-800 px-3 py-1 rounded text-xs flex items-center justify-between">
+        <span class="font-mono text-slate-800">http://sistema-piscina.playa-azul/caja?action=nuevo-ingreso</span>
+        <span class="text-[10px] text-slate-500 font-bold">100%</span>
+      </div>
+
+      <div class="hidden sm:block text-xs font-bold text-slate-800">
+        [ Playa Azul - Registrar Ingreso Caja ]
+      </div>
+    </div>
+
+    <!-- ÁREA DE FONDO CON EL MODAL CENTRADO (ESTILO DIÁLOGO MODAL WIREFRAME) -->
+    <div class="p-6 md:p-12 flex items-center justify-center bg-slate-200/60 min-h-[620px]">
+      
+      <!-- VENTANA MODAL (showModal de Caja/index.jsx) -->
+      <div class="w-full max-w-lg rounded-xl border-2 border-slate-900 bg-white p-6 shadow-2xl space-y-4">
+        
+        <!-- Header Modal -->
+        <div class="flex items-center justify-between pb-3 border-b-2 border-slate-800">
+          <div>
+            <h3 class="text-lg font-black text-slate-900">
+              [ Registrar Nuevo Ingreso ]
+            </h3>
+            <p class="text-xs text-slate-500 font-medium">
+              Selecciona o escribe la cantidad de entradas vendidas
+            </p>
+          </div>
+          <button type="button" class="w-7 h-7 border border-slate-800 rounded flex items-center justify-center text-xs font-bold text-slate-600 hover:bg-slate-100">
+            ✕
+          </button>
+        </div>
+
+        <!-- Formulario (Elementos exactos de Caja/index.jsx) -->
+        <form class="space-y-4 text-xs">
+          
+          <!-- Contadores de Tarifas (TicketCounter) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            
+            <!-- Tarifa 15 Bs -->
+            <div class="border-2 border-slate-800 rounded-lg p-3 bg-slate-50 flex flex-col justify-between">
+              <div class="flex items-center justify-between mb-2">
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">TARIFA 15 BS</span>
+                  <span class="text-xl font-black text-slate-900">Bs. 15</span>
+                </div>
+                <div class="w-8 h-8 border border-slate-800 rounded flex items-center justify-center text-sm font-bold bg-white">
+                  🎟️
+                </div>
+              </div>
+              <div class="flex items-center justify-between gap-2 mt-2">
+                <button type="button" class="w-8 h-8 rounded border-2 border-slate-800 bg-white hover:bg-slate-100 font-bold text-base flex items-center justify-center">
+                  -
+                </button>
+                <div class="w-14 h-8 border-2 border-slate-800 bg-white rounded flex items-center justify-center font-black text-sm font-mono">
+                  2
+                </div>
+                <button type="button" class="w-8 h-8 rounded border-2 border-slate-800 bg-slate-100 hover:bg-slate-200 font-bold text-base flex items-center justify-center">
+                  +
+                </button>
+              </div>
+            </div>
+
+            <!-- Tarifa 20 Bs -->
+            <div class="border-2 border-slate-800 rounded-lg p-3 bg-slate-50 flex flex-col justify-between">
+              <div class="flex items-center justify-between mb-2">
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">TARIFA 20 BS</span>
+                  <span class="text-xl font-black text-slate-900">Bs. 20</span>
+                </div>
+                <div class="w-8 h-8 border border-slate-800 rounded flex items-center justify-center text-sm font-bold bg-white">
+                  🎟️
+                </div>
+              </div>
+              <div class="flex items-center justify-between gap-2 mt-2">
+                <button type="button" class="w-8 h-8 rounded border-2 border-slate-800 bg-white hover:bg-slate-100 font-bold text-base flex items-center justify-center">
+                  -
+                </button>
+                <div class="w-14 h-8 border-2 border-slate-800 bg-white rounded flex items-center justify-center font-black text-sm font-mono">
+                  2
+                </div>
+                <button type="button" class="w-8 h-8 rounded border-2 border-slate-800 bg-slate-100 hover:bg-slate-200 font-bold text-base flex items-center justify-center">
+                  +
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Atajos Rápidos -->
+          <div>
+            <p class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+              Atajos Rápidos
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+              <div class="border-2 border-slate-800 bg-white p-2 rounded text-[11px] font-bold cursor-pointer hover:bg-slate-100">
+                1 adulto
+              </div>
+              <div class="border-2 border-slate-800 bg-white p-2 rounded text-[11px] font-bold cursor-pointer hover:bg-slate-100">
+                1 niño
+              </div>
+              <div class="border-2 border-slate-800 bg-white p-2 rounded text-[11px] font-bold cursor-pointer hover:bg-slate-100">
+                Pareja (2×20)
+              </div>
+              <div class="border-2 border-slate-800 bg-slate-100 p-2 rounded text-[11px] font-bold cursor-pointer hover:bg-slate-200">
+                Familia (2×20 + 2×15)
+              </div>
+            </div>
+          </div>
+
+          <!-- Observaciones (opcional) -->
+          <div>
+            <label class="block font-bold text-slate-700 uppercase text-[10px] mb-1">
+              Observaciones (opcional)
+            </label>
+            <div class="w-full border-2 border-slate-800 bg-white rounded p-2.5 text-xs text-slate-700">
+              Grupo familiar, pago con QR
+            </div>
+          </div>
+
+          <!-- Total a pagar y Personas -->
+          <div class="border-2 border-slate-800 bg-slate-100 p-3 rounded-lg flex items-center justify-between">
+            <div>
+              <p class="text-[10px] font-bold uppercase text-slate-500">Total a pagar</p>
+              <p class="text-2xl font-black text-slate-900">Bs. 70.00</p>
+            </div>
+            <div class="text-right">
+              <p class="text-[10px] font-bold uppercase text-slate-500">Personas</p>
+              <p class="text-lg font-black text-slate-800">4 pers.</p>
+            </div>
+          </div>
+
+          <!-- Botones de Acción -->
+          <div class="flex items-center gap-3 pt-2 border-t border-slate-200">
+            <button type="button" class="w-1/3 py-2.5 rounded border-2 border-slate-800 text-slate-700 font-bold text-xs bg-slate-100 hover:bg-slate-200">
+              Cancelar
+            </button>
+            <button type="button" class="w-2/3 py-2.5 rounded bg-slate-900 border-2 border-slate-900 text-white font-bold text-xs shadow hover:bg-black">
+              Confirmar e Inscribir
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    <!-- PIE DEL WIREFRAME -->
+    <div class="border-t-2 border-slate-900 bg-white p-2 text-center text-[10px] text-slate-700 font-bold">
+      Figura: Prototipo de Interfaz de Usuario (Wireframe) · Formulario Modal Registrar Ingreso en Caja (HU-06)
+    </div>
+
+  </div>
+
+  <!-- SCRIPT PARA DESCARGA EN PNG -->
+  <script>
+    async function descargarWireframe() {
+      const btn = document.getElementById('btnDescargar');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = `Generando PNG...`;
+      btn.disabled = true;
+
+      try {
+        const elemento = document.getElementById('wireframe-container');
+        const canvas = await html2canvas(elemento, {
+          scale: 2,
+          backgroundColor: '#ffffff'
+        });
+
+        const enlace = document.createElement('a');
+        enlace.download = 'Mockup_Wireframe_Modal_Caja_Ingreso.png';
+        enlace.href = canvas.toDataURL('image/png');
+        enlace.click();
+      } catch (err) {
+        alert('Error al descargar: ' + err.message);
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    }
+  </script>
+
+</body>
+</html>

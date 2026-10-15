@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suite Completa de Diagramas de Actividades (UML 2.5) · Playa Azul</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', Arial, sans-serif; }
+    .custom-scrollbar::-webkit-scrollbar { height: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #1e293b; border-radius: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col items-center p-4 md:p-8">
+
+  <!-- CABECERA GENERAL -->
+  <div class="w-full max-w-6xl mb-6 flex flex-wrap items-center justify-between gap-4 bg-slate-800 border border-slate-700 p-5 rounded-3xl shadow-2xl">
+    <div>
+      <div class="flex items-center gap-2 mb-1">
+        <span class="bg-blue-600 text-white font-extrabold text-[11px] px-2.5 py-0.5 rounded uppercase tracking-wider">UML 2.5 Estándar</span>
+        <span class="text-xs text-slate-400 font-semibold">Calles de Responsabilidad (Swimlanes) · Sistema "Playa Azul"</span>
+      </div>
+      <h1 class="text-xl md:text-2xl font-black text-white">Suite Oficial de Diagramas de Actividades</h1>
+      <p class="text-xs text-slate-400 mt-0.5">Modelado secuencial y concurrente de procesos para todos los módulos del sistema IoT & LSTM.</p>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <button onclick="descargarPNGActual()" class="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-extrabold text-xs md:text-sm rounded-xl shadow-lg shadow-blue-500/25 transition-all flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        Descargar Diagrama Actual en PNG HD (300 DPI)
+      </button>
+    </div>
+  </div>
+
+  <!-- SELECTOR DE DIAGRAMAS (TABS DE NAVEGACIÓN) -->
+  <div class="w-full max-w-6xl mb-6 flex items-center gap-2 overflow-x-auto pb-2 custom-scrollbar">
+    <button onclick="cambiarDiagrama('monitoreo')" id="tab-monitoreo" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs whitespace-nowrap bg-blue-600 text-white shadow transition-all">
+      💧 1. Monitoreo Calidad Agua
+    </button>
+    <button onclick="cambiarDiagrama('lstm')" id="tab-lstm" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs whitespace-nowrap bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+      🧠 2. Dosificación Química LSTM
+    </button>
+    <button onclick="cambiarDiagrama('caja')" id="tab-caja" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs whitespace-nowrap bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+      🎟️ 3. Caja y Control de Aforo
+    </button>
+    <button onclick="cambiarDiagrama('usuarios')" id="tab-usuarios" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs whitespace-nowrap bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+      👥 4. Gestión de Usuarios
+    </button>
+    <button onclick="cambiarDiagrama('inventario')" id="tab-inventario" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs whitespace-nowrap bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+      📦 5. Inventario de Químicos
+    </button>
+    <button onclick="cambiarDiagrama('login')" id="tab-login" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs whitespace-nowrap bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+      🔐 6. Autenticación y Login
+    </button>
+    <button onclick="cambiarDiagrama('auditoria')" id="tab-auditoria" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs whitespace-nowrap bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+      📑 7. Auditoría y Bitácora
+    </button>
+  </div>
+
+  <!-- CONTENEDOR DEL DIAGRAMA SELECCIONADO -->
+  <div class="w-full max-w-6xl bg-white rounded-3xl shadow-2xl p-4 md:p-8 border border-slate-200 text-slate-800 flex flex-col items-center">
+    
+    <!-- Barra interna del diagrama -->
+    <div class="w-full flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-slate-200">
+      <div>
+        <h2 id="diagTitulo" class="text-lg font-black text-slate-900">1. Diagrama de Actividades: Monitoreo en Tiempo Real y Alertas</h2>
+        <p id="diagDesc" class="text-xs text-slate-500 font-medium">Proceso integral desde la captura de sensores fisicoquímicos en ESP32 hasta la visualización y alerta en la interfaz.</p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="toggleGrid()" class="px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 hover:bg-slate-100 font-bold text-xs text-slate-700">
+          <span id="btnGridText">▦ Quitar Cuadrícula</span>
+        </button>
+        <a id="btnDescargarSVG" href="diagrama_actividad_monitoreo.svg" download="diagrama_actividad_monitoreo.svg" class="px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 hover:bg-slate-100 font-bold text-xs text-slate-700 flex items-center gap-1">
+          <span>⬇️ Guardar .SVG</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Visor del SVG Activo -->
+    <div id="diagramViewer" class="w-full flex justify-center overflow-x-auto py-2">
+      <!-- Se carga dinámicamente -->
+    </div>
+
+    <!-- Pie técnico -->
+    <div class="w-full mt-6 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between text-xs text-slate-500 font-semibold">
+      <span id="figuraPie">Figura: Diagrama de Actividades · Monitoreo y Telemetría IoT (UML 2.5)</span>
+      <span>Notación estándar UML 2.5 con Calles de Responsabilidad (Swimlanes)</span>
+    </div>
+
+  </div>
+
+  <!-- SCRIPT PARA GESTIONAR TABS, SVG Y DESCARGAS HD -->
+  <script>
+    const diagramas = {
+      monitoreo: {
+        file: 'diagrama_actividad_monitoreo.svg',
+        title: '1. Diagrama de Actividades: Monitoreo en Tiempo Real y Detección de Alertas',
+        desc: 'Calles: Nodo IoT ESP32 (pH, Turbidez, Temp), Backend FastAPI (WebSockets), Frontend Dashboard y Operador.',
+        pie: 'Figura: Diagrama de Actividades · Monitoreo y Telemetría IoT (UML 2.5)',
+        width: 960,
+        height: 980
+      },
+      lstm: {
+        file: 'diagrama_actividad_dosificacion_lstm.svg',
+        title: '2. Diagrama de Actividades: Predicción y Dosificación Química con Red Neuronal LSTM',
+        desc: 'Calles: Operador, Frontend (Dashboard), Backend (FastAPI) y Servicio de Inferencia PyTorch (scaler_x / scaler_y).',
+        pie: 'Figura: Diagrama de Actividades · Dosificación Inteligente de Químicos con LSTM (UML 2.5)',
+        width: 960,
+        height: 980
+      },
+      caja: {
+        file: 'diagrama_actividad_caja_aforo.svg',
+        title: '3. Diagrama de Actividades: Venta de Entradas y Control de Aforo con Cámara IA',
+        desc: 'Calles: Bañista, Cajero, Frontend (Módulo Caja) y Backend / Cámara IA (YOLOv8 + WebSocket).',
+        pie: 'Figura: Diagrama de Actividades · Gestión de Caja y Aforo en Tiempo Real (UML 2.5)',
+        width: 960,
+        height: 980
+      },
+      usuarios: {
+        file: 'diagrama_actividad_gestion_usuarios.svg',
+        title: '4. Diagrama de Actividades: Alta y Gestión de Usuarios del Sistema',
+        desc: 'Calles: Administrador, Frontend (Modal Usuario), Backend (FastAPI + Bcrypt) y Base de Datos (PostgreSQL).',
+        pie: 'Figura: Diagrama de Actividades · Gestión y Control de Usuarios (UML 2.5)',
+        width: 960,
+        height: 980
+      },
+      inventario: {
+        file: 'diagrama_actividad_inventario_quimicos.svg',
+        title: '5. Diagrama de Actividades: Registro de Compras y Control de Stock Químico',
+        desc: 'Calles: Administrador, Frontend (Modal Inventario), Backend (Transacción Stock) y PostgreSQL (tabla insumos).',
+        pie: 'Figura: Diagrama de Actividades · Control de Inventario y Movimientos de Insumos (UML 2.5)',
+        width: 960,
+        height: 980
+      },
+      login: {
+        file: 'diagrama_actividad_autenticacion_login.svg',
+        title: '6. Diagrama de Actividades: Autenticación de Usuario y Control de Acceso',
+        desc: 'Calles: Usuario, Frontend (SignIn Form), Backend (Validación Hash y JWT) y PostgreSQL.',
+        pie: 'Figura: Diagrama de Actividades · Proceso de Autenticación y Autorización por Rol (UML 2.5)',
+        width: 960,
+        height: 980
+      },
+      auditoria: {
+        file: 'diagrama_actividad_auditoria_logs.svg',
+        title: '7. Diagrama de Actividades: Auditoría y Bitácora de Eventos',
+        desc: 'Calles: Administrador, Frontend (Visor Logs / JSON), Backend (FastAPI Auditoría) y PostgreSQL (audit_logs).',
+        pie: 'Figura: Diagrama de Actividades · Auditoría y Trazabilidad de Eventos (UML 2.5)',
+        width: 960,
+        height: 980
+      }
+    };
+
+    let diagActivo = 'monitoreo';
+    let conCuadricula = true;
+
+    async function cambiarDiagrama(id) {
+      diagActivo = id;
+      const info = diagramas[id];
+
+      // Actualizar Tabs
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.className = 'tab-btn px-4 py-2.5 rounded-xl font-bold text-xs whitespace-nowrap bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all';
+      });
+      document.getElementById('tab-' + id).className = 'tab-btn px-4 py-2.5 rounded-xl font-bold text-xs whitespace-nowrap bg-blue-600 text-white shadow transition-all';
+
+      // Actualizar textos
+      document.getElementById('diagTitulo').innerText = info.title;
+      document.getElementById('diagDesc').innerText = info.desc;
+      document.getElementById('figuraPie').innerText = info.pie;
+      document.getElementById('btnDescargarSVG').href = info.file;
+      document.getElementById('btnDescargarSVG').download = info.file;
+
+      // Cargar SVG
+      try {
+        const resp = await fetch(info.file);
+        const svgContent = await resp.text();
+        const viewer = document.getElementById('diagramViewer');
+        viewer.innerHTML = svgContent;
+        
+        // Ajustar cuadrícula según estado actual
+        aplicarEstadoCuadricula();
+      } catch (err) {
+        console.error('Error al cargar SVG:', err);
+      }
+    }
+
+    function toggleGrid() {
+      conCuadricula = !conCuadricula;
+      aplicarEstadoCuadricula();
+    }
+
+    function aplicarEstadoCuadricula() {
+      const svg = document.querySelector('#diagramViewer svg');
+      if (!svg) return;
+      const rect = svg.querySelector('#bgRect') || svg.querySelector('rect[fill^="url(#grid"]') || svg.querySelector('rect[fill="#ffffff"]');
+      const btnText = document.getElementById('btnGridText');
+      if (rect) {
+        if (conCuadricula) {
+          rect.setAttribute('fill', 'url(#grid)');
+          btnText.innerText = '▦ Quitar Cuadrícula';
+        } else {
+          rect.setAttribute('fill', '#ffffff');
+          btnText.innerText = '▦ Poner Cuadrícula';
+        }
+      }
+    }
+
+    function descargarPNGActual() {
+      const info = diagramas[diagActivo];
+      const svg = document.querySelector('#diagramViewer svg');
+      if (!svg) return;
+
+      const svgData = new XMLSerializer().serializeToString(svg);
+      const canvas = document.createElement('canvas');
+      const scale = 3; // Ultra resolución (300 DPI) para documentos formales de tesis
+      canvas.width = info.width * scale;
+      canvas.height = info.height * scale;
+      const ctx = canvas.getContext('2d');
+
+      const img = new Image();
+      const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(svgBlob);
+
+      img.onload = function() {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(url);
+
+        const enlace = document.createElement('a');
+        enlace.download = info.file.replace('.svg', '.png');
+        enlace.href = canvas.toDataURL('image/png');
+        enlace.click();
+      };
+
+      img.src = url;
+    }
+
+    // Inicializar con el primer diagrama
+    window.addEventListener('DOMContentLoaded', () => {
+      cambiarDiagrama('monitoreo');
+    });
+  </script>
+</body>
+</html>

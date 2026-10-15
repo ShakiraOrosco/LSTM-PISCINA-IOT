@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe Mockup - Dashboard Playa Azul</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Comic Neue / Kalam o Inter para look wireframe auténtico -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    /* Estilo clásico Wireframe / Balsamiq */
+    .wf-font {
+      font-family: 'Comic Neue', 'Plus Jakarta Sans', sans-serif;
+    }
+    .wf-border {
+      border: 2px solid #222222;
+    }
+    .wf-border-sm {
+      border: 1px solid #333333;
+    }
+    .wf-border-b {
+      border-bottom: 2px solid #222222;
+    }
+    .wf-border-r {
+      border-right: 2px solid #222222;
+    }
+    .wf-box-x {
+      position: relative;
+    }
+    .wf-box-x::before, .wf-box-x::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+    }
+    .wf-box-x::before {
+      background: linear-gradient(to top right, transparent calc(50% - 1px), #444 50%, transparent calc(50% + 1px));
+    }
+    .wf-box-x::after {
+      background: linear-gradient(to bottom right, transparent calc(50% - 1px), #444 50%, transparent calc(50% + 1px));
+    }
+  </style>
+</head>
+<body class="bg-slate-200 text-slate-900 min-h-screen p-4 md:p-8 flex flex-col items-center wf-font">
+
+  <!-- BARRA DE EXPORTACIÓN Y CONTROLES -->
+  <div class="w-full max-w-[1100px] mb-4 flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 rounded-xl border-2 border-slate-800 shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold uppercase tracking-wide bg-slate-900 text-white px-2.5 py-1 rounded">Wireframe / Boceto</span>
+      <span class="text-xs text-slate-700 font-semibold">Prototipo de Interfaz de Usuario para Documento de Tesis / Perfil</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button id="btnDescargar" onclick="descargarWireframe()" class="px-4 py-2 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-lg border-2 border-slate-900 shadow transition-all flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        Descargar Imagen PNG (Wireframe)
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR WIREFRAME IDÉNTICO AL ESTILO SOLICITADO -->
+  <div id="wireframe-container" class="w-full max-w-[1100px] bg-white border-2 border-slate-900 shadow-2xl p-0 overflow-hidden">
+    
+    <!-- 1. BARRA SUPERIOR DE NAVEGADOR ESTILO WIREFRAME / BALSAMIQ -->
+    <div class="border-b-2 border-slate-900 bg-slate-100 px-3 py-2 flex items-center justify-between gap-3 text-slate-800 select-none">
+      <!-- Flechas atrás/adelante, recargar y home -->
+      <div class="flex items-center gap-3">
+        <span class="text-lg font-bold">&larr;</span>
+        <span class="text-lg font-bold">&rarr;</span>
+        <span class="text-base font-bold">&#x21bb;</span>
+        <svg class="w-4 h-4 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      </div>
+
+      <!-- Barra de dirección / URL del sistema -->
+      <div class="flex-1 bg-white border-2 border-slate-800 px-3 py-1 rounded text-xs flex items-center justify-between">
+        <span class="font-mono text-slate-800">http://sistema-piscina.playa-azul/dashboard</span>
+        <span class="text-[10px] text-slate-500 font-bold">100%</span>
+      </div>
+
+      <!-- Pestaña / Título de la ventana -->
+      <div class="hidden sm:block text-xs font-bold text-slate-800">
+        [ Dashboard - Sistema Playa Azul ]
+      </div>
+    </div>
+
+    <!-- 2. CUERPO PRINCIPAL (SIDEBAR + CONTENIDO) -->
+    <div class="flex flex-col md:flex-row min-h-[750px]">
+      
+      <!-- SIDEBAR WIREFRAME -->
+      <aside class="w-full md:w-56 border-b-2 md:border-b-0 md:border-r-2 border-slate-900 bg-white p-3 flex flex-col justify-between shrink-0">
+        <div>
+          <!-- Logo Playa Azul en Wireframe -->
+          <div class="border-2 border-slate-800 p-2 text-center rounded mb-4 bg-slate-50">
+            <div class="font-black text-sm tracking-wide uppercase">[ PLAYA AZUL ]</div>
+            <div class="text-[9px] text-slate-600 font-bold">Control & Monitoreo IoT</div>
+          </div>
+
+          <!-- Perfil de usuario en sidebar -->
+          <div class="border-b-2 border-slate-300 pb-3 mb-3 flex items-center gap-2">
+            <div class="w-7 h-7 border-2 border-slate-800 rounded-full flex items-center justify-center font-bold text-xs bg-slate-100">
+              👤
+            </div>
+            <div>
+              <div class="text-xs font-bold leading-tight">Shakira Orosco</div>
+              <div class="text-[10px] text-slate-600">Rol: Administrador</div>
+            </div>
+          </div>
+
+          <!-- Navegación Wireframe -->
+          <div class="space-y-1 text-xs">
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">MÓDULOS</div>
+            
+            <!-- Dashboard (Seleccionado / Negrita con indicador) -->
+            <div class="p-2 border-2 border-slate-900 bg-slate-200 font-black rounded flex items-center justify-between">
+              <span>📊 Dashboard</span>
+              <span>&blacktriangleright;</span>
+            </div>
+
+            <!-- Caja -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>🎟️ Caja / Taquilla</span>
+            </div>
+
+            <!-- Inventario -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>📦 Inventario Químico</span>
+            </div>
+
+            <!-- Usuarios -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>👥 Usuarios & Roles</span>
+            </div>
+
+            <!-- Auditoría -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>📑 Auditoría & Logs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estado de jornada al pie del sidebar -->
+        <div class="mt-6 border-2 border-dashed border-slate-800 p-2 rounded text-center text-[10px]">
+          <div class="font-bold">● Jornada Activa</div>
+          <div class="text-slate-600">ESP32 Conectado (WiFi)</div>
+        </div>
+      </aside>
+
+      <!-- ÁREA DE CONTENIDO WIREFRAME -->
+      <main class="flex-1 p-4 bg-white space-y-4">
+        
+        <!-- HEADER DE LA PANTALLA -->
+        <div class="border-b-2 border-slate-800 pb-2 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 class="text-base font-black uppercase text-slate-900">Panel de Monitoreo en Tiempo Real (Dashboard)</h2>
+            <p class="text-xs text-slate-600">Visualización de parámetros fisicoquímicos, aforo y predicción de químicos</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="border-2 border-slate-800 px-2 py-0.5 text-xs font-bold bg-slate-100 rounded">
+              [ Estado: En línea ]
+            </span>
+            <span class="border-2 border-slate-800 px-2 py-0.5 text-xs font-bold bg-slate-100 rounded">
+              Última act: 14:30
+            </span>
+          </div>
+        </div>
+
+        <!-- 1. CARDS DE SENSORES Y AFORO (5 TARJETAS WIREFRAME) -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
+          
+          <!-- Card pH -->
+          <div class="border-2 border-slate-900 p-2.5 rounded bg-slate-50 flex flex-col justify-between">
+            <div class="flex items-center justify-between text-xs font-bold">
+              <span>Sensor pH</span>
+              <span class="border border-slate-800 px-1 rounded text-[9px] bg-white">[ Óptimo ]</span>
+            </div>
+            <div class="my-2 text-center">
+              <div class="text-2xl font-black">7.38</div>
+              <div class="text-[9px] text-slate-500 font-bold">Rango: 7.2 - 7.6</div>
+            </div>
+            <div class="text-[9px] text-slate-600 border-t border-slate-300 pt-1 text-center font-bold">
+              Estado normal
+            </div>
+          </div>
+
+          <!-- Card Turbidez -->
+          <div class="border-2 border-slate-900 p-2.5 rounded bg-slate-50 flex flex-col justify-between">
+            <div class="flex items-center justify-between text-xs font-bold">
+              <span>Turbidez</span>
+              <span class="border border-slate-800 px-1 rounded text-[9px] bg-white">[ Limpio ]</span>
+            </div>
+            <div class="my-2 text-center">
+              <div class="text-2xl font-black">2.14 <span class="text-xs font-normal">NTU</span></div>
+              <div class="text-[9px] text-slate-500 font-bold">Norma: &lt; 5.0 NTU</div>
+            </div>
+            <div class="text-[9px] text-slate-600 border-t border-slate-300 pt-1 text-center font-bold">
+              Agua cristalina
+            </div>
+          </div>
+
+          <!-- Card Temperatura -->
+          <div class="border-2 border-slate-900 p-2.5 rounded bg-slate-50 flex flex-col justify-between">
+            <div class="flex items-center justify-between text-xs font-bold">
+              <span>Temperatura</span>
+              <span class="border border-slate-800 px-1 rounded text-[9px] bg-white">[ Estable ]</span>
+            </div>
+            <div class="my-2 text-center">
+              <div class="text-2xl font-black">26.8 <span class="text-xs font-normal">°C</span></div>
+              <div class="text-[9px] text-slate-500 font-bold">Rango: 24 - 30 °C</div>
+            </div>
+            <div class="text-[9px] text-slate-600 border-t border-slate-300 pt-1 text-center font-bold">
+              Confort térmico
+            </div>
+          </div>
+
+          <!-- Card Aforo Taquilla -->
+          <div class="border-2 border-slate-900 p-2.5 rounded bg-slate-50 flex flex-col justify-between">
+            <div class="flex items-center justify-between text-xs font-bold">
+              <span>Aforo Taquilla</span>
+              <span class="border border-slate-800 px-1 rounded text-[9px] bg-white">[ Manual ]</span>
+            </div>
+            <div class="my-2 text-center">
+              <div class="text-2xl font-black">42</div>
+              <div class="text-[9px] text-slate-500 font-bold">Total hoy: 138</div>
+            </div>
+            <div class="text-[9px] text-slate-600 border-t border-slate-300 pt-1 text-center font-bold">
+              Ingresos caja
+            </div>
+          </div>
+
+          <!-- Card Aforo Cámara IA -->
+          <div class="border-2 border-slate-900 p-2.5 rounded bg-slate-50 flex flex-col justify-between col-span-2 sm:col-span-1">
+            <div class="flex items-center justify-between text-xs font-bold">
+              <span>Aforo Cámara</span>
+              <span class="border border-slate-800 px-1 rounded text-[9px] bg-white">[ YOLOv8 ]</span>
+            </div>
+            <div class="my-2 text-center">
+              <div class="text-2xl font-black">39</div>
+              <div class="text-[9px] text-slate-500 font-bold">En pileta</div>
+            </div>
+            <div class="text-[9px] text-slate-600 border-t border-slate-300 pt-1 text-center font-bold">
+              Detección visual
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 2. PANEL DE PREDICCIÓN LSTM (DOSIFICACIÓN QUÍMICA) -->
+        <div class="border-2 border-slate-900 p-3 rounded bg-white">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b-2 border-slate-800 pb-2 mb-3">
+            <div>
+              <div class="text-xs font-black uppercase flex items-center gap-2">
+                <span>[ Modelo Predictivo LSTM · Recomendación de Dosificación ]</span>
+              </div>
+              <div class="text-[10px] text-slate-600">Cálculo de químicos recomendados según correlación parámetros / aforo</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-bold">Próxima franja: 16:00</span>
+              <button class="border-2 border-slate-900 bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded text-[10px] font-bold">
+                [ + Ejecutar Predicción ]
+              </button>
+            </div>
+          </div>
+
+          <!-- Barras de químicos recomendados -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            
+            <div class="border border-slate-800 p-2 rounded bg-slate-50">
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span>Sulfato de Aluminio (Al)</span>
+                <span class="font-black">450 g</span>
+              </div>
+              <!-- Barra esquemática wireframe -->
+              <div class="w-full h-3 border border-slate-800 bg-white rounded overflow-hidden">
+                <div class="h-full bg-slate-800" style="width: 45%;"></div>
+              </div>
+              <div class="text-[9px] text-slate-500 mt-1">Floculante · Clarificación</div>
+            </div>
+
+            <div class="border border-slate-800 p-2 rounded bg-slate-50">
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span>Sulfato de Cobre (Cu)</span>
+                <span class="font-black">320 g</span>
+              </div>
+              <div class="w-full h-3 border border-slate-800 bg-white rounded overflow-hidden">
+                <div class="h-full bg-slate-800" style="width: 32%;"></div>
+              </div>
+              <div class="text-[9px] text-slate-500 mt-1">Alguicida · Control preventivo</div>
+            </div>
+
+            <div class="border border-slate-800 p-2 rounded bg-slate-50">
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span>Cloro Residual (Cl)</span>
+                <span class="font-black">110 g</span>
+              </div>
+              <div class="w-full h-3 border border-slate-800 bg-white rounded overflow-hidden">
+                <div class="h-full bg-slate-800" style="width: 55%;"></div>
+              </div>
+              <div class="text-[9px] text-slate-500 mt-1">Desinfectante bacteriano</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 3. GRÁFICO HISTÓRICO + ALERTAS (WIRE FRAME ESQUEMÁTICO) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+          
+          <!-- SECCIÓN GRÁFICA -->
+          <div class="border-2 border-slate-900 p-3 rounded lg:col-span-2 bg-white">
+            <div class="flex items-center justify-between border-b-2 border-slate-800 pb-2 mb-2">
+              <div class="text-xs font-black uppercase">
+                [ Gráfico de Tendencia & Pronóstico ]
+              </div>
+              <div class="flex items-center gap-1 text-[10px]">
+                <span class="border-2 border-slate-900 bg-slate-800 text-white px-2 py-0.5 rounded font-bold">pH</span>
+                <span class="border border-slate-800 px-2 py-0.5 rounded font-bold">Turbidez</span>
+                <span class="border border-slate-800 px-2 py-0.5 rounded font-bold">Temperatura</span>
+              </div>
+            </div>
+
+            <!-- Gráfico esquemático en Wireframe SVG -->
+            <div class="h-48 w-full border border-slate-300 bg-slate-50 p-2 flex items-center justify-center">
+              <svg viewBox="0 0 500 160" class="w-full h-full">
+                <!-- Ejes -->
+                <line x1="30" y1="10" x2="30" y2="135" stroke="#222" stroke-width="2"/>
+                <line x1="30" y1="135" x2="480" y2="135" stroke="#222" stroke-width="2"/>
+                
+                <!-- Guías y límites normativos -->
+                <line x1="30" y1="40" x2="480" y2="40" stroke="#666" stroke-dasharray="4 4" stroke-width="1"/>
+                <text x="390" y="36" font-size="8" font-family="Comic Neue, sans-serif" font-weight="bold" fill="#333">-- Límite Max (7.6)</text>
+
+                <line x1="30" y1="100" x2="480" y2="100" stroke="#666" stroke-dasharray="4 4" stroke-width="1"/>
+                <text x="390" y="112" font-size="8" font-family="Comic Neue, sans-serif" font-weight="bold" fill="#333">-- Límite Min (7.2)</text>
+
+                <!-- Curva histórica (Línea sólida gruesa con círculos) -->
+                <polyline points="45,90 95,85 145,75 195,80 245,65 295,70" fill="none" stroke="#111" stroke-width="2.5"/>
+                <circle cx="45" cy="90" r="3" fill="#111"/>
+                <circle cx="95" cy="85" r="3" fill="#111"/>
+                <circle cx="145" cy="75" r="3" fill="#111"/>
+                <circle cx="195" cy="80" r="3" fill="#111"/>
+                <circle cx="245" cy="65" r="3" fill="#111"/>
+                <circle cx="295" cy="70" r="4" fill="#fff" stroke="#111" stroke-width="2"/>
+
+                <!-- Curva proyectada (Línea punteada) -->
+                <polyline points="295,70 355,75 415,82 465,85" fill="none" stroke="#444" stroke-width="2" stroke-dasharray="4 4"/>
+                <circle cx="355" cy="75" r="2.5" fill="#fff" stroke="#444" stroke-width="1.5"/>
+                <circle cx="415" cy="82" r="2.5" fill="#fff" stroke="#444" stroke-width="1.5"/>
+                <circle cx="465" cy="85" r="2.5" fill="#fff" stroke="#444" stroke-width="1.5"/>
+
+                <!-- Etiquetas eje X -->
+                <text x="40" y="148" font-size="8" fill="#444" font-family="Comic Neue, sans-serif">09:00</text>
+                <text x="90" y="148" font-size="8" fill="#444" font-family="Comic Neue, sans-serif">10:00</text>
+                <text x="140" y="148" font-size="8" fill="#444" font-family="Comic Neue, sans-serif">11:00</text>
+                <text x="190" y="148" font-size="8" fill="#444" font-family="Comic Neue, sans-serif">12:00</text>
+                <text x="240" y="148" font-size="8" fill="#444" font-family="Comic Neue, sans-serif">13:00</text>
+                <text x="285" y="148" font-size="8" font-weight="bold" fill="#000" font-family="Comic Neue, sans-serif">14:00 (Ahora)</text>
+                <text x="350" y="148" font-size="8" fill="#666" font-family="Comic Neue, sans-serif">16:00 (P)</text>
+                <text x="410" y="148" font-size="8" fill="#666" font-family="Comic Neue, sans-serif">18:00 (P)</text>
+                <text x="460" y="148" font-size="8" fill="#666" font-family="Comic Neue, sans-serif">20:00</text>
+              </svg>
+            </div>
+
+            <!-- Leyenda wireframe -->
+            <div class="mt-2 flex items-center justify-between text-[10px] text-slate-700 font-bold">
+              <div class="flex items-center gap-3">
+                <span>&HorizontalLine; Lectura Real</span>
+                <span>- - - Pronóstico LSTM</span>
+                <span>··· Rango Permitido</span>
+              </div>
+              <div>Filtro: Jornada en curso</div>
+            </div>
+          </div>
+
+          <!-- PANEL DE ALERTAS EN VIVO -->
+          <div class="border-2 border-slate-900 p-3 rounded bg-white flex flex-col justify-between">
+            <div>
+              <div class="border-b-2 border-slate-800 pb-2 mb-2 flex items-center justify-between">
+                <span class="text-xs font-black uppercase">[ Alertas del Sistema ]</span>
+                <span class="text-[10px] font-bold">Total: 3</span>
+              </div>
+
+              <div class="space-y-2 text-xs">
+                <!-- Alerta 1 -->
+                <div class="border border-slate-800 p-2 rounded bg-slate-50">
+                  <div class="flex justify-between font-bold text-[10px]">
+                    <span>Dosificación preventiva</span>
+                    <span>14:00</span>
+                  </div>
+                  <p class="text-[10px] text-slate-700 mt-0.5">Sugerencia de sulfato de aluminio por afluencia estimada.</p>
+                </div>
+
+                <!-- Alerta 2 -->
+                <div class="border border-slate-800 p-2 rounded bg-slate-50">
+                  <div class="flex justify-between font-bold text-[10px]">
+                    <span>pH Normalizado</span>
+                    <span>13:45</span>
+                  </div>
+                  <p class="text-[10px] text-slate-700 mt-0.5">Valor registrado dentro del rango permisible.</p>
+                </div>
+
+                <!-- Alerta 3 -->
+                <div class="border border-slate-800 p-2 rounded bg-slate-50">
+                  <div class="flex justify-between font-bold text-[10px]">
+                    <span>Nodo ESP32</span>
+                    <span>12:00</span>
+                  </div>
+                  <p class="text-[10px] text-slate-700 mt-0.5">Transmisión de paquete de datos exitosa.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-2 text-right border-t border-slate-300 pt-1">
+              <span class="text-[10px] font-bold cursor-pointer">[ Ver histórico completo &rarr; ]</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 4. TABLA WIREFRAME DE REGISTROS -->
+        <div class="border-2 border-slate-900 rounded bg-white overflow-hidden">
+          <div class="border-b-2 border-slate-800 p-2 bg-slate-100 flex justify-between items-center text-xs font-bold">
+            <span>[ Tabla de Lecturas Recientes de Sensores ]</span>
+            <span class="text-[10px] text-slate-600">Intervalo: 10 min</span>
+          </div>
+
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b-2 border-slate-800 bg-slate-50 text-[10px] font-bold">
+                <th class="p-2 border-r border-slate-300">Hora</th>
+                <th class="p-2 border-r border-slate-300">pH</th>
+                <th class="p-2 border-r border-slate-300">Turbidez</th>
+                <th class="p-2 border-r border-slate-300">Temperatura</th>
+                <th class="p-2 border-r border-slate-300">Aforo Taquilla</th>
+                <th class="p-2 border-r border-slate-300">Aforo Cámara</th>
+                <th class="p-2">Estado</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y border-b border-slate-800 text-[11px]">
+              <tr>
+                <td class="p-1.5 border-r border-slate-300 font-bold">14:30</td>
+                <td class="p-1.5 border-r border-slate-300">7.38</td>
+                <td class="p-1.5 border-r border-slate-300">2.14 NTU</td>
+                <td class="p-1.5 border-r border-slate-300">26.8 °C</td>
+                <td class="p-1.5 border-r border-slate-300">42</td>
+                <td class="p-1.5 border-r border-slate-300">39</td>
+                <td class="p-1.5 font-bold">[ OK ]</td>
+              </tr>
+              <tr class="bg-slate-50">
+                <td class="p-1.5 border-r border-slate-300 font-bold">14:20</td>
+                <td class="p-1.5 border-r border-slate-300">7.35</td>
+                <td class="p-1.5 border-r border-slate-300">2.10 NTU</td>
+                <td class="p-1.5 border-r border-slate-300">26.7 °C</td>
+                <td class="p-1.5 border-r border-slate-300">40</td>
+                <td class="p-1.5 border-r border-slate-300">38</td>
+                <td class="p-1.5 font-bold">[ OK ]</td>
+              </tr>
+              <tr>
+                <td class="p-1.5 border-r border-slate-300 font-bold">14:10</td>
+                <td class="p-1.5 border-r border-slate-300">7.32</td>
+                <td class="p-1.5 border-r border-slate-300">2.05 NTU</td>
+                <td class="p-1.5 border-r border-slate-300">26.6 °C</td>
+                <td class="p-1.5 border-r border-slate-300">38</td>
+                <td class="p-1.5 border-r border-slate-300">37</td>
+                <td class="p-1.5 font-bold">[ OK ]</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </main>
+
+    </div>
+
+    <!-- PIE DEL WIREFRAME -->
+    <div class="border-t-2 border-slate-900 bg-slate-100 p-2 text-center text-[10px] text-slate-700 font-bold">
+      Figura: Prototipo de Interfaz de Usuario (Mockup / Wireframe) · Módulo Dashboard de Monitoreo
+    </div>
+
+  </div>
+
+  <!-- SCRIPT PARA DESCARGAR EL WIREFRAME EN PNG -->
+  <script>
+    async function descargarWireframe() {
+      const btn = document.getElementById('btnDescargar');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = `Generando PNG...`;
+      btn.disabled = true;
+
+      try {
+        const elemento = document.getElementById('wireframe-container');
+        const canvas = await html2canvas(elemento, {
+          scale: 2, // 2x alta resolución para imprimir o insertar en Word
+          backgroundColor: '#ffffff'
+        });
+
+        const enlace = document.createElement('a');
+        enlace.download = 'Mockup_Wireframe_Dashboard_Playa_Azul.png';
+        enlace.href = canvas.toDataURL('image/png');
+        enlace.click();
+      } catch (err) {
+        alert('Error al descargar: ' + err.message);
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    }
+  </script>
+
+</body>
+</html>

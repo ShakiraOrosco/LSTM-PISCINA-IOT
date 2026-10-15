@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 720" width="850" height="720" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <!-- Patrón de cuadrícula como ProcessOn / Papel milimetrado técnico -->
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8e8e8" stroke-width="0.8" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#d5d5d5" stroke-width="1.2" />
+    </pattern>
+
+    <!-- Flecha sólida para asociación con actor -->
+    <marker id="solid-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#222" />
+    </marker>
+
+    <!-- Flecha abierta para relaciones <<extend>> / <<include>> -->
+    <marker id="open-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+
+  <!-- Fondo con cuadrícula técnica tenue -->
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+  <!-- 1. ACTOR: Administrador del sistema -->
+  <g id="actor-admin" transform="translate(10, 0)">
+    <!-- Cabeza -->
+    <circle cx="110" cy="300" r="22" fill="#ffffff" stroke="#222222" stroke-width="2.4" />
+    <!-- Tronco -->
+    <line x1="110" y1="322" x2="110" y2="400" stroke="#222222" stroke-width="2.4" />
+    <!-- Brazos -->
+    <line x1="60" y1="350" x2="160" y2="350" stroke="#222222" stroke-width="2.4" />
+    <!-- Pierna izquierda -->
+    <line x1="110" y1="400" x2="72" y2="475" stroke="#222222" stroke-width="2.4" stroke-linecap="round" />
+    <!-- Pierna derecha -->
+    <line x1="110" y1="400" x2="148" y2="475" stroke="#222222" stroke-width="2.4" stroke-linecap="round" />
+    <!-- Etiqueta del Actor -->
+    <text x="110" y="505" text-anchor="middle" font-size="14" font-weight="600" fill="#222222">Administrador</text>
+    <text x="110" y="524" text-anchor="middle" font-size="14" font-weight="600" fill="#222222">del sistema</text>
+  </g>
+
+  <!-- 2. FLECHA SÓLIDA DE ASOCIACIÓN: Actor -> Administrar usuarios -->
+  <line x1="170" y1="365" x2="280" y2="365" stroke="#222222" stroke-width="2" marker-end="url(#solid-arrow)" />
+
+  <!-- 3. CASO DE USO PRINCIPAL: Administrar usuarios -->
+  <g id="cu-principal">
+    <ellipse cx="375" cy="365" rx="86" ry="46" fill="#ffffff" stroke="#222222" stroke-width="2.2" />
+    <text x="375" y="360" text-anchor="middle" font-size="15" font-weight="600" fill="#222222">Administrar</text>
+    <text x="375" y="379" text-anchor="middle" font-size="15" font-weight="600" fill="#222222">usuarios</text>
+  </g>
+
+  <!-- 4. FLECHAS DISCONTINUAS <<extend>> -->
+  <!-- Hacia 1: Aumentar / Registrar usuarios -->
+  <path d="M 438 332 L 602 145" fill="none" stroke="#222222" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#open-arrow)" />
+  <g transform="translate(506, 218) rotate(-48)">
+    <rect x="-35" y="-10" width="70" height="18" fill="#ffffff" opacity="0.85" />
+    <text x="0" y="3" text-anchor="middle" font-size="12" font-style="italic" fill="#333333">&lt;&lt;extend&gt;&gt;</text>
+  </g>
+
+  <!-- Hacia 2: Modificar usuario -->
+  <path d="M 458 350 L 598 296" fill="none" stroke="#222222" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#open-arrow)" />
+  <g transform="translate(518, 312) rotate(-21)">
+    <rect x="-35" y="-10" width="70" height="18" fill="#ffffff" opacity="0.85" />
+    <text x="0" y="3" text-anchor="middle" font-size="12" font-style="italic" fill="#333333">&lt;&lt;extend&gt;&gt;</text>
+  </g>
+
+  <!-- Hacia 3: Eliminar usuario -->
+  <path d="M 458 380 L 598 434" fill="none" stroke="#222222" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#open-arrow)" />
+  <g transform="translate(522, 417) rotate(21)">
+    <rect x="-35" y="-10" width="70" height="18" fill="#ffffff" opacity="0.85" />
+    <text x="0" y="3" text-anchor="middle" font-size="12" font-style="italic" fill="#333333">&lt;&lt;extend&gt;&gt;</text>
+  </g>
+
+  <!-- Hacia 4: Consultar usuario -->
+  <path d="M 438 398 L 602 585" fill="none" stroke="#222222" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#open-arrow)" />
+  <g transform="translate(508, 510) rotate(48)">
+    <rect x="-35" y="-10" width="70" height="18" fill="#ffffff" opacity="0.85" />
+    <text x="0" y="3" text-anchor="middle" font-size="12" font-style="italic" fill="#333333">&lt;&lt;extend&gt;&gt;</text>
+  </g>
+
+  <!-- 5. CASOS DE USO ESPECÍFICOS (ELIPSES DE LA DERECHA) -->
+  <!-- CU 1: Aumentar usuarios (Registrar) -->
+  <g id="cu-aumentar">
+    <ellipse cx="690" cy="110" rx="84" ry="46" fill="#ffffff" stroke="#222222" stroke-width="2.2" />
+    <text x="690" y="105" text-anchor="middle" font-size="15" font-weight="600" fill="#222222">aumentar</text>
+    <text x="690" y="124" text-anchor="middle" font-size="15" font-weight="600" fill="#222222">usuarios</text>
+  </g>
+
+  <!-- CU 2: Modificar usuario -->
+  <g id="cu-modificar">
+    <ellipse cx="690" cy="280" rx="84" ry="46" fill="#ffffff" stroke="#222222" stroke-width="2.2" />
+    <text x="690" y="275" text-anchor="middle" font-size="15" font-weight="600" fill="#222222">modificar</text>
+    <text x="690" y="294" text-anchor="middle" font-size="15" font-weight="600" fill="#222222">usuario</text>
+  </g>
+
+  <!-- CU 3: Eliminar usuario -->
+  <g id="cu-eliminar">
+    <ellipse cx="690" cy="450" rx="84" ry="46" fill="#ffffff" stroke="#222222" stroke-width="2.2" />
+    <text x="690" y="445" text-anchor="middle" font-size="15" font-weight="600" fill="#222222">eliminar</text>
+    <text x="690" y="464" text-anchor="middle" font-size="15" font-weight="600" fill="#222222">usuario</text>
+  </g>
+
+  <!-- CU 4: Consultar usuario -->
+  <g id="cu-consultar">
+    <ellipse cx="690" cy="620" rx="84" ry="46" fill="#ffffff" stroke="#222222" stroke-width="2.2" />
+    <text x="690" y="615" text-anchor="middle" font-size="15" font-weight="600" fill="#222222">consultar</text>
+    <text x="690" y="634" text-anchor="middle" font-size="15" font-weight="600" fill="#222222">usuario</text>
+  </g>
+</svg>

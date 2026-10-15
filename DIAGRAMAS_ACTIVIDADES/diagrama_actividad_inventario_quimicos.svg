@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 980" width="960" height="980" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ebebeb" stroke-width="0.8" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#d8d8d8" stroke-width="1.2" />
+    </pattern>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#222222" />
+    </marker>
+  </defs>
+
+  <rect id="bgRect" width="100%" height="100%" fill="url(#grid)" />
+
+  <text x="480" y="36" text-anchor="middle" font-size="16" font-weight="800" fill="#222222" letter-spacing="0.5">
+    DIAGRAMA DE ACTIVIDADES: GESTIÓN DE INVENTARIO Y COMPRAS (UML 2.5)
+  </text>
+
+  <!-- SWIMLANES -->
+  <g id="swimlanes-headers">
+    <!-- Col 1: Admin -->
+    <rect x="30" y="55" width="205" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="132" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">ADMINISTRADOR / OPERADOR</text>
+
+    <!-- Col 2: Frontend -->
+    <rect x="235" y="55" width="235" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="352" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">FRONTEND (INVENTARIO)</text>
+
+    <!-- Col 3: Backend -->
+    <rect x="470" y="55" width="240" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="590" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">BACKEND (API FASTAPI)</text>
+
+    <!-- Col 4: Base de Datos -->
+    <rect x="710" y="55" width="220" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="820" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">BASE DE DATOS (POSTGRESQL)</text>
+  </g>
+
+  <!-- Líneas divisorias -->
+  <line x1="30" y1="93" x2="30" y2="940" stroke="#222222" stroke-width="2" />
+  <line x1="235" y1="93" x2="235" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="470" y1="93" x2="470" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="710" y1="93" x2="710" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="930" y1="93" x2="930" y2="940" stroke="#222222" stroke-width="2" />
+  <line x1="30" y1="940" x2="930" y2="940" stroke="#222222" stroke-width="2" />
+
+  <!-- ─── FLUJO ─── -->
+  <!-- 1. INICIO -->
+  <circle cx="132" cy="125" r="14" fill="#222222" />
+  <line x1="132" y1="139" x2="132" y2="170" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 1: Pulsar Registrar Compra -->
+  <g id="act-1">
+    <rect x="48" y="170" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="133" y="193" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Hacer clic en</text>
+    <text x="133" y="209" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">"Registrar Compra"</text>
+  </g>
+
+  <!-- Flujo a Frontend -->
+  <line x1="218" y1="196" x2="265" y2="196" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 2 (Frontend): Desplegar modal compra -->
+  <g id="act-2">
+    <rect x="265" y="170" width="175" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="352" y="193" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Desplegar formulario modal</text>
+    <text x="352" y="209" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">con selector de insumo</text>
+  </g>
+
+  <!-- Flujo a Usuario -->
+  <path d="M 265 210 L 132 210 L 132 255" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 3 (Usuario): Seleccionar químico y cantidad -->
+  <g id="act-3">
+    <rect x="48" y="255" width="170" height="54" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="133" y="276" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Seleccionar químico,</text>
+    <text x="133" y="291" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">cantidad y proveedor</text>
+  </g>
+
+  <line x1="133" y1="309" x2="133" y2="345" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 4 (Usuario): Pulsar Aumentar Stock -->
+  <g id="act-4">
+    <rect x="48" y="345" width="170" height="48" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="133" y="367" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Pulsar botón</text>
+    <text x="133" y="382" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">"Aumentar Stock"</text>
+  </g>
+
+  <!-- Flujo a Frontend -->
+  <line x1="218" y1="369" x2="265" y2="369" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 5 (Frontend): Validar y enviar POST -->
+  <g id="act-5">
+    <rect x="265" y="343" width="175" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="352" y="365" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Validar cantidad &gt; 0 y</text>
+    <text x="352" y="381" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">enviar POST /inventario</text>
+  </g>
+
+  <!-- Flujo a Backend -->
+  <line x1="440" y1="369" x2="505" y2="369" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 6 (Backend): Calcular nuevo stock -->
+  <g id="act-6">
+    <rect x="505" y="343" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="590" y="365" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Calcular stock resultante:</text>
+    <text x="590" y="381" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">stock_actual + cantidad</text>
+  </g>
+
+  <!-- Flujo a BD -->
+  <line x1="675" y1="369" x2="745" y2="369" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 7 (BD): Actualizar stock químico -->
+  <g id="act-7">
+    <rect x="745" y="343" width="155" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="822" y="365" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Actualizar existencias</text>
+    <text x="822" y="381" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">en tabla quimicos</text>
+  </g>
+
+  <line x1="822" y1="395" x2="822" y2="435" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 8 (BD): Registrar movimiento ENT -->
+  <g id="act-8">
+    <rect x="745" y="435" width="155" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="822" y="457" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Insertar movimiento ENT</text>
+    <text x="822" y="473" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">en movimientos_inventario</text>
+  </g>
+
+  <!-- Retorno a Backend verificación de mínimos -->
+  <path d="M 745 461 L 675 461 L 675 520 L 590 520" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Decisión 1: ¿Stock >= Mínimo? -->
+  <g id="dec-1">
+    <polygon points="590,520 658,555 590,590 522,555" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="590" y="551" text-anchor="middle" font-size="10" font-weight="800" fill="#222222">¿Stock actual &gt;</text>
+    <text x="590" y="564" text-anchor="middle" font-size="10" font-weight="800" fill="#222222">stock mínimo?</text>
+  </g>
+
+  <!-- Rama Sí: Normal -->
+  <line x1="522" y1="555" x2="440" y2="555" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="475" y="547" font-size="11" font-weight="800" fill="#15803d">[ Sí ]</text>
+
+  <!-- Actividad 9A (Frontend): Badge Normal -->
+  <g id="act-9a">
+    <rect x="265" y="530" width="175" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="352" y="551" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Actualizar badge a "Normal"</text>
+    <text x="352" y="566" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">y refrescar existencias</text>
+  </g>
+
+  <!-- Rama No: Stock Bajo -->
+  <path d="M 590 590 L 590 640 L 440 640" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="595" y="615" font-size="11" font-weight="800" fill="#b91c1c">[ No ]</text>
+
+  <!-- Actividad 9B (Frontend): Badge Alerta Stock Bajo -->
+  <g id="act-9b">
+    <rect x="265" y="615" width="175" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="352" y="636" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Marcar badge en rojo</text>
+    <text x="352" y="651" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">"Stock Bajo" de insumo</text>
+  </g>
+
+  <!-- Merge y fin -->
+  <line x1="265" y1="555" x2="133" y2="555" stroke="#222222" stroke-width="1.8" />
+  <line x1="265" y1="640" x2="133" y2="640" stroke="#222222" stroke-width="1.8" />
+  <line x1="133" y1="555" x2="133" y2="700" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Rombo de Unión -->
+  <polygon points="133,700 158,720 133,740 108,720" fill="#ffffff" stroke="#222222" stroke-width="2" />
+  <line x1="133" y1="740" x2="133" y2="790" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- NODO FINAL -->
+  <g id="nodo-final" transform="translate(133, 815)">
+    <circle cx="0" cy="0" r="16" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <circle cx="0" cy="0" r="10" fill="#222222" />
+  </g>
+  <text x="133" y="850" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Fin de Registro de Compra</text>
+
+</svg>

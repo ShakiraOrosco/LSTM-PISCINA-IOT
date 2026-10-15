@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 980" width="960" height="980" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ebebeb" stroke-width="0.8" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#d8d8d8" stroke-width="1.2" />
+    </pattern>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#222222" />
+    </marker>
+  </defs>
+
+  <rect id="bgRect" width="100%" height="100%" fill="url(#grid)" />
+
+  <text x="480" y="36" text-anchor="middle" font-size="16" font-weight="800" fill="#222222" letter-spacing="0.5">
+    DIAGRAMA DE ACTIVIDADES: CONTROL DE CAJA Y AFORO DE BAÑISTAS (UML 2.5)
+  </text>
+
+  <!-- SWIMLANES -->
+  <g id="swimlanes-headers">
+    <!-- Col 1: Bañista -->
+    <rect x="30" y="55" width="200" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="130" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">BAÑISTA / CLIENTE</text>
+
+    <!-- Col 2: Cajero -->
+    <rect x="230" y="55" width="225" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="342" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">CAJERO (TAQUILLA)</text>
+
+    <!-- Col 3: Frontend -->
+    <rect x="455" y="55" width="235" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="572" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">FRONTEND (MÓDULO CAJA)</text>
+
+    <!-- Col 4: Backend / Cámara IA -->
+    <rect x="690" y="55" width="240" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="810" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">BACKEND & CÁMARA IA</text>
+  </g>
+
+  <!-- Líneas divisorias -->
+  <line x1="30" y1="93" x2="30" y2="940" stroke="#222222" stroke-width="2" />
+  <line x1="230" y1="93" x2="230" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="455" y1="93" x2="455" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="690" y1="93" x2="690" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="930" y1="93" x2="930" y2="940" stroke="#222222" stroke-width="2" />
+  <line x1="30" y1="940" x2="930" y2="940" stroke="#222222" stroke-width="2" />
+
+  <!-- ─── FLUJO ─── -->
+  <!-- 1. INICIO -->
+  <circle cx="130" cy="125" r="14" fill="#222222" />
+  <line x1="130" y1="139" x2="130" y2="170" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 1 (Bañista): Solicitar entradas -->
+  <g id="act-1">
+    <rect x="45" y="170" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="130" y="193" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Solicitar compra de entradas</text>
+    <text x="130" y="209" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">e indicar número de personas</text>
+  </g>
+
+  <!-- Flujo a Cajero -->
+  <line x1="215" y1="196" x2="255" y2="196" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 2 (Cajero): Abrir modal y seleccionar -->
+  <g id="act-2">
+    <rect x="255" y="170" width="175" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="342" y="193" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Seleccionar cantidades de</text>
+    <text x="342" y="209" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">tarifa (15 Bs / 20 Bs)</text>
+  </g>
+
+  <!-- Flujo a Frontend -->
+  <line x1="430" y1="196" x2="480" y2="196" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 3 (Frontend): Calcular total -->
+  <g id="act-3">
+    <rect x="480" y="170" width="185" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="572" y="193" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Calcular importe total y</text>
+    <text x="572" y="209" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">total personas en vivo</text>
+  </g>
+
+  <line x1="572" y1="222" x2="572" y2="260" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 4 (Frontend): Desplegar resumen -->
+  <g id="act-4">
+    <rect x="480" y="260" width="185" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="572" y="283" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Mostrar resumen de pago</text>
+    <text x="572" y="299" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">y habilitar botón confirmar</text>
+  </g>
+
+  <!-- Retorno a Cajero para cobro -->
+  <path d="M 480 286 L 342 286 L 342 340" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 5 (Cajero): Cobrar y confirmar -->
+  <g id="act-5">
+    <rect x="255" y="340" width="175" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="342" y="363" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Cobrar importe y pulsar</text>
+    <text x="342" y="379" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">"Confirmar e Inscribir"</text>
+  </g>
+
+  <!-- Flujo a Backend -->
+  <path d="M 430 366 L 715 366" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 6 (Backend): Guardar venta -->
+  <g id="act-6">
+    <rect x="715" y="340" width="190" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="810" y="363" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Registrar transacción en BD</text>
+    <text x="810" y="379" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">con hora y monto recaudado</text>
+  </g>
+
+  <line x1="810" y1="392" x2="810" y2="435" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 7 (Backend): Actualizar aforo manual -->
+  <g id="act-7">
+    <rect x="715" y="435" width="190" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="810" y="458" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Incrementar contador global</text>
+    <text x="810" y="474" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">de aforo taquilla del día</text>
+  </g>
+
+  <!-- Proceso paralelo de Cámara IA (Fork bar) -->
+  <line x1="715" y1="520" x2="905" y2="520" stroke="#222222" stroke-width="5" />
+  <line x1="810" y1="487" x2="810" y2="520" stroke="#222222" stroke-width="1.8" />
+
+  <line x1="760" y1="520" x2="760" y2="560" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <line x1="860" y1="520" x2="860" y2="560" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 8A: Aforo manual a Dashboard -->
+  <g id="act-8a">
+    <rect x="705" y="560" width="105" height="50" rx="10" fill="#ffffff" stroke="#222222" stroke-width="1.8" />
+    <text x="757" y="582" text-anchor="middle" font-size="9.5" font-weight="700" fill="#222222">Sincronizar</text>
+    <text x="757" y="596" text-anchor="middle" font-size="9.5" font-weight="700" fill="#222222">aforo manual</text>
+  </g>
+
+  <!-- Actividad 8B: Conteo Cámara IA -->
+  <g id="act-8b">
+    <rect x="815" y="560" width="105" height="50" rx="10" fill="#ffffff" stroke="#222222" stroke-width="1.8" />
+    <text x="867" y="582" text-anchor="middle" font-size="9.5" font-weight="700" fill="#222222">Detección YOLOv8</text>
+    <text x="867" y="596" text-anchor="middle" font-size="9.5" font-weight="700" fill="#222222">(Aforo visual)</text>
+  </g>
+
+  <!-- Join bar -->
+  <line x1="757" y1="610" x2="757" y2="640" stroke="#222222" stroke-width="1.8" />
+  <line x1="867" y1="610" x2="867" y2="640" stroke="#222222" stroke-width="1.8" />
+  <line x1="715" y1="640" x2="905" y2="640" stroke="#222222" stroke-width="5" />
+
+  <!-- Flujo a Frontend -->
+  <path d="M 810 640 L 810 680 L 665 680" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 9 (Frontend): Actualizar tabla e indicadores -->
+  <g id="act-9">
+    <rect x="480" y="655" width="185" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="572" y="677" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Actualizar fila de historial,</text>
+    <text x="572" y="693" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">tarjetas de total y aforo</text>
+  </g>
+
+  <!-- Flujo a Bañista/Cajero acceso -->
+  <path d="M 480 681 L 215 681" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 10 (Bañista): Ingreso a instalaciones -->
+  <g id="act-10">
+    <rect x="45" y="655" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="130" y="677" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Recibir pase de acceso e</text>
+    <text x="130" y="693" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">ingresar a la piscina</text>
+  </g>
+
+  <line x1="130" y1="707" x2="130" y2="760" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- NODO FINAL -->
+  <g id="nodo-final" transform="translate(130, 785)">
+    <circle cx="0" cy="0" r="16" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <circle cx="0" cy="0" r="10" fill="#222222" />
+  </g>
+  <text x="130" y="820" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Fin de Registro de Ingreso</text>
+
+</svg>

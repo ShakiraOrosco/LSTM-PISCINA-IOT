@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 980" width="960" height="980" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ebebeb" stroke-width="0.8" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#d8d8d8" stroke-width="1.2" />
+    </pattern>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#222222" />
+    </marker>
+  </defs>
+
+  <rect id="bgRect" width="100%" height="100%" fill="url(#grid)" />
+
+  <text x="480" y="36" text-anchor="middle" font-size="16" font-weight="800" fill="#222222" letter-spacing="0.5">
+    DIAGRAMA DE ACTIVIDADES: AUDITORÍA Y BITÁCORA DE EVENTOS (UML 2.5)
+  </text>
+
+  <!-- SWIMLANES -->
+  <g id="swimlanes-headers">
+    <!-- Col 1: Admin -->
+    <rect x="30" y="55" width="205" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="132" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">ADMINISTRADOR</text>
+
+    <!-- Col 2: Frontend -->
+    <rect x="235" y="55" width="235" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="352" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">FRONTEND (AUDITORÍA)</text>
+
+    <!-- Col 3: Backend -->
+    <rect x="470" y="55" width="240" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="590" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">BACKEND (API AUDITORÍA)</text>
+
+    <!-- Col 4: Base de Datos -->
+    <rect x="710" y="55" width="220" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="820" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">POSTGRESQL (LOGS)</text>
+  </g>
+
+  <!-- Líneas divisorias -->
+  <line x1="30" y1="93" x2="30" y2="940" stroke="#222222" stroke-width="2" />
+  <line x1="235" y1="93" x2="235" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="470" y1="93" x2="470" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="710" y1="93" x2="710" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="930" y1="93" x2="930" y2="940" stroke="#222222" stroke-width="2" />
+  <line x1="30" y1="940" x2="930" y2="940" stroke="#222222" stroke-width="2" />
+
+  <!-- ─── FLUJO ─── -->
+  <!-- 1. INICIO -->
+  <circle cx="132" cy="125" r="14" fill="#222222" />
+  <line x1="132" y1="139" x2="132" y2="170" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 1 (Admin): Navegar a Auditoría -->
+  <g id="act-1">
+    <rect x="48" y="170" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="133" y="193" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Seleccionar menú</text>
+    <text x="133" y="209" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">"Auditoría del Sistema"</text>
+  </g>
+
+  <!-- Flujo a Frontend -->
+  <line x1="218" y1="196" x2="265" y2="196" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 2 (Frontend): Petición GET logs -->
+  <g id="act-2">
+    <rect x="265" y="170" width="175" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="352" y="193" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Solicitar eventos</text>
+    <text x="352" y="209" text-anchor="middle" font-size="10" font-family="monospace" fill="#444444">GET /api/v1/auditoria</text>
+  </g>
+
+  <!-- Flujo a Backend -->
+  <line x1="440" y1="196" x2="505" y2="196" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 3 (Backend): Validar JWT y armar consulta -->
+  <g id="act-3">
+    <rect x="505" y="170" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="590" y="193" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Validar rol ADM y</text>
+    <text x="590" y="209" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">armar consulta SQL</text>
+  </g>
+
+  <!-- Flujo a DB -->
+  <line x1="675" y1="196" x2="735" y2="196" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 4 (DB): Query a logs -->
+  <g id="act-4">
+    <rect x="735" y="170" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="820" y="193" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Consultar tabla</text>
+    <text x="820" y="209" text-anchor="middle" font-size="10" font-family="monospace" fill="#444444">audit_logs (ORDER DESC)</text>
+  </g>
+
+  <!-- Retorno de DB a Backend y Frontend -->
+  <line x1="820" y1="222" x2="820" y2="260" stroke="#222222" stroke-width="1.8" />
+  <line x1="820" y1="260" x2="352" y2="260" stroke="#222222" stroke-width="1.8" />
+  <line x1="352" y1="260" x2="352" y2="285" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 5 (Frontend): Renderizar tabla de logs -->
+  <g id="act-5">
+    <rect x="255" y="285" width="195" height="54" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="352" y="307" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Renderizar tabla con</text>
+    <text x="352" y="323" text-anchor="middle" font-size="10" fill="#555555">usuario, acción, IP, fecha</text>
+  </g>
+
+  <!-- Flujo hacia Admin: decisión -->
+  <line x1="255" y1="312" x2="132" y2="312" stroke="#222222" stroke-width="1.8" />
+  <line x1="132" y1="312" x2="132" y2="365" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Decisión 1 (Admin): ¿Acción a realizar? -->
+  <g id="decision-1">
+    <polygon points="132,365 190,405 132,445 74,405" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="132" y="402" text-anchor="middle" font-size="10" font-weight="800" fill="#222222">¿Acción a</text>
+    <text x="132" y="415" text-anchor="middle" font-size="10" font-weight="800" fill="#222222">realizar?</text>
+  </g>
+
+  <!-- Rama 1: Filtrar / Buscar registros -->
+  <line x1="74" y1="405" x2="52" y2="405" stroke="#222222" stroke-width="1.8" />
+  <line x1="52" y1="405" x2="52" y2="480" stroke="#222222" stroke-width="1.8" />
+  <line x1="52" y1="480" x2="75" y2="480" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="40" y="445" font-size="10" font-weight="800" fill="#0284c7">[Filtrar]</text>
+
+  <g id="act-filtrar">
+    <rect x="75" y="455" width="145" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="147" y="478" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Ingresar término de</text>
+    <text x="147" y="494" text-anchor="middle" font-size="10" fill="#555555">búsqueda / rango fecha</text>
+  </g>
+
+  <!-- Flujo de filtro a frontend -->
+  <line x1="220" y1="481" x2="270" y2="481" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <g id="act-aplica-filtro">
+    <rect x="270" y="455" width="165" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="352" y="478" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Filtrar reactivamente</text>
+    <text x="352" y="494" text-anchor="middle" font-size="10" fill="#555555">los registros mostrados</text>
+  </g>
+
+  <!-- Rama 2: Inspeccionar Payload JSON -->
+  <line x1="132" y1="445" x2="132" y2="560" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="138" y="535" font-size="10" font-weight="800" fill="#16a34a">[Inspeccionar]</text>
+
+  <g id="act-ver-json">
+    <rect x="52" y="560" width="160" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="132" y="583" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Pulsar botón</text>
+    <text x="132" y="599" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">"Ver Payload JSON"</text>
+  </g>
+
+  <!-- Flujo a Frontend Modal -->
+  <line x1="212" y1="586" x2="265" y2="586" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 6 (Frontend): Abrir Modal JSON -->
+  <g id="act-modal-json">
+    <rect x="265" y="560" width="175" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="352" y="583" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Abrir modal y dar</text>
+    <text x="352" y="599" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">formato resaltado (JSON)</text>
+  </g>
+
+  <!-- Flujo a Admin examinar -->
+  <line x1="352" y1="612" x2="352" y2="660" stroke="#222222" stroke-width="1.8" />
+  <line x1="352" y1="660" x2="215" y2="660" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 7 (Admin): Inspeccionar payload -->
+  <g id="act-analizar-json">
+    <rect x="52" y="635" width="163" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="133" y="658" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Inspeccionar datos,</text>
+    <text x="133" y="674" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">parámetros y firma IP</text>
+  </g>
+
+  <!-- Admin cierra modal -->
+  <line x1="133" y1="687" x2="133" y2="725" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <g id="act-cerrar-modal">
+    <rect x="52" y="725" width="163" height="46" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="133" y="753" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Cerrar modal de detalle</text>
+  </g>
+
+  <!-- Merge Node / Nodo de Unión -->
+  <g id="merge-node-1">
+    <polygon points="133,800 151,814 133,828 115,814" fill="#ffffff" stroke="#222222" stroke-width="2" />
+  </g>
+
+  <!-- Conectar cerrar modal a merge -->
+  <line x1="133" y1="771" x2="133" y2="800" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Conectar filtrado a merge -->
+  <line x1="352" y1="507" x2="352" y2="814" stroke="#222222" stroke-width="1.8" />
+  <line x1="352" y1="814" x2="151" y2="814" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Flujo a fin -->
+  <line x1="133" y1="828" x2="133" y2="875" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- NODO FINAL -->
+  <g id="nodo-final">
+    <circle cx="133" cy="890" r="15" fill="none" stroke="#222222" stroke-width="2" />
+    <circle cx="133" cy="890" r="9" fill="#222222" />
+  </g>
+  <text x="160" y="894" font-size="11" font-weight="700" fill="#444444">Fin de consulta de auditoría</text>
+
+  <!-- Nota explicativa UML -->
+  <g id="nota-uml">
+    <rect x="495" y="860" width="415" height="60" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.2" stroke-dasharray="4 4" />
+    <text x="510" y="882" font-size="10" font-weight="700" fill="#334155">Estándar UML 2.5: Calles de Responsabilidad (Swimlanes)</text>
+    <text x="510" y="902" font-size="9.5" fill="#64748b">Registra de forma inmutable todas las transacciones críticas del sistema IoT y accesos.</text>
+  </g>
+</svg>

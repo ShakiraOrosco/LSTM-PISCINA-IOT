@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe Mockup - Administración de Usuarios (Playa Azul)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Comic Neue & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    .wf-font {
+      font-family: 'Comic Neue', 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-200 text-slate-900 min-h-screen p-4 md:p-8 flex flex-col items-center wf-font">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR -->
+  <div class="w-full max-w-[1100px] mb-4 flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 rounded-xl border-2 border-slate-800 shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold uppercase tracking-wide bg-slate-900 text-white px-2.5 py-1 rounded">Wireframe / Boceto</span>
+      <span class="text-xs text-slate-700 font-semibold">Prototipo Fiel al Sistema Real · Módulo de Usuarios (Users/index.jsx)</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="toggleModal()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs rounded-lg border-2 border-slate-800 transition-all flex items-center gap-1.5">
+        <span>👁️ Ver/Ocultar Modal Crear Usuario</span>
+      </button>
+      <button id="btnDescargar" onclick="descargarWireframe()" class="px-4 py-2 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-lg border-2 border-slate-900 shadow transition-all flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        Descargar Imagen PNG (Wireframe Usuarios)
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR WIREFRAME ESTILO BALSAMIQ -->
+  <div id="wireframe-container" class="w-full max-w-[1100px] bg-white border-2 border-slate-900 shadow-2xl p-0 overflow-hidden relative">
+    
+    <!-- 1. BARRA DE NAVEGADOR WIREFRAME -->
+    <div class="border-b-2 border-slate-900 bg-slate-100 px-3 py-2 flex items-center justify-between gap-3 text-slate-800 select-none">
+      <div class="flex items-center gap-3">
+        <span class="text-lg font-bold">&larr;</span>
+        <span class="text-lg font-bold">&rarr;</span>
+        <span class="text-base font-bold">&#x21bb;</span>
+        <svg class="w-4 h-4 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      </div>
+
+      <div class="flex-1 bg-white border-2 border-slate-800 px-3 py-1 rounded text-xs flex items-center justify-between">
+        <span class="font-mono text-slate-800">http://sistema-piscina.playa-azul/users</span>
+        <span class="text-[10px] text-slate-500 font-bold">100%</span>
+      </div>
+
+      <div class="hidden sm:block text-xs font-bold text-slate-800">
+        [ Playa Azul - Administración de Usuarios ]
+      </div>
+    </div>
+
+    <!-- 2. CUERPO PRINCIPAL (SIDEBAR + MAIN) -->
+    <div class="flex flex-col md:flex-row min-h-[680px]">
+      
+      <!-- SIDEBAR IDÉNTICO AL REAL -->
+      <aside class="w-full md:w-56 border-b-2 md:border-b-0 md:border-r-2 border-slate-900 bg-white p-3 flex flex-col justify-between shrink-0">
+        <div>
+          <!-- Logo Playa Azul -->
+          <div class="border-2 border-slate-800 p-2 text-center rounded mb-4 bg-slate-50">
+            <div class="font-black text-sm tracking-wide uppercase">[ PLAYA AZUL ]</div>
+            <div class="text-[9px] text-slate-600 font-bold">Control & Monitoreo IoT</div>
+          </div>
+
+          <!-- Navegación real -->
+          <div class="space-y-1 text-xs">
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">MENÚ</div>
+            
+            <!-- Dashboard -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>📊 Dashboard</span>
+            </div>
+
+            <!-- Caja -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>🎟️ Caja / Taquilla</span>
+            </div>
+
+            <!-- Inventario -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>📦 Inventario Químicos</span>
+            </div>
+
+            <!-- Usuarios (ACTIVO) -->
+            <div class="p-2 border-2 border-slate-900 bg-slate-200 font-black rounded flex items-center justify-between">
+              <span>👥 Usuarios</span>
+              <span>&blacktriangleright;</span>
+            </div>
+
+            <!-- Auditoría -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>📑 Auditoría</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Usuario al pie del sidebar -->
+        <div class="mt-6 border-2 border-slate-800 p-2 rounded text-[11px] bg-slate-50">
+          <div class="font-bold">Shakira Orosco</div>
+          <div class="text-[9px] text-slate-600">Rol: Administrador</div>
+        </div>
+      </aside>
+
+      <!-- CONTENIDO PRINCIPAL DE USERS/INDEX.JSX -->
+      <main class="flex-1 p-6 bg-slate-50/50 space-y-6">
+        
+        <!-- HEADER DE LA PÁGINA: Título, Subtítulo y Botón "+ Nuevo Usuario" -->
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between border-b-2 border-slate-800 pb-4">
+          <div>
+            <h2 class="text-xl md:text-2xl font-black text-slate-900">
+              Administración de Usuarios
+            </h2>
+            <p class="text-xs text-slate-600 font-medium">
+              Gestiona los accesos y permisos del equipo operativo.
+            </p>
+          </div>
+          <button type="button" class="inline-flex items-center justify-center rounded-lg bg-slate-900 text-white font-bold text-xs px-4 py-2.5 border-2 border-slate-900 shadow">
+            + Nuevo Usuario
+          </button>
+        </div>
+
+        <!-- TARJETA CONTENEDORA DE LA LISTA DE USUARIOS -->
+        <div class="rounded-xl border-2 border-slate-900 bg-white p-5 shadow-sm space-y-4">
+          
+          <!-- Encabezado de la lista -->
+          <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+            <h4 class="text-base font-black text-slate-900">
+              Lista de Usuarios
+            </h4>
+            <span class="rounded-full border border-slate-800 bg-slate-100 px-3 py-0.5 text-xs font-bold text-slate-700">
+              3 usuarios
+            </span>
+          </div>
+
+          <!-- TABLA EXACTA DEL SISTEMA -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="border-b-2 border-slate-800 text-[10px] font-black uppercase tracking-wider text-slate-600">
+                  <th class="py-3 pr-4">Usuario</th>
+                  <th class="py-3 px-4">Rol</th>
+                  <th class="py-3 px-4">Estado</th>
+                  <th class="py-3 px-4 text-right">Acciones</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 text-xs font-medium">
+                
+                <!-- Fila 1: Administrador -->
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3 pr-4">
+                    <div class="flex items-center gap-3">
+                      <div class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-800 bg-slate-100 font-black text-xs text-slate-900">
+                        S
+                      </div>
+                      <div>
+                        <div class="font-bold text-slate-900">Shakira Orosco Gutierrez</div>
+                        <div class="text-[11px] text-slate-500 font-mono">shakira@playa-azul.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4">
+                    <span class="font-bold text-slate-800">Administrador</span>
+                  </td>
+                  <td class="py-3 px-4">
+                    <span class="inline-flex items-center gap-1.5 rounded-full border border-slate-800 bg-slate-100 px-2.5 py-0.5 text-[10px] font-bold text-slate-800">
+                      <span class="h-1.5 w-1.5 rounded-full bg-slate-900"></span>
+                      Activo
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-right">
+                    <div class="flex items-center justify-end gap-3 font-bold text-xs">
+                      <span class="text-slate-800 underline cursor-pointer hover:text-black">Editar</span>
+                      <span class="text-slate-500 underline cursor-pointer hover:text-black">Eliminar</span>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 2: Operador -->
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3 pr-4">
+                    <div class="flex items-center gap-3">
+                      <div class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-800 bg-slate-100 font-black text-xs text-slate-900">
+                        C
+                      </div>
+                      <div>
+                        <div class="font-bold text-slate-900">Carlos Mendoza Vargas</div>
+                        <div class="text-[11px] text-slate-500 font-mono">carlos.operador@playa-azul.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4">
+                    <span class="font-bold text-slate-800">Operador</span>
+                  </td>
+                  <td class="py-3 px-4">
+                    <span class="inline-flex items-center gap-1.5 rounded-full border border-slate-800 bg-slate-100 px-2.5 py-0.5 text-[10px] font-bold text-slate-800">
+                      <span class="h-1.5 w-1.5 rounded-full bg-slate-900"></span>
+                      Activo
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-right">
+                    <div class="flex items-center justify-end gap-3 font-bold text-xs">
+                      <span class="text-slate-800 underline cursor-pointer hover:text-black">Editar</span>
+                      <span class="text-slate-500 underline cursor-pointer hover:text-black">Eliminar</span>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 3: Cajero -->
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3 pr-4">
+                    <div class="flex items-center gap-3">
+                      <div class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-800 bg-slate-100 font-black text-xs text-slate-900">
+                        L
+                      </div>
+                      <div>
+                        <div class="font-bold text-slate-900">Laura Flores Mamani</div>
+                        <div class="text-[11px] text-slate-500 font-mono">laura.caja@playa-azul.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4">
+                    <span class="font-bold text-slate-800">Cajero</span>
+                  </td>
+                  <td class="py-3 px-4">
+                    <span class="inline-flex items-center gap-1.5 rounded-full border border-slate-800 bg-slate-100 px-2.5 py-0.5 text-[10px] font-bold text-slate-800">
+                      <span class="h-1.5 w-1.5 rounded-full bg-slate-900"></span>
+                      Activo
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-right">
+                    <div class="flex items-center justify-end gap-3 font-bold text-xs">
+                      <span class="text-slate-800 underline cursor-pointer hover:text-black">Editar</span>
+                      <span class="text-slate-500 underline cursor-pointer hover:text-black">Eliminar</span>
+                    </div>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+
+    <!-- MODAL WIREFRAME: UserModal (Crear/Editar Usuario) -->
+    <div id="userModalWireframe" class="hidden absolute inset-0 z-50 bg-slate-900/40 backdrop-blur-[2px] flex items-center justify-center p-4">
+      <div class="w-full max-w-md rounded-xl border-2 border-slate-900 bg-white p-6 shadow-2xl">
+        
+        <div class="mb-4 flex items-center justify-between border-b-2 border-slate-800 pb-2">
+          <h3 class="text-base font-black text-slate-900">
+            [ Crear Usuario ]
+          </h3>
+          <button onclick="toggleModal()" class="text-sm font-bold text-slate-600 hover:text-black border border-slate-800 px-2 py-0.5 rounded">
+            ✕
+          </button>
+        </div>
+
+        <div class="space-y-3 text-xs">
+          <!-- Nombre -->
+          <div>
+            <label class="mb-1 block font-bold text-slate-800">Nombre</label>
+            <div class="w-full border-2 border-slate-800 bg-white rounded p-2 text-slate-400">
+              Ej: Juan
+            </div>
+          </div>
+
+          <!-- Apellidos en 2 columnas -->
+          <div class="flex gap-3">
+            <div class="flex-1">
+              <label class="mb-1 block font-bold text-slate-800">Primer Apellido</label>
+              <div class="w-full border-2 border-slate-800 bg-white rounded p-2 text-slate-400">
+                Ej: Pérez
+              </div>
+            </div>
+            <div class="flex-1">
+              <label class="mb-1 block font-bold text-slate-800">Segundo Apellido</label>
+              <div class="w-full border-2 border-slate-800 bg-white rounded p-2 text-slate-400">
+                Ej: Gómez
+              </div>
+            </div>
+          </div>
+
+          <!-- Correo -->
+          <div>
+            <label class="mb-1 block font-bold text-slate-800">Correo Electrónico</label>
+            <div class="w-full border-2 border-slate-800 bg-white rounded p-2 text-slate-400 font-mono">
+              usuario@playa-azul.com
+            </div>
+          </div>
+
+          <!-- Rol -->
+          <div>
+            <label class="mb-1 block font-bold text-slate-800">Rol</label>
+            <div class="w-full border-2 border-slate-800 bg-white rounded p-2 text-slate-800 font-bold flex justify-between items-center">
+              <span>Operador (OPE)</span>
+              <span>▼</span>
+            </div>
+          </div>
+
+          <!-- Botones -->
+          <div class="flex gap-3 pt-3 border-t border-slate-200">
+            <button onclick="toggleModal()" type="button" class="flex-1 rounded border-2 border-slate-800 py-2 font-bold text-slate-700 bg-slate-100 hover:bg-slate-200">
+              Cancelar
+            </button>
+            <button type="button" class="flex-1 rounded bg-slate-900 border-2 border-slate-900 py-2 font-bold text-white shadow hover:bg-black">
+              Guardar Usuario
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PIE DEL WIREFRAME -->
+    <div class="border-t-2 border-slate-900 bg-slate-100 p-2 text-center text-[10px] text-slate-700 font-bold">
+      Figura: Prototipo de Interfaz de Usuario (Wireframe) · Módulo de Administración de Usuarios
+    </div>
+
+  </div>
+
+  <!-- SCRIPT PARA INTERACCIÓN Y DESCARGA EN PNG -->
+  <script>
+    function toggleModal() {
+      const modal = document.getElementById('userModalWireframe');
+      modal.classList.toggle('hidden');
+    }
+
+    async function descargarWireframe() {
+      const btn = document.getElementById('btnDescargar');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = `Generando PNG...`;
+      btn.disabled = true;
+
+      try {
+        const elemento = document.getElementById('wireframe-container');
+        const canvas = await html2canvas(elemento, {
+          scale: 2,
+          backgroundColor: '#ffffff'
+        });
+
+        const enlace = document.createElement('a');
+        enlace.download = 'Mockup_Wireframe_Usuarios.png';
+        enlace.href = canvas.toDataURL('image/png');
+        enlace.click();
+      } catch (err) {
+        alert('Error al descargar: ' + err.message);
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    }
+  </script>
+
+</body>
+</html>

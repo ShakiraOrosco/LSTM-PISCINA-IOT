@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1020" width="960" height="1020" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ebebeb" stroke-width="0.8" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#d8d8d8" stroke-width="1.2" />
+    </pattern>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#222222" />
+    </marker>
+  </defs>
+
+  <rect id="bgRect" width="100%" height="100%" fill="url(#grid)" />
+
+  <text x="480" y="36" text-anchor="middle" font-size="16" font-weight="800" fill="#222222" letter-spacing="0.5">
+    DIAGRAMA DE ACTIVIDADES: PREDICCIÓN Y DOSIFICACIÓN QUÍMICA LSTM (UML 2.5)
+  </text>
+
+  <!-- SWIMLANES -->
+  <g id="swimlanes-headers">
+    <!-- Col 1: Operador -->
+    <rect x="30" y="55" width="200" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="130" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">OPERADOR DE PISCINA</text>
+
+    <!-- Col 2: Frontend -->
+    <rect x="230" y="55" width="225" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="342" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">FRONTEND (PANEL LSTM)</text>
+
+    <!-- Col 3: Backend -->
+    <rect x="455" y="55" width="245" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="577" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">BACKEND (API FASTAPI)</text>
+
+    <!-- Col 4: Modelo LSTM -->
+    <rect x="700" y="55" width="230" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="815" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">SERVICIO IA (MODELO LSTM)</text>
+  </g>
+
+  <!-- Líneas divisorias -->
+  <line x1="30" y1="93" x2="30" y2="980" stroke="#222222" stroke-width="2" />
+  <line x1="230" y1="93" x2="230" y2="980" stroke="#222222" stroke-width="1.8" />
+  <line x1="455" y1="93" x2="455" y2="980" stroke="#222222" stroke-width="1.8" />
+  <line x1="700" y1="93" x2="700" y2="980" stroke="#222222" stroke-width="1.8" />
+  <line x1="930" y1="93" x2="930" y2="980" stroke="#222222" stroke-width="2" />
+  <line x1="30" y1="980" x2="930" y2="980" stroke="#222222" stroke-width="2" />
+
+  <!-- ─── FLUJO ─── -->
+  <!-- 1. INICIO -->
+  <circle cx="130" cy="125" r="14" fill="#222222" />
+  <line x1="130" y1="139" x2="130" y2="170" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 1 (Operador): Solicitar predicción -->
+  <g id="act-1">
+    <rect x="45" y="170" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="130" y="193" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Solicitar predicción</text>
+    <text x="130" y="209" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">de dosificación química</text>
+  </g>
+
+  <!-- Flujo hacia Frontend -->
+  <line x1="215" y1="196" x2="260" y2="196" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 2 (Frontend): Enviar petición -->
+  <g id="act-2">
+    <rect x="260" y="170" width="165" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="342" y="193" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Activar estado de carga y</text>
+    <text x="342" y="209" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">emitir POST /api/predecir</text>
+  </g>
+
+  <!-- Flujo hacia Backend -->
+  <line x1="425" y1="196" x2="495" y2="196" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 3 (Backend): Consultar datos -->
+  <g id="act-3">
+    <rect x="495" y="170" width="175" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="582" y="193" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Consultar lecturas del día</text>
+    <text x="582" y="209" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">y aforo de bañistas actual</text>
+  </g>
+
+  <line x1="582" y1="222" x2="582" y2="260" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Decisión 1: ¿Datos suficientes? -->
+  <g id="dec-1">
+    <polygon points="582,260 650,295 582,330 514,295" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="582" y="291" text-anchor="middle" font-size="10" font-weight="800" fill="#222222">¿Existen mediciones</text>
+    <text x="582" y="304" text-anchor="middle" font-size="10" font-weight="800" fill="#222222">suficientes en jornada?</text>
+  </g>
+
+  <!-- Rama No -> Error -->
+  <line x1="514" y1="295" x2="342" y2="295" stroke="#222222" stroke-width="1.8" />
+  <line x1="342" y1="295" x2="342" y2="340" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="470" y="287" font-size="11" font-weight="800" fill="#b91c1c">[ No ]</text>
+
+  <!-- Actividad Error -->
+  <g id="act-error">
+    <rect x="260" y="340" width="165" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="342" y="361" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Mostrar aviso: datos</text>
+    <text x="342" y="376" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">insuficientes para estimar</text>
+  </g>
+
+  <!-- Rama Sí -> Procesar con IA -->
+  <line x1="650" y1="295" x2="735" y2="295" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="665" y="287" font-size="11" font-weight="800" fill="#15803d">[ Sí ]</text>
+
+  <!-- Actividad 4 (IA): Escalar datos -->
+  <g id="act-4">
+    <rect x="735" y="270" width="170" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="820" y="291" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Normalizar variables</text>
+    <text x="820" y="306" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">de entrada con scaler_x</text>
+  </g>
+
+  <line x1="820" y1="320" x2="820" y2="355" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 5 (IA): Inferencia LSTM -->
+  <g id="act-5">
+    <rect x="735" y="355" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="820" y="377" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Ejecutar inferencia en</text>
+    <text x="820" y="393" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Red Neuronal Recurrente</text>
+  </g>
+
+  <line x1="820" y1="407" x2="820" y2="445" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 6 (IA): Des-escalar y límites -->
+  <g id="act-6">
+    <rect x="735" y="445" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="820" y="467" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Des-escalar resultados y</text>
+    <text x="820" y="483" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">calcular dosis en gramos</text>
+  </g>
+
+  <!-- Retorno a Backend -->
+  <path d="M 735 471 L 680 471 L 680 535 L 640 535" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 7 (Backend): Guardar dosis sugerida -->
+  <g id="act-7">
+    <rect x="495" y="510" width="175" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="582" y="532" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Guardar dosis recomendada</text>
+    <text x="582" y="548" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">(Aluminio, Cobre, Cloro)</text>
+  </g>
+
+  <!-- Flujo hacia Frontend -->
+  <line x1="495" y1="536" x2="425" y2="536" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 8 (Frontend): Desplegar tarjetas -->
+  <g id="act-8">
+    <rect x="260" y="510" width="165" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="342" y="532" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Renderizar barras de</text>
+    <text x="342" y="548" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">dosificación en gramos</text>
+  </g>
+
+  <!-- Flujo hacia Operador -->
+  <line x1="260" y1="536" x2="215" y2="536" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 9 (Operador): Revisar y aplicar -->
+  <g id="act-9">
+    <rect x="45" y="510" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="130" y="532" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Verificar sugerencia y</text>
+    <text x="130" y="548" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">aplicar reactivos en piscina</text>
+  </g>
+
+  <line x1="130" y1="562" x2="130" y2="605" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 10 (Operador): Confirmar aplicación -->
+  <g id="act-10">
+    <rect x="45" y="605" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="130" y="627" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Registrar confirmación de</text>
+    <text x="130" y="643" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">aplicación de químicos</text>
+  </g>
+
+  <!-- Flujo a Backend para descontar inventario -->
+  <path d="M 215 631 L 495 631" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 11 (Backend): Descontar inventario -->
+  <g id="act-11">
+    <rect x="495" y="605" width="175" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="582" y="627" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Registrar salida automática</text>
+    <text x="582" y="643" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">en inventario de insumos</text>
+  </g>
+
+  <!-- Join hacia fin -->
+  <line x1="582" y1="657" x2="582" y2="720" stroke="#222222" stroke-width="1.8" />
+  <line x1="342" y1="390" x2="342" y2="720" stroke="#222222" stroke-width="1.8" />
+  <line x1="342" y1="720" x2="582" y2="720" stroke="#222222" stroke-width="1.8" />
+
+  <line x1="582" y1="720" x2="582" y2="760" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Rombo de Unión -->
+  <polygon points="582,760 607,780 582,800 557,780" fill="#ffffff" stroke="#222222" stroke-width="2" />
+  <line x1="582" y1="800" x2="582" y2="850" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- NODO FINAL -->
+  <g id="nodo-final" transform="translate(582, 880)">
+    <circle cx="0" cy="0" r="16" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <circle cx="0" cy="0" r="10" fill="#222222" />
+  </g>
+  <text x="582" y="915" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Fin del Proceso de Dosificación</text>
+
+</svg>

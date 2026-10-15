@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe Mockup - Modal Crear Usuario (Playa Azul)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Comic Neue & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    .wf-font {
+      font-family: 'Comic Neue', 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-200 text-slate-900 min-h-screen p-4 md:p-8 flex flex-col items-center wf-font">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR -->
+  <div class="w-full max-w-[900px] mb-4 flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 rounded-xl border-2 border-slate-800 shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold uppercase tracking-wide bg-slate-900 text-white px-2.5 py-1 rounded">Wireframe / Boceto</span>
+      <span class="text-xs text-slate-700 font-semibold">Prototipo de Interfaz · Formulario Modal Crear Usuario (UserModal)</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button id="btnDescargar" onclick="descargarWireframe()" class="px-4 py-2 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-lg border-2 border-slate-900 shadow transition-all flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        Descargar Imagen PNG (Modal Usuario)
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR WIREFRAME ESTILO BALSAMIQ -->
+  <div id="wireframe-container" class="w-full max-w-[900px] bg-slate-100 border-2 border-slate-900 shadow-2xl p-0 overflow-hidden relative">
+    
+    <!-- BARRA DE NAVEGADOR WIREFRAME -->
+    <div class="border-b-2 border-slate-900 bg-white px-3 py-2 flex items-center justify-between gap-3 text-slate-800 select-none">
+      <div class="flex items-center gap-3">
+        <span class="text-lg font-bold">&larr;</span>
+        <span class="text-lg font-bold">&rarr;</span>
+        <span class="text-base font-bold">&#x21bb;</span>
+        <svg class="w-4 h-4 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      </div>
+
+      <div class="flex-1 bg-white border-2 border-slate-800 px-3 py-1 rounded text-xs flex items-center justify-between">
+        <span class="font-mono text-slate-800">http://sistema-piscina.playa-azul/users?action=new</span>
+        <span class="text-[10px] text-slate-500 font-bold">100%</span>
+      </div>
+
+      <div class="hidden sm:block text-xs font-bold text-slate-800">
+        [ Playa Azul - Registrar Usuario ]
+      </div>
+    </div>
+
+    <!-- ÁREA DE FONDO CON EL MODAL CENTRADO (ESTILO DIÁLOGO MODAL WIREFRAME) -->
+    <div class="p-6 md:p-12 flex items-center justify-center bg-slate-200/60 min-h-[560px]">
+      
+      <!-- VENTANA MODAL (UserModal de Users/index.jsx) -->
+      <div class="w-full max-w-md rounded-xl border-2 border-slate-900 bg-white p-6 shadow-2xl space-y-5">
+        
+        <!-- Encabezado del Modal -->
+        <div class="flex items-center justify-between border-b-2 border-slate-800 pb-3">
+          <h3 class="text-lg font-black text-slate-900">
+            [ Crear Usuario ]
+          </h3>
+          <button type="button" class="w-7 h-7 border border-slate-800 rounded flex items-center justify-center text-xs font-bold text-slate-600 hover:bg-slate-100">
+            ✕
+          </button>
+        </div>
+
+        <!-- Formulario (Campos exactos de UserModal) -->
+        <form class="space-y-4 text-xs">
+          
+          <!-- Campo: Nombre -->
+          <div>
+            <label class="block font-bold text-slate-800 mb-1">
+              Nombre
+            </label>
+            <div class="w-full border-2 border-slate-800 bg-white rounded p-2.5 text-xs text-slate-800 font-mono">
+              Carlos
+            </div>
+          </div>
+
+          <!-- Campos: Primer Apellido y Segundo Apellido (2 Columnas) -->
+          <div class="flex gap-3">
+            <div class="flex-1">
+              <label class="block font-bold text-slate-800 mb-1">
+                Primer Apellido
+              </label>
+              <div class="w-full border-2 border-slate-800 bg-white rounded p-2.5 text-xs text-slate-800 font-mono">
+                Mendoza
+              </div>
+            </div>
+            <div class="flex-1">
+              <label class="block font-bold text-slate-800 mb-1">
+                Segundo Apellido
+              </label>
+              <div class="w-full border-2 border-slate-800 bg-white rounded p-2.5 text-xs text-slate-800 font-mono">
+                Vargas
+              </div>
+            </div>
+          </div>
+
+          <!-- Campo: Correo Electrónico -->
+          <div>
+            <label class="block font-bold text-slate-800 mb-1">
+              Correo Electrónico
+            </label>
+            <div class="w-full border-2 border-slate-800 bg-white rounded p-2.5 text-xs text-slate-800 font-mono">
+              carlos.operador@playa-azul.com
+            </div>
+          </div>
+
+          <!-- Campo: Rol (Select con roles del sistema) -->
+          <div>
+            <label class="block font-bold text-slate-800 mb-1">
+              Rol
+            </label>
+            <div class="w-full border-2 border-slate-800 bg-white rounded p-2.5 text-xs font-bold text-slate-900 flex items-center justify-between">
+              <span>Operador (OPE)</span>
+              <span>▼</span>
+            </div>
+            <div class="mt-1 text-[10px] text-slate-500 font-semibold">
+              Opciones: Administrador (ADM) | Operador (OPE) | Cajero (CAJ)
+            </div>
+          </div>
+
+          <!-- Botones de Acción: Cancelar y Guardar Usuario -->
+          <div class="flex items-center gap-3 pt-3 border-t border-slate-200">
+            <button type="button" class="flex-1 py-2.5 rounded border-2 border-slate-800 font-bold text-xs text-slate-700 bg-slate-100 hover:bg-slate-200">
+              Cancelar
+            </button>
+            <button type="button" class="flex-1 py-2.5 rounded bg-slate-900 border-2 border-slate-900 font-bold text-xs text-white shadow hover:bg-black">
+              Guardar Usuario
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    <!-- PIE DEL WIREFRAME -->
+    <div class="border-t-2 border-slate-900 bg-white p-2 text-center text-[10px] text-slate-700 font-bold">
+      Figura: Prototipo de Interfaz de Usuario (Wireframe) · Formulario Modal de Registro de Usuario (HU-01)
+    </div>
+
+  </div>
+
+  <!-- SCRIPT PARA DESCARGA EN PNG -->
+  <script>
+    async function descargarWireframe() {
+      const btn = document.getElementById('btnDescargar');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = `Generando PNG...`;
+      btn.disabled = true;
+
+      try {
+        const elemento = document.getElementById('wireframe-container');
+        const canvas = await html2canvas(elemento, {
+          scale: 2,
+          backgroundColor: '#ffffff'
+        });
+
+        const enlace = document.createElement('a');
+        enlace.download = 'Mockup_Wireframe_Modal_Registro_Usuario.png';
+        enlace.href = canvas.toDataURL('image/png');
+        enlace.click();
+      } catch (err) {
+        alert('Error al descargar: ' + err.message);
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    }
+  </script>
+
+</body>
+</html>

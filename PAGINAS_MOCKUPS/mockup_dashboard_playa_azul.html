@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mockup - Dashboard Playa Azul (Sistema de Piscina)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- html2canvas for 1-click HD PNG export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-800 min-h-screen p-4 md:p-8 flex flex-col items-center justify-start">
+
+  <!-- BARRA DE ACCIONES PARA EXPORTAR / DOCUMENTAR -->
+  <div class="w-full max-w-7xl mb-5 flex flex-wrap items-center justify-between gap-4 bg-slate-800/90 backdrop-blur border border-slate-700 p-4 rounded-2xl shadow-xl">
+    <div class="flex items-center gap-3">
+      <span class="flex h-3 w-3 rounded-full bg-emerald-400 animate-ping"></span>
+      <div>
+        <h2 class="text-white font-bold text-sm md:text-base">Mockup Oficial · Sistema Piscina "Playa Azul"</h2>
+        <p class="text-slate-400 text-xs">Vistas basadas en el frontend real de tu sistema para el documento de perfil / tesis</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <button onclick="toggleMarco()" class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 transition-all flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+        Alternar Marco
+      </button>
+      <button id="btnCapturar" onclick="descargarMockup()" class="px-5 py-2 text-xs md:text-sm font-bold rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-lg shadow-blue-500/25 transition-all flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        <span>📸 Descargar Imagen PNG para Word</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR DEL MOCKUP (CON MARCO ELEGANTE) -->
+  <div id="mockup-frame-wrapper" class="w-full max-w-7xl p-3 md:p-6 rounded-3xl bg-gradient-to-br from-slate-800/80 via-slate-900 to-blue-950/70 border border-slate-700/60 shadow-2xl">
+    
+    <!-- VENTANA ESTILO NAVEGADOR PROFESIONAL -->
+    <div id="mockup-canvas" class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200/80">
+      
+      <!-- HEADER DE LA VENTANA (BOTONES MAC + URL DEL SISTEMA) -->
+      <div id="browser-bar" class="bg-slate-100 border-b border-slate-200 px-4 py-2.5 flex items-center justify-between select-none">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full bg-red-400"></div>
+          <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+          <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+          <span class="ml-3 text-[11px] font-semibold text-slate-400 hidden sm:inline">Playa Azul - Monitoreo & Control IoT</span>
+        </div>
+        <div class="bg-white px-6 py-1 rounded-full border border-slate-200 text-[11px] font-medium text-slate-500 flex items-center gap-2 shadow-sm max-w-sm w-full justify-center">
+          <svg class="w-3 h-3 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+          https://playa-azul.local/dashboard
+        </div>
+        <div class="flex items-center gap-2 text-slate-400 text-xs">
+          <span>100%</span>
+        </div>
+      </div>
+
+      <!-- ESTRUCTURA PRINCIPAL DEL SISTEMA (LAYOUT: SIDEBAR + MAIN) -->
+      <div class="flex min-h-[820px] bg-slate-50 text-slate-800">
+
+        <!-- SIDEBAR IDÉNTICO AL DEL SISTEMA -->
+        <aside class="w-64 bg-white border-r border-slate-200 flex flex-col justify-between p-4 shrink-0">
+          <div>
+            <!-- LOGO PLAYA AZUL -->
+            <div class="flex items-center gap-3 px-3 py-3 mb-6">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-blue-700 to-blue-500 text-white shadow-md shadow-blue-500/30">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 12V20C4 20.5523 4.44772 21 5 21H19C19.5523 21 20 20.5523 20 20V12"/>
+                  <path d="M12 15L12 3"/>
+                  <path d="M8 7L12 3L16 7"/>
+                </svg>
+              </div>
+              <div>
+                <strong class="text-lg font-extrabold text-slate-900 tracking-tight block">Playa Azul</strong>
+                <span class="text-[10px] uppercase font-bold text-blue-600 tracking-wider">IoT & Calidad del Agua</span>
+              </div>
+            </div>
+
+            <!-- MENÚ DE NAVEGACIÓN -->
+            <div class="space-y-1">
+              <span class="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400">Menú Principal</span>
+              
+              <!-- Dashboard (Activo) -->
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-blue-50 text-blue-600 font-semibold text-sm border-l-4 border-blue-600 transition-all shadow-sm">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                Dashboard
+              </a>
+
+              <!-- Caja -->
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 font-medium text-sm transition-all">
+                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                Caja / Taquilla
+              </a>
+
+              <!-- Inventario -->
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 font-medium text-sm transition-all">
+                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                Inventario Químicos
+              </a>
+
+              <!-- Usuarios -->
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 font-medium text-sm transition-all">
+                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                Usuarios & Roles
+              </a>
+
+              <!-- Auditoría -->
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 font-medium text-sm transition-all">
+                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Auditoría & Logs
+              </a>
+            </div>
+          </div>
+
+          <!-- ESTADO DE LA JORNADA Y SERVIDOR EN SIDEBAR -->
+          <div class="bg-blue-50/70 border border-blue-100 rounded-xl p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[11px] font-bold text-blue-900">Jornada Activa</span>
+              <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            </div>
+            <p class="text-[10px] text-blue-700">Iniciada hoy 08:00 AM</p>
+            <div class="mt-2 text-[10px] font-semibold text-slate-500 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> ESP32 WiFi Conectado
+            </div>
+          </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+          
+          <!-- HEADER SUPERIOR -->
+          <header class="bg-white border-b border-slate-200 px-6 py-3.5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <h1 class="text-xl font-bold text-slate-900">Panel de Control & Monitoreo en Tiempo Real</h1>
+              <span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-0.5 rounded-full font-semibold border border-emerald-200 flex items-center gap-1.5">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Sensores en línea
+              </span>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="text-right">
+                <span class="text-xs font-bold text-slate-800 block">Shakira Orosco</span>
+                <span class="text-[10px] font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md">Administrador</span>
+              </div>
+              <div class="h-9 w-9 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-bold flex items-center justify-center text-xs shadow-md">
+                SO
+              </div>
+            </div>
+          </header>
+
+          <!-- CUERPO DEL DASHBOARD -->
+          <div class="p-6 space-y-6 overflow-y-auto custom-scrollbar">
+
+            <!-- 1. TARJETAS DE SENSORES Y AFORO (5 KPIS) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              
+              <!-- pH Card -->
+              <div class="bg-white rounded-2xl border-2 border-blue-500/80 p-4 shadow-sm relative overflow-hidden bg-gradient-to-b from-blue-50/20 to-white">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="h-8 w-8 rounded-lg bg-blue-100 text-blue-700 font-black text-xs flex items-center justify-center">
+                    pH
+                  </div>
+                  <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    Óptimo
+                  </span>
+                </div>
+                <span class="text-xs font-medium text-slate-500">Potencial Hidrógeno</span>
+                <div class="flex items-baseline gap-1 mt-1">
+                  <span class="text-2xl font-extrabold text-slate-900">7.38</span>
+                  <span class="text-xs text-slate-400 font-semibold">(7.2 - 7.6)</span>
+                </div>
+                <div class="mt-2 text-[10px] text-slate-500 flex items-center justify-between border-t border-slate-100 pt-1.5">
+                  <span>Última lectura</span>
+                  <span class="font-bold text-slate-700">14:32:00</span>
+                </div>
+              </div>
+
+              <!-- Turbidez Card -->
+              <div class="bg-white rounded-2xl border border-slate-200 hover:border-orange-400 transition-all p-4 shadow-sm bg-gradient-to-b from-orange-50/10 to-white">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="h-8 w-8 rounded-lg bg-orange-100 text-orange-700 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/></svg>
+                  </div>
+                  <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    Limpio
+                  </span>
+                </div>
+                <span class="text-xs font-medium text-slate-500">Turbidez del Agua</span>
+                <div class="flex items-baseline gap-1 mt-1">
+                  <span class="text-2xl font-extrabold text-slate-900">2.14</span>
+                  <span class="text-xs text-slate-500 font-bold">NTU</span>
+                </div>
+                <div class="mt-2 text-[10px] text-slate-500 flex items-center justify-between border-t border-slate-100 pt-1.5">
+                  <span>Normativa</span>
+                  <span class="font-bold text-slate-700">&lt; 5.0 NTU</span>
+                </div>
+              </div>
+
+              <!-- Temperatura Card -->
+              <div class="bg-white rounded-2xl border border-slate-200 hover:border-emerald-400 transition-all p-4 shadow-sm bg-gradient-to-b from-emerald-50/10 to-white">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="h-8 w-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 14.76V3.5C14 2.67157 13.3284 2 12.5 2C11.6716 2 11 2.67157 11 3.5V14.76C9.20914 15.6318 8 17.5255 8 19.5C8 22.5376 10.0147 24 12.5 24C14.9853 24 17 22.5376 17 19.5C17 17.5255 15.7909 15.6318 14 14.76Z"/></svg>
+                  </div>
+                  <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    Estable
+                  </span>
+                </div>
+                <span class="text-xs font-medium text-slate-500">Temperatura</span>
+                <div class="flex items-baseline gap-1 mt-1">
+                  <span class="text-2xl font-extrabold text-slate-900">26.8</span>
+                  <span class="text-xs text-slate-500 font-bold">°C</span>
+                </div>
+                <div class="mt-2 text-[10px] text-slate-500 flex items-center justify-between border-t border-slate-100 pt-1.5">
+                  <span>Recomendado</span>
+                  <span class="font-bold text-slate-700">24 - 30 °C</span>
+                </div>
+              </div>
+
+              <!-- Aforo Manual Card -->
+              <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="h-8 w-8 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21"/></svg>
+                  </div>
+                  <span class="bg-indigo-100 text-indigo-800 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    Taquilla
+                  </span>
+                </div>
+                <span class="text-xs font-medium text-slate-500">Aforo Manual</span>
+                <div class="flex items-baseline gap-1 mt-1">
+                  <span class="text-2xl font-extrabold text-slate-900">42</span>
+                  <span class="text-xs text-slate-500 font-semibold">bañistas</span>
+                </div>
+                <div class="mt-2 text-[10px] text-slate-500 flex items-center justify-between border-t border-slate-100 pt-1.5">
+                  <span>Ingresos registrados</span>
+                  <span class="font-bold text-indigo-600">Total hoy: 138</span>
+                </div>
+              </div>
+
+              <!-- Aforo Cámara Card -->
+              <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="h-8 w-8 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10L21 6V18L15 14M4 18H13C14.1046 18 15 17.1046 15 16V8C15 6.89543 14.1046 6 13 6H4C2.89543 6 2 6.89543 2 8V16C2 17.1046 2.89543 18 4 18Z"/></svg>
+                  </div>
+                  <span class="bg-purple-100 text-purple-800 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    Cámara IA
+                  </span>
+                </div>
+                <span class="text-xs font-medium text-slate-500">Aforo Visual</span>
+                <div class="flex items-baseline gap-1 mt-1">
+                  <span class="text-2xl font-extrabold text-slate-900">39</span>
+                  <span class="text-xs text-slate-500 font-semibold">en pileta</span>
+                </div>
+                <div class="mt-2 text-[10px] text-slate-500 flex items-center justify-between border-t border-slate-100 pt-1.5">
+                  <span>Precisión modelo</span>
+                  <span class="font-bold text-purple-600">YOLOv8: 96%</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- 2. PREDICCIÓN LSTM DE DOSIFICACIÓN (FEATURE CLAVE DEL SISTEMA) -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+              <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                  <div class="h-9 w-9 rounded-xl bg-gradient-to-tr from-violet-600 to-indigo-600 text-white flex items-center justify-center shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-base">Recomendación de Dosificación Química (Modelo LSTM)</h3>
+                    <p class="text-xs text-slate-500">Predicción inteligente de reactivos químicos requeridos para mantener la calidad óptima del agua</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-medium text-slate-500">Franja: <strong class="text-slate-800">16:00 (Próxima)</strong></span>
+                  <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs px-3.5 py-2 rounded-xl transition-all shadow-sm flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    Re-ejecutar Predicción
+                  </button>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Sulfato de Aluminio -->
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="h-6 w-6 rounded-md bg-sky-100 text-sky-700 font-extrabold text-xs flex items-center justify-center">Al</span>
+                      <span class="text-xs font-bold text-slate-800">Sulfato de Aluminio</span>
+                    </div>
+                    <span class="text-xs font-extrabold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">450 g</span>
+                  </div>
+                  <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                    <div class="bg-sky-500 h-2 rounded-full" style="width: 45%"></div>
+                  </div>
+                  <span class="text-[10px] text-slate-500 mt-2 block">Floculante · Clarifica agua por turbidez</span>
+                </div>
+
+                <!-- Sulfato de Cobre -->
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="h-6 w-6 rounded-md bg-teal-100 text-teal-700 font-extrabold text-xs flex items-center justify-center">Cu</span>
+                      <span class="text-xs font-bold text-slate-800">Sulfato de Cobre</span>
+                    </div>
+                    <span class="text-xs font-extrabold text-teal-600 bg-teal-50 px-2 py-0.5 rounded">320 g</span>
+                  </div>
+                  <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                    <div class="bg-teal-500 h-2 rounded-full" style="width: 32%"></div>
+                  </div>
+                  <span class="text-[10px] text-slate-500 mt-2 block">Alguicida · Control preventivo de algas</span>
+                </div>
+
+                <!-- Cloro Líquido -->
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="h-6 w-6 rounded-md bg-violet-100 text-violet-700 font-extrabold text-xs flex items-center justify-center">Cl</span>
+                      <span class="text-xs font-bold text-slate-800">Cloro Residual</span>
+                    </div>
+                    <span class="text-xs font-extrabold text-violet-600 bg-violet-50 px-2 py-0.5 rounded">110 g</span>
+                  </div>
+                  <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                    <div class="bg-violet-500 h-2 rounded-full" style="width: 55%"></div>
+                  </div>
+                  <span class="text-[10px] text-slate-500 mt-2 block">Desinfectante · Eliminación patógena</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. GRÁFICO COMBINADO + ALERTAS EN VIVO -->
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+              
+              <!-- GRÁFICO DE MONITOREO Y TENDENCIA -->
+              <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm xl:col-span-2">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <h4 class="text-base font-bold text-slate-900">Evolución y Pronóstico de pH</h4>
+                      <span class="bg-violet-100 text-violet-700 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                        Proyección LSTM a 20:00
+                      </span>
+                    </div>
+                    <p class="text-xs text-slate-400">Línea continua: mediciones registradas · Línea discontinua: pronóstico con intervalo 95%</p>
+                  </div>
+                  <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
+                    <button class="bg-blue-600 text-white font-bold text-xs px-3 py-1.5 rounded-lg shadow-sm">pH</button>
+                    <button class="text-slate-600 hover:text-slate-900 font-medium text-xs px-3 py-1.5 rounded-lg">Turbidez</button>
+                    <button class="text-slate-600 hover:text-slate-900 font-medium text-xs px-3 py-1.5 rounded-lg">Temperatura</button>
+                  </div>
+                </div>
+
+                <!-- SVG DEL GRÁFICO (REPRODUCCIÓN VECTORIAL NÍTIDA) -->
+                <div class="w-full h-64 relative bg-slate-50/50 rounded-xl p-2 border border-slate-100">
+                  <svg viewBox="0 0 650 200" class="w-full h-full overflow-visible">
+                    <!-- Guías de fondo horizontales -->
+                    <line x1="40" y1="30" x2="630" y2="30" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+                    <line x1="40" y1="70" x2="630" y2="70" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+                    <line x1="40" y1="110" x2="630" y2="110" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+                    <line x1="40" y1="150" x2="630" y2="150" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+                    
+                    <!-- Límite óptimo max (7.6) -->
+                    <line x1="40" y1="55" x2="630" y2="55" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 4"/>
+                    <text x="540" y="50" fill="#10b981" font-size="9" font-weight="bold">Máx Óptimo (7.6)</text>
+
+                    <!-- Límite óptimo min (7.2) -->
+                    <line x1="40" y1="130" x2="630" y2="130" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 4"/>
+                    <text x="540" y="142" fill="#10b981" font-size="9" font-weight="bold">Mín Óptimo (7.2)</text>
+
+                    <!-- Ejes y etiquetas Y -->
+                    <text x="15" y="34" fill="#94a3b8" font-size="10" font-weight="bold">7.8</text>
+                    <text x="15" y="74" fill="#94a3b8" font-size="10" font-weight="bold">7.5</text>
+                    <text x="15" y="114" fill="#94a3b8" font-size="10" font-weight="bold">7.3</text>
+                    <text x="15" y="154" fill="#94a3b8" font-size="10" font-weight="bold">7.0</text>
+
+                    <!-- Sombra / Área bajo la curva histórica -->
+                    <path d="M 60 115 L 120 105 L 180 95 L 240 100 L 300 85 L 360 88 L 360 170 L 60 170 Z" fill="rgba(37, 99, 235, 0.08)"/>
+
+                    <!-- Área de incertidumbre pronóstico -->
+                    <polygon points="360,88 430,75 500,80 570,85 570,125 500,118 430,110 360,88" fill="rgba(124, 58, 237, 0.12)"/>
+
+                    <!-- Curva Histórica Real (Línea Azul Continua) -->
+                    <path d="M 60 115 L 120 105 L 180 95 L 240 100 L 300 85 L 360 88" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+
+                    <!-- Puntos reales -->
+                    <circle cx="60" cy="115" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+                    <circle cx="120" cy="105" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+                    <circle cx="180" cy="95" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+                    <circle cx="240" cy="100" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+                    <circle cx="300" cy="85" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+                    <circle cx="360" cy="88" r="5" fill="#2563eb" stroke="#ffffff" stroke-width="2.5"/>
+
+                    <!-- Curva Pronóstico LSTM (Línea Violeta Punteada) -->
+                    <path d="M 360 88 L 430 92 L 500 97 L 570 102" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"/>
+                    
+                    <!-- Puntos pronosticados -->
+                    <circle cx="430" cy="92" r="3.5" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+                    <circle cx="500" cy="97" r="3.5" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+                    <circle cx="570" cy="102" r="3.5" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+
+                    <!-- Eje X - Horas -->
+                    <text x="50" y="185" fill="#64748b" font-size="10">09:00</text>
+                    <text x="110" y="185" fill="#64748b" font-size="10">10:00</text>
+                    <text x="170" y="185" fill="#64748b" font-size="10">11:00</text>
+                    <text x="230" y="185" fill="#64748b" font-size="10">12:00</text>
+                    <text x="290" y="185" fill="#64748b" font-size="10">13:00</text>
+                    <text x="350" y="185" fill="#2563eb" font-weight="bold" font-size="10">14:00 (Ahora)</text>
+                    <text x="420" y="185" fill="#7c3aed" font-size="10">16:00 (Est)</text>
+                    <text x="490" y="185" fill="#7c3aed" font-size="10">18:00 (Est)</text>
+                    <text x="560" y="185" fill="#7c3aed" font-size="10">20:00 (Est)</text>
+                  </svg>
+                </div>
+
+                <div class="flex items-center justify-between text-xs text-slate-500 mt-3 pt-2 border-t border-slate-100">
+                  <div class="flex items-center gap-4">
+                    <span class="flex items-center gap-1.5"><span class="w-3 h-1 bg-blue-600 rounded"></span> Medición Real</span>
+                    <span class="flex items-center gap-1.5"><span class="w-3 h-1 border-t-2 border-dashed border-violet-600"></span> Pronóstico LSTM</span>
+                    <span class="flex items-center gap-1.5"><span class="w-3 h-1 bg-emerald-500 rounded"></span> Rango Normativo</span>
+                  </div>
+                  <span class="font-semibold text-slate-600">Frecuencia de muestreo: Cada 10 minutos</span>
+                </div>
+              </div>
+
+              <!-- PANEL DE ALERTAS EN VIVO -->
+              <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-4">
+                    <h4 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                      Alertas & Eventos
+                      <span class="h-2 w-2 rounded-full bg-blue-500 animate-ping"></span>
+                    </h4>
+                    <span class="text-[11px] font-bold text-slate-400">Hoy</span>
+                  </div>
+
+                  <div class="space-y-3">
+                    <!-- Alerta de dosificación -->
+                    <div class="border border-blue-200 bg-blue-50/70 rounded-xl p-3 text-xs">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="font-bold text-blue-900 flex items-center gap-1">
+                          <svg class="w-3.5 h-3.5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+                          Recomendación de Dosificación
+                        </span>
+                        <span class="text-[10px] text-blue-600 font-semibold">14:00</span>
+                      </div>
+                      <p class="text-blue-800 text-[11px]">Se sugiere aplicar 450g de sulfato de aluminio debido al incremento de bañistas estimado a las 16:00.</p>
+                    </div>
+
+                    <!-- Alerta de parámetro estabilizado -->
+                    <div class="border border-emerald-200 bg-emerald-50/70 rounded-xl p-3 text-xs">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="font-bold text-emerald-900 flex items-center gap-1">
+                          <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                          pH Estabilizado
+                        </span>
+                        <span class="text-[10px] text-emerald-600 font-semibold">13:45</span>
+                      </div>
+                      <p class="text-emerald-800 text-[11px]">El valor de pH se mantiene dentro del rango seguro (7.38).</p>
+                    </div>
+
+                    <!-- Alerta hardware -->
+                    <div class="border border-slate-200 bg-slate-50 rounded-xl p-3 text-xs">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="font-bold text-slate-800 flex items-center gap-1">
+                          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> Sensor IoT Sincronizado
+                        </span>
+                        <span class="text-[10px] text-slate-400">12:10</span>
+                      </div>
+                      <p class="text-slate-600 text-[11px]">Microcontrolador ESP32 transmitió paquete de lecturas con éxito.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                  <span class="text-slate-500">Historial completo</span>
+                  <a href="#" class="font-bold text-blue-600 hover:text-blue-700">Ver todas las alertas &rarr;</a>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- 4. TABLA DE REGISTROS RECIENTES DE SENSORES -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+              <div class="p-4 border-b border-slate-200 flex items-center justify-between">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-sm">Historial de Lecturas Recientes</h4>
+                  <p class="text-xs text-slate-500">Registro cronológico de las mediciones emitidas por el nodo sensor</p>
+                </div>
+                <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-lg">
+                  Actualización cada 10 seg
+                </span>
+              </div>
+
+              <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs">
+                  <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase font-semibold text-[10px] tracking-wider">
+                      <th class="py-3 px-4">Hora / Marca de Tiempo</th>
+                      <th class="py-3 px-4">pH</th>
+                      <th class="py-3 px-4">Turbidez (NTU)</th>
+                      <th class="py-3 px-4">Temperatura (°C)</th>
+                      <th class="py-3 px-4">Bañistas (Taquilla)</th>
+                      <th class="py-3 px-4">Bañistas (Cámara IA)</th>
+                      <th class="py-3 px-4 text-right">Estado Nodo</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 font-medium">
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                      <td class="py-2.5 px-4 font-bold text-slate-800">14:30:00</td>
+                      <td class="py-2.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold">7.38</span></td>
+                      <td class="py-2.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold">2.14 NTU</span></td>
+                      <td class="py-2.5 px-4 text-slate-700 font-semibold">26.8 °C</td>
+                      <td class="py-2.5 px-4 text-indigo-700 font-bold">42</td>
+                      <td class="py-2.5 px-4 text-purple-700 font-bold">39</td>
+                      <td class="py-2.5 px-4 text-right"><span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">Operativo</span></td>
+                    </tr>
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                      <td class="py-2.5 px-4 font-bold text-slate-800">14:20:00</td>
+                      <td class="py-2.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold">7.35</span></td>
+                      <td class="py-2.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold">2.10 NTU</span></td>
+                      <td class="py-2.5 px-4 text-slate-700 font-semibold">26.7 °C</td>
+                      <td class="py-2.5 px-4 text-indigo-700 font-bold">40</td>
+                      <td class="py-2.5 px-4 text-purple-700 font-bold">38</td>
+                      <td class="py-2.5 px-4 text-right"><span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">Operativo</span></td>
+                    </tr>
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                      <td class="py-2.5 px-4 font-bold text-slate-800">14:10:00</td>
+                      <td class="py-2.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold">7.32</span></td>
+                      <td class="py-2.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold">2.05 NTU</span></td>
+                      <td class="py-2.5 px-4 text-slate-700 font-semibold">26.6 °C</td>
+                      <td class="py-2.5 px-4 text-indigo-700 font-bold">38</td>
+                      <td class="py-2.5 px-4 text-purple-700 font-bold">37</td>
+                      <td class="py-2.5 px-4 text-right"><span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">Operativo</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+        </main>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- SCRIPT PARA DESCARGA DE MOCKUP EN PNG ALTA RESOLUCIÓN -->
+  <script>
+    let conMarco = true;
+    function toggleMarco() {
+      conMarco = !conMarco;
+      const bar = document.getElementById('browser-bar');
+      const wrapper = document.getElementById('mockup-frame-wrapper');
+      if (!conMarco) {
+        bar.style.display = 'none';
+        wrapper.className = 'w-full max-w-7xl p-0 rounded-none bg-transparent shadow-none border-none';
+      } else {
+        bar.style.display = 'flex';
+        wrapper.className = 'w-full max-w-7xl p-3 md:p-6 rounded-3xl bg-gradient-to-br from-slate-800/80 via-slate-900 to-blue-950/70 border border-slate-700/60 shadow-2xl';
+      }
+    }
+
+    async function descargarMockup() {
+      const btn = document.getElementById('btnCapturar');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = `<span class="animate-spin inline-block mr-2">⏳</span> Procesando imagen HD...`;
+      btn.disabled = true;
+
+      try {
+        const elemento = conMarco ? document.getElementById('mockup-frame-wrapper') : document.getElementById('mockup-canvas');
+        
+        const canvas = await html2canvas(elemento, {
+          scale: 2, // 2x para resolución retina / ultra nítida en Word
+          useCORS: true,
+          backgroundColor: conMarco ? null : '#ffffff'
+        });
+
+        const enlace = document.createElement('a');
+        enlace.download = 'Mockup_Dashboard_Playa_Azul.png';
+        enlace.href = canvas.toDataURL('image/png');
+        enlace.click();
+      } catch (err) {
+        alert('Ocurrió un error al generar la imagen: ' + err.message);
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe Mockup - Inicio de Sesión (Playa Azul)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Comic Neue & Georgia -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    .wf-font {
+      font-family: 'Comic Neue', 'Plus Jakarta Sans', sans-serif;
+    }
+    .wf-serif {
+      font-family: 'Georgia', serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-200 text-slate-900 min-h-screen p-4 md:p-8 flex flex-col items-center wf-font">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR -->
+  <div class="w-full max-w-[1000px] mb-4 flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 rounded-xl border-2 border-slate-800 shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold uppercase tracking-wide bg-slate-900 text-white px-2.5 py-1 rounded">Wireframe / Boceto</span>
+      <span class="text-xs text-slate-700 font-semibold">Prototipo Fiel al Sistema Real · Inicio de Sesión (SignIn.jsx)</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button id="btnDescargar" onclick="descargarWireframe()" class="px-4 py-2 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-lg border-2 border-slate-900 shadow transition-all flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        Descargar Imagen PNG (Wireframe Login)
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR WIREFRAME ESTILO BALSAMIQ -->
+  <div id="wireframe-container" class="w-full max-w-[1000px] bg-white border-2 border-slate-900 shadow-2xl p-0 overflow-hidden">
+    
+    <!-- BARRA DE NAVEGADOR WIREFRAME -->
+    <div class="border-b-2 border-slate-900 bg-slate-100 px-3 py-2 flex items-center justify-between gap-3 text-slate-800 select-none">
+      <div class="flex items-center gap-3">
+        <span class="text-lg font-bold">&larr;</span>
+        <span class="text-lg font-bold">&rarr;</span>
+        <span class="text-base font-bold">&#x21bb;</span>
+        <svg class="w-4 h-4 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      </div>
+
+      <div class="flex-1 bg-white border-2 border-slate-800 px-3 py-1 rounded text-xs flex items-center justify-between">
+        <span class="font-mono text-slate-800">http://sistema-piscina.playa-azul/auth/login</span>
+        <span class="text-[10px] text-slate-500 font-bold">100%</span>
+      </div>
+
+      <div class="hidden sm:block text-xs font-bold text-slate-800">
+        [ Playa Azul - Iniciar Sesión ]
+      </div>
+    </div>
+
+    <!-- CUERPO EXACTO DE SIGNIN.JSX -->
+    <div class="grid grid-cols-1 md:grid-cols-2 min-h-[500px]">
+      
+      <!-- LADO IZQUIERDO: login-art -->
+      <div class="p-8 md:p-14 border-b-2 md:border-b-0 md:border-r-2 border-slate-900 bg-slate-100 flex flex-col justify-center relative overflow-hidden">
+        <!-- Círculo decorativo de fondo como en el CSS real -->
+        <div class="absolute -right-20 -bottom-20 w-72 h-72 rounded-full border-2 border-dashed border-slate-300 pointer-events-none"></div>
+
+        <div class="relative z-10 space-y-4">
+          <span class="text-xs font-bold uppercase tracking-widest text-slate-600 block">
+            PLAYA AZUL / OPERACIONES
+          </span>
+
+          <h1 class="text-3xl md:text-5xl font-bold wf-serif text-slate-900 leading-tight">
+            El agua, bajo control.
+          </h1>
+
+          <p class="text-sm text-slate-600 max-w-sm leading-relaxed">
+            Monitoreo inteligente y operación clara para una piscina siempre lista.
+          </p>
+
+          <!-- Barra horizontal decorativa (.pool-lines del sistema real) -->
+          <div class="w-24 h-1.5 bg-slate-800 rounded mt-8"></div>
+        </div>
+      </div>
+
+      <!-- LADO DERECHO: login-card (Formulario Real) -->
+      <div class="p-8 md:p-14 bg-white flex flex-col justify-center">
+        <div class="max-w-sm mx-auto w-full space-y-6">
+          
+          <!-- BRAND (.brand .login-brand) -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 border-2 border-slate-900 rounded flex items-center justify-center font-black text-sm bg-slate-100">
+              PA
+            </div>
+            <div>
+              <strong class="text-base font-black text-slate-900 block leading-tight">Playa Azul</strong>
+              <small class="text-[10px] text-slate-500 font-bold uppercase tracking-widest block">CONTROL CENTER</small>
+            </div>
+          </div>
+
+          <!-- ENCABEZADO DEL FORMULARIO -->
+          <div class="space-y-1">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500 block">
+              BIENVENIDO DE VUELTA
+            </span>
+            <h2 class="text-3xl font-bold wf-serif text-slate-900">
+              Inicia sesión
+            </h2>
+            <p class="text-xs text-slate-500">
+              Accede a tu centro de operaciones.
+            </p>
+          </div>
+
+          <!-- FORMULARIO EXACTO (.form) -->
+          <form class="space-y-4">
+            
+            <!-- Campo Correo -->
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Correo
+              </label>
+              <div class="w-full border-2 border-slate-800 bg-white rounded p-3 text-xs text-slate-400 font-mono">
+                ejemplo@playa-azul.com
+              </div>
+            </div>
+
+            <!-- Campo Contraseña con "¿Olvidaste tu contraseña?" -->
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <label class="text-[11px] font-bold uppercase tracking-wider text-slate-700">
+                  Contraseña
+                </label>
+                <span class="text-xs text-slate-600 font-bold underline cursor-pointer hover:text-black">
+                  ¿Olvidaste tu contraseña?
+                </span>
+              </div>
+              <div class="w-full border-2 border-slate-800 bg-white rounded p-3 text-xs text-slate-700 font-mono tracking-widest">
+                ••••••••••••
+              </div>
+            </div>
+
+            <!-- Botón primario -->
+            <button type="button" class="w-full py-3 px-4 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded border-2 border-slate-900 shadow flex items-center justify-center gap-2 tracking-wide">
+              <span>Entrar al panel</span>
+              <span class="text-sm font-bold">&rarr;</span>
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PIE DEL WIREFRAME -->
+    <div class="border-t-2 border-slate-900 bg-slate-100 p-2 text-center text-[10px] text-slate-700 font-bold">
+      Figura: Prototipo de Interfaz de Usuario (Wireframe) · Inicio de Sesión
+    </div>
+
+  </div>
+
+  <!-- SCRIPT PARA DESCARGAR EN PNG -->
+  <script>
+    async function descargarWireframe() {
+      const btn = document.getElementById('btnDescargar');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = `Generando PNG...`;
+      btn.disabled = true;
+
+      try {
+        const elemento = document.getElementById('wireframe-container');
+        const canvas = await html2canvas(elemento, {
+          scale: 2,
+          backgroundColor: '#ffffff'
+        });
+
+        const enlace = document.createElement('a');
+        enlace.download = 'Mockup_Wireframe_Inicio_Sesion.png';
+        enlace.href = canvas.toDataURL('image/png');
+        enlace.click();
+      } catch (err) {
+        alert('Error al descargar: ' + err.message);
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 980" width="960" height="980" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ebebeb" stroke-width="0.8" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#d8d8d8" stroke-width="1.2" />
+    </pattern>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#222222" />
+    </marker>
+  </defs>
+
+  <rect id="bgRect" width="100%" height="100%" fill="url(#grid)" />
+
+  <text x="480" y="36" text-anchor="middle" font-size="16" font-weight="800" fill="#222222" letter-spacing="0.5">
+    DIAGRAMA DE ACTIVIDADES: AUTENTICACIÓN Y CONTROL DE ACCESO (UML 2.5)
+  </text>
+
+  <!-- SWIMLANES -->
+  <g id="swimlanes-headers">
+    <!-- Col 1: Usuario -->
+    <rect x="30" y="55" width="205" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="132" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">USUARIO DEL SISTEMA</text>
+
+    <!-- Col 2: Frontend -->
+    <rect x="235" y="55" width="235" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="352" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">FRONTEND (LOGIN / SIGNIN)</text>
+
+    <!-- Col 3: Backend -->
+    <rect x="470" y="55" width="240" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="590" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">BACKEND (API FASTAPI)</text>
+
+    <!-- Col 4: Base de Datos -->
+    <rect x="710" y="55" width="220" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="820" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">BASE DE DATOS (POSTGRESQL)</text>
+  </g>
+
+  <!-- Líneas divisorias -->
+  <line x1="30" y1="93" x2="30" y2="940" stroke="#222222" stroke-width="2" />
+  <line x1="235" y1="93" x2="235" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="470" y1="93" x2="470" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="710" y1="93" x2="710" y2="940" stroke="#222222" stroke-width="1.8" />
+  <line x1="930" y1="93" x2="930" y2="940" stroke="#222222" stroke-width="2" />
+  <line x1="30" y1="940" x2="930" y2="940" stroke="#222222" stroke-width="2" />
+
+  <!-- ─── FLUJO ─── -->
+  <!-- 1. INICIO -->
+  <circle cx="132" cy="125" r="14" fill="#222222" />
+  <line x1="132" y1="139" x2="132" y2="170" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 1 (Usuario): Ingresar correo y contraseña -->
+  <g id="act-1">
+    <rect x="48" y="170" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="133" y="193" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Ingresar credenciales</text>
+    <text x="133" y="209" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">(Correo y Contraseña)</text>
+  </g>
+
+  <!-- Flujo a Frontend -->
+  <line x1="218" y1="196" x2="265" y2="196" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 2 (Frontend): Validar formato y POST -->
+  <g id="act-2">
+    <rect x="265" y="170" width="175" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="352" y="193" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Validar campos y enviar</text>
+    <text x="352" y="209" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">POST /auth/login</text>
+  </g>
+
+  <!-- Flujo a Backend -->
+  <line x1="440" y1="196" x2="505" y2="196" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 3 (Backend): Buscar en BD -->
+  <g id="act-3">
+    <rect x="505" y="170" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="590" y="193" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Consultar registro</text>
+    <text x="590" y="209" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">de usuario por correo</text>
+  </g>
+
+  <!-- Flujo a BD -->
+  <line x1="675" y1="196" x2="745" y2="196" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 4 (BD): Retornar hash -->
+  <g id="act-4">
+    <rect x="745" y="170" width="155" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="822" y="193" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Retornar hash pass,</text>
+    <text x="822" y="209" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">rol y estado activo</text>
+  </g>
+
+  <!-- Retorno a Backend para validación hash -->
+  <path d="M 745 208 L 675 208 L 675 255 L 590 255" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Decisión 1: ¿Credenciales correctas? -->
+  <g id="dec-1">
+    <polygon points="590,255 658,290 590,325 522,290" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="590" y="286" text-anchor="middle" font-size="10" font-weight="800" fill="#222222">¿Contraseña y</text>
+    <text x="590" y="299" text-anchor="middle" font-size="10" font-weight="800" fill="#222222">estado válidos?</text>
+  </g>
+
+  <!-- Rama No: Error -->
+  <line x1="522" y1="290" x2="352" y2="290" stroke="#222222" stroke-width="1.8" />
+  <line x1="352" y1="290" x2="352" y2="340" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="470" y="282" font-size="11" font-weight="800" fill="#b91c1c">[ No ]</text>
+
+  <!-- Actividad Error en Frontend -->
+  <g id="act-err">
+    <rect x="265" y="340" width="175" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="352" y="361" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Desplegar notificación:</text>
+    <text x="352" y="376" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">"Credenciales incorrectas"</text>
+  </g>
+
+  <!-- Rama Sí: Registrar log y generar token -->
+  <line x1="590" y1="325" x2="590" y2="370" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="600" y="345" font-size="11" font-weight="800" fill="#15803d">[ Sí ]</text>
+
+  <!-- Actividad 5 (Backend): Generar JWT y auditoría -->
+  <g id="act-5">
+    <rect x="505" y="370" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="590" y="392" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Generar token JWT y registrar</text>
+    <text x="590" y="408" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">LOGIN_SUCCESS en logs</text>
+  </g>
+
+  <line x1="590" y1="422" x2="590" y2="460" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Decisión 2: ¿Requiere 2FA o cambio pass? -->
+  <g id="dec-2">
+    <polygon points="590,460 658,495 590,530 522,495" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="590" y="491" text-anchor="middle" font-size="10" font-weight="800" fill="#222222">¿Requiere 2FA ó</text>
+    <text x="590" y="504" text-anchor="middle" font-size="10" font-weight="800" fill="#222222">cambio de pass?</text>
+  </g>
+
+  <!-- Rama Sí: Redirigir a 2FA / Cambio -->
+  <line x1="658" y1="495" x2="745" y2="495" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="675" y="487" font-size="11" font-weight="800" fill="#3b82f6">[ Sí ]</text>
+
+  <g id="act-2fa">
+    <rect x="745" y="470" width="155" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="822" y="491" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Solicitar código 2FA</text>
+    <text x="822" y="506" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">o cambio de clave</text>
+  </g>
+
+  <!-- Rama No: Acceso directo -->
+  <line x1="522" y1="495" x2="440" y2="495" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="475" y="487" font-size="11" font-weight="800" fill="#15803d">[ No ]</text>
+
+  <!-- Actividad 6 (Frontend): Redirigir según rol -->
+  <g id="act-6">
+    <rect x="265" y="470" width="175" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="352" y="492" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Guardar sesión y redirigir</text>
+    <text x="352" y="508" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">a dashboard según rol</text>
+  </g>
+
+  <!-- Flujo a Usuario -->
+  <line x1="265" y1="496" x2="218" y2="496" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Actividad 7 (Usuario): Acceso concedido -->
+  <g id="act-7">
+    <rect x="48" y="470" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="133" y="492" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Visualizar módulos</text>
+    <text x="133" y="508" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">autorizados en el menú</text>
+  </g>
+
+  <!-- Merge y fin -->
+  <line x1="133" y1="522" x2="133" y2="600" stroke="#222222" stroke-width="1.8" />
+  <line x1="352" y1="390" x2="352" y2="600" stroke="#222222" stroke-width="1.8" />
+  <line x1="133" y1="600" x2="352" y2="600" stroke="#222222" stroke-width="1.8" />
+
+  <line x1="133" y1="600" x2="133" y2="650" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Rombo de Unión -->
+  <polygon points="133,650 158,670 133,690 108,670" fill="#ffffff" stroke="#222222" stroke-width="2" />
+  <line x1="133" y1="690" x2="133" y2="740" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- NODO FINAL -->
+  <g id="nodo-final" transform="translate(133, 765)">
+    <circle cx="0" cy="0" r="16" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <circle cx="0" cy="0" r="10" fill="#222222" />
+  </g>
+  <text x="133" y="800" text-anchor="middle" font-size="11" font-weight="700" fill="#222222">Fin de Autenticación</text>
+
+</svg>

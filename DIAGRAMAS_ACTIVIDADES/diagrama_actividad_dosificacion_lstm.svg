@@ -125,15 +125,15 @@
     <text x="820" y="483" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">calcular dosis en gramos</text>
   </g>
 
-  <!-- Retorno a Backend -->
-  <path d="M 735 471 L 680 471 L 680 535 L 640 535" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
-
   <!-- Actividad 7 (Backend): Guardar dosis sugerida -->
   <g id="act-7">
     <rect x="495" y="510" width="175" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
     <text x="582" y="532" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Guardar dosis recomendada</text>
     <text x="582" y="548" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">(Aluminio, Cobre, Cloro)</text>
   </g>
+
+  <!-- Retorno a Backend -->
+  <path d="M 735 471 L 685 471 L 685 536 L 670 536" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- Flujo hacia Frontend -->
   <line x1="495" y1="536" x2="425" y2="536" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
@@ -150,18 +150,18 @@
 
   <!-- Actividad 9 (Operador): Revisar y aplicar -->
   <g id="act-9">
-    <rect x="45" y="510" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
-    <text x="130" y="532" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Verificar sugerencia y</text>
-    <text x="130" y="548" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">aplicar reactivos en piscina</text>
+    <rect x="52" y="510" width="163" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="133" y="532" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Verificar sugerencia y</text>
+    <text x="133" y="548" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">aplicar reactivos en piscina</text>
   </g>
 
-  <line x1="130" y1="562" x2="130" y2="605" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <line x1="133" y1="562" x2="133" y2="605" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- Actividad 10 (Operador): Confirmar aplicación -->
   <g id="act-10">
-    <rect x="45" y="605" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
-    <text x="130" y="627" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Registrar confirmación de</text>
-    <text x="130" y="643" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">aplicación de químicos</text>
+    <rect x="52" y="605" width="163" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="133" y="627" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Registrar confirmación de</text>
+    <text x="133" y="643" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">aplicación de químicos</text>
   </g>
 
   <!-- Flujo a Backend para descontar inventario -->
@@ -174,15 +174,13 @@
     <text x="582" y="643" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">en inventario de insumos</text>
   </g>
 
-  <!-- Join hacia fin -->
-  <line x1="582" y1="657" x2="582" y2="720" stroke="#222222" stroke-width="1.8" />
-  <line x1="342" y1="390" x2="342" y2="720" stroke="#222222" stroke-width="1.8" />
-  <line x1="342" y1="720" x2="582" y2="720" stroke="#222222" stroke-width="1.8" />
-
-  <line x1="582" y1="720" x2="582" y2="760" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
-
   <!-- Rombo de Unión -->
   <polygon points="582,760 607,780 582,800 557,780" fill="#ffffff" stroke="#222222" stroke-width="2" />
+
+  <!-- Conexiones al Rombo de Unión sin cruzar cajas ni flechas -->
+  <line x1="582" y1="657" x2="582" y2="760" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <path d="M 342 390 L 342 430 L 38 430 L 38 780 L 557 780" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
   <line x1="582" y1="800" x2="582" y2="850" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- NODO FINAL -->

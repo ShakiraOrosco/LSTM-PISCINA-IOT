@@ -66,7 +66,7 @@
   </g>
 
   <!-- Flujo a Admin para llenado -->
-  <path d="M 265 210 L 132 210 L 132 255" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <path d="M 352 222 L 352 238 L 133 238 L 133 255" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- Actividad 3 (Admin): Ingresar datos -->
   <g id="act-3">
@@ -155,14 +155,13 @@
     <text x="352" y="648" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">tabla de usuarios activos</text>
   </g>
 
-  <!-- Join hacia fin -->
-  <line x1="352" y1="662" x2="352" y2="720" stroke="#222222" stroke-width="1.8" />
-  <line x1="352" y1="570" x2="352" y2="720" stroke="#222222" stroke-width="1.8" />
-
-  <line x1="352" y1="720" x2="352" y2="760" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
-
   <!-- Rombo de Unión -->
   <polygon points="352,760 377,780 352,800 327,780" fill="#ffffff" stroke="#222222" stroke-width="2" />
+
+  <!-- Conexiones al Rombo de Unión sin cruzar act-9 -->
+  <line x1="352" y1="662" x2="352" y2="760" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <path d="M 265 545 L 248 545 L 248 780 L 327 780" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
   <line x1="352" y1="800" x2="352" y2="850" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- NODO FINAL -->

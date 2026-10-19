@@ -1,0 +1,463 @@
+<mxfile host="app.diagrams.net" modified="2026-10-19T16:52:00.000Z" agent="Antigravity" version="24.7.17" type="device">
+  <diagram id="cu-all-one-page" name="0. Todos CU en 1 Hoja">
+<mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="2300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cu1-act" value="Operador&lt;br&gt;del sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="90" y="290" width="60" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cu1-main" value="Predecir dosificación&lt;br&gt;con modelo LSTM" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=15;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="280" y="315" width="190" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cu1-r0" value="" style="endArrow=block;endFill=1;html=1;strokeWidth=2;strokeColor=#222222;" edge="1" parent="1" source="cu1-act" target="cu1-main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu1-cu1" value="ejecutar modelo&lt;br&gt;predictivo LSTM" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="65" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu1-re1" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu1-main" target="cu1-cu1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu1-cu2" value="calcular dosis&lt;br&gt;sulfato de aluminio" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="235" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu1-re2" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu1-main" target="cu1-cu2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu1-cu3" value="calcular dosis&lt;br&gt;sulfato de cobre" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="405" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu1-re3" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu1-main" target="cu1-cu3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu1-cu4" value="calcular dosis&lt;br&gt;cloro residual" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="575" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu1-re4" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu1-main" target="cu1-cu4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu2-act" value="Administrador&lt;br&gt;del sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="990" y="290" width="60" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cu2-main" value="Administrar&lt;br&gt;usuarios" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=15;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="315" width="190" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cu2-r0" value="" style="endArrow=block;endFill=1;html=1;strokeWidth=2;strokeColor=#222222;" edge="1" parent="1" source="cu2-act" target="cu2-main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu2-cu1" value="aumentar&lt;br&gt;usuarios" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="65" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu2-re1" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu2-main" target="cu2-cu1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu2-cu2" value="modificar&lt;br&gt;usuario" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="235" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu2-re2" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu2-main" target="cu2-cu2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu2-cu3" value="eliminar&lt;br&gt;usuario" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="405" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu2-re3" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu2-main" target="cu2-cu3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu2-cu4" value="consultar&lt;br&gt;usuario" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="575" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu2-re4" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu2-main" target="cu2-cu4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu3-act" value="Operador&lt;br&gt;del sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="90" y="1050" width="60" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cu3-main" value="Monitorear&lt;br&gt;calidad del agua" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=15;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="280" y="1075" width="190" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cu3-r0" value="" style="endArrow=block;endFill=1;html=1;strokeWidth=2;strokeColor=#222222;" edge="1" parent="1" source="cu3-act" target="cu3-main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu3-cu1" value="visualizar lecturas&lt;br&gt;en tiempo real" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="825" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu3-re1" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu3-main" target="cu3-cu1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu3-cu2" value="consultar gráficos&lt;br&gt;históricos" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="995" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu3-re2" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu3-main" target="cu3-cu2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu3-cu3" value="recibir alertas&lt;br&gt;fuera de rango" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="1165" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu3-re3" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu3-main" target="cu3-cu3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu3-cu4" value="verificar estado&lt;br&gt;nodo sensor ESP32" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="1335" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu3-re4" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu3-main" target="cu3-cu4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu4-act" value="Cajero&lt;br&gt;del sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="990" y="1050" width="60" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cu4-main" value="Controlar aforo&lt;br&gt;e ingresos de caja" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=15;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="1075" width="190" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cu4-r0" value="" style="endArrow=block;endFill=1;html=1;strokeWidth=2;strokeColor=#222222;" edge="1" parent="1" source="cu4-act" target="cu4-main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu4-cu1" value="registrar ingreso&lt;br&gt;de bañistas" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="825" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu4-re1" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu4-main" target="cu4-cu1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu4-cu2" value="consultar aforo&lt;br&gt;en tiempo real" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="995" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu4-re2" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu4-main" target="cu4-cu2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu4-cu3" value="detectar aforo&lt;br&gt;con cámara IA" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="1165" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu4-re3" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu4-main" target="cu4-cu3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu4-cu4" value="consultar historial&lt;br&gt;de recaudación" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="1335" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu4-re4" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu4-main" target="cu4-cu4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu5-act" value="Administrador&lt;br&gt;del sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="90" y="1810" width="60" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cu5-main" value="Gestionar inventario&lt;br&gt;de químicos" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=15;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="280" y="1835" width="190" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cu5-r0" value="" style="endArrow=block;endFill=1;html=1;strokeWidth=2;strokeColor=#222222;" edge="1" parent="1" source="cu5-act" target="cu5-main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu5-cu1" value="registrar compra&lt;br&gt;de químicos" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="1585" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu5-re1" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu5-main" target="cu5-cu1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu5-cu2" value="registrar nuevo&lt;br&gt;químico insumo" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="1755" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu5-re2" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu5-main" target="cu5-cu2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu5-cu3" value="consultar existencias&lt;br&gt;y stock mínimo" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="1925" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu5-re3" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu5-main" target="cu5-cu3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu5-cu4" value="consultar historial&lt;br&gt;de movimientos" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="2095" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu5-re4" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu5-main" target="cu5-cu4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu6-act" value="Administrador&lt;br&gt;del sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="990" y="1810" width="60" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cu6-main" value="Auditar eventos&lt;br&gt;del sistema" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=15;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="1835" width="190" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cu6-r0" value="" style="endArrow=block;endFill=1;html=1;strokeWidth=2;strokeColor=#222222;" edge="1" parent="1" source="cu6-act" target="cu6-main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu6-cu1" value="consultar bitácora&lt;br&gt;de actividad" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="1585" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu6-re1" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu6-main" target="cu6-cu1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu6-cu2" value="filtrar logs por&lt;br&gt;usuario o módulo" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="1755" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu6-re2" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu6-main" target="cu6-cu2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu6-cu3" value="visualizar payload&lt;br&gt;JSON de cambios" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="1925" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu6-re3" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu6-main" target="cu6-cu3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cu6-cu4" value="actualizar registros&lt;br&gt;en tiempo real" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="2095" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu6-re4" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu6-main" target="cu6-cu4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="cu-prediccion-lstm" name="1. Predicción LSTM">
+    <mxGraphModel dx="1050" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="actor-operador" value="Operador&lt;br&gt;del sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="90" y="290" width="60" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-principal" value="Predecir dosificación&lt;br&gt;con modelo LSTM" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=15;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="280" y="315" width="190" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-1" value="ejecutar modelo&lt;br&gt;predictivo LSTM" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="65" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-2" value="calcular dosis&lt;br&gt;sulfato de aluminio" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="235" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-3" value="calcular dosis&lt;br&gt;sulfato de cobre" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="405" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-4" value="calcular dosis&lt;br&gt;cloro residual" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="575" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-actor" value="" style="endArrow=block;endFill=1;html=1;strokeWidth=2;strokeColor=#222222;" edge="1" parent="1" source="actor-operador" target="cu-principal">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-ext-1" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-principal" target="cu-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-ext-2" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-principal" target="cu-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-ext-3" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-principal" target="cu-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-ext-4" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-principal" target="cu-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="cu-general" name="2. General del Sistema">
+    <mxGraphModel dx="1100" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sys-box" value="SISTEMA INTELIGENTE DE MONITOREO Y DOSIFICACIÓN &quot;PLAYA AZUL&quot;" style="swimlane;startSize=40;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;rounded=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="220" y="40" width="560" height="720" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-login" value="Autenticar Usuario / Login" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=13;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="sys-box">
+          <mxGeometry x="185" y="55" width="190" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-usuarios" value="Administrar Usuarios y Roles" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=13;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="sys-box">
+          <mxGeometry x="185" y="145" width="190" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-monitoreo" value="Monitorear Parámetros&lt;br&gt;Fisicoquímicos del Agua" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="sys-box">
+          <mxGeometry x="180" y="235" width="200" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-lstm" value="Predecir Dosificación&lt;br&gt;con Red Neuronal LSTM" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="sys-box">
+          <mxGeometry x="180" y="325" width="200" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-caja" value="Registrar Ingresos en Caja&lt;br&gt;y Controlar Aforo de Bañistas" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="sys-box">
+          <mxGeometry x="180" y="415" width="200" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-inventario" value="Gestionar Inventario&lt;br&gt;y Compras de Químicos" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="sys-box">
+          <mxGeometry x="180" y="505" width="200" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-auditoria" value="Auditar Bitácora de Eventos" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=13;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="sys-box">
+          <mxGeometry x="185" y="595" width="190" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-admin" value="Administrador" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=12;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="55" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-operador" value="Operador" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=12;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="60" y="340" width="55" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-cajero" value="Cajero" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=12;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="60" y="570" width="55" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-esp32" value="&amp;lt;&amp;lt;device&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;ESP32 IoT&lt;/b&gt;&lt;br&gt;Nodo Sensor" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=11;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="860" y="265" width="100" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-camara" value="&amp;lt;&amp;lt;system&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;YOLOv8&lt;/b&gt;&lt;br&gt;Cámara IA" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=11;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="860" y="455" width="100" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#222222;" edge="1" parent="1" source="actor-admin" target="cu-login"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#222222;" edge="1" parent="1" source="actor-admin" target="cu-usuarios"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#222222;" edge="1" parent="1" source="actor-admin" target="cu-inventario"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#222222;" edge="1" parent="1" source="actor-admin" target="cu-auditoria"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#222222;" edge="1" parent="1" source="actor-operador" target="cu-login"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#222222;" edge="1" parent="1" source="actor-operador" target="cu-monitoreo"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#222222;" edge="1" parent="1" source="actor-operador" target="cu-lstm"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#222222;" edge="1" parent="1" source="actor-operador" target="cu-inventario"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#222222;" edge="1" parent="1" source="actor-cajero" target="cu-login"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#222222;" edge="1" parent="1" source="actor-cajero" target="cu-caja"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#222222;" edge="1" parent="1" source="actor-esp32" target="cu-monitoreo"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#222222;" edge="1" parent="1" source="actor-camara" target="cu-caja"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="cu-gestion-usuarios" name="3. Gestión Usuarios">
+    <mxGraphModel dx="1050" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="actor" value="Administrador&lt;br&gt;del sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="90" y="290" width="60" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-main" value="Administrar&lt;br&gt;usuarios" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=15;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="280" y="315" width="180" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-1" value="aumentar&lt;br&gt;usuarios" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="65" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-2" value="modificar&lt;br&gt;usuario" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="235" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-3" value="eliminar&lt;br&gt;usuario" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="405" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-4" value="consultar&lt;br&gt;usuario" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="575" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="r0" value="" style="endArrow=block;endFill=1;html=1;strokeWidth=2;strokeColor=#222222;" edge="1" parent="1" source="actor" target="cu-main"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r1" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r2" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r3" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r4" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-4"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="cu-monitoreo" name="4. Monitoreo Sensores">
+    <mxGraphModel dx="1050" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="actor" value="Operador&lt;br&gt;del sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="90" y="290" width="60" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-main" value="Monitorear&lt;br&gt;calidad del agua" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=15;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="280" y="315" width="185" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-1" value="visualizar lecturas&lt;br&gt;en tiempo real" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="65" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-2" value="consultar gráficos&lt;br&gt;históricos" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="235" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-3" value="recibir alertas&lt;br&gt;fuera de rango" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="405" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-4" value="verificar estado&lt;br&gt;nodo sensor ESP32" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="575" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="r0" value="" style="endArrow=block;endFill=1;html=1;strokeWidth=2;strokeColor=#222222;" edge="1" parent="1" source="actor" target="cu-main"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r1" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r2" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r3" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r4" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-4"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="cu-caja-aforo" name="5. Caja y Aforo">
+    <mxGraphModel dx="1050" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="actor" value="Cajero&lt;br&gt;del sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="90" y="290" width="60" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-main" value="Controlar aforo&lt;br&gt;e ingresos de caja" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=15;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="280" y="315" width="185" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-1" value="registrar ingreso&lt;br&gt;de bañistas" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="65" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-2" value="consultar aforo&lt;br&gt;en tiempo real" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="235" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-3" value="detectar aforo&lt;br&gt;con cámara IA" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="405" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-4" value="consultar historial&lt;br&gt;de recaudación" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="575" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="r0" value="" style="endArrow=block;endFill=1;html=1;strokeWidth=2;strokeColor=#222222;" edge="1" parent="1" source="actor" target="cu-main"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r1" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r2" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r3" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r4" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-4"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="cu-inventario" name="6. Inventario Químicos">
+    <mxGraphModel dx="1050" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="actor" value="Administrador&lt;br&gt;del sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="90" y="290" width="60" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-main" value="Gestionar inventario&lt;br&gt;de químicos" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=15;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="280" y="315" width="188" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-1" value="registrar compra&lt;br&gt;de químicos" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="65" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-2" value="registrar nuevo&lt;br&gt;químico insumo" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="235" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-3" value="consultar existencias&lt;br&gt;y stock mínimo" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="405" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-4" value="consultar historial&lt;br&gt;de movimientos" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="575" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="r0" value="" style="endArrow=block;endFill=1;html=1;strokeWidth=2;strokeColor=#222222;" edge="1" parent="1" source="actor" target="cu-main"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r1" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r2" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r3" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r4" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-4"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="cu-auditoria" name="7. Auditoría y Logs">
+    <mxGraphModel dx="1050" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="actor" value="Administrador&lt;br&gt;del sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="90" y="290" width="60" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-main" value="Auditar eventos&lt;br&gt;del sistema" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=15;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="280" y="315" width="185" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-1" value="consultar bitácora&lt;br&gt;de actividad" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="65" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-2" value="filtrar logs por&lt;br&gt;usuario o módulo" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="235" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-3" value="visualizar payload&lt;br&gt;JSON de cambios" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="405" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="cu-4" value="actualizar registros&lt;br&gt;en tiempo real" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;strokeColor=#222222;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="575" width="176" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="r0" value="" style="endArrow=block;endFill=1;html=1;strokeWidth=2;strokeColor=#222222;" edge="1" parent="1" source="actor" target="cu-main"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r1" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r2" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r3" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r4" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;strokeWidth=1.8;strokeColor=#222222;fontSize=12;fontStyle=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cu-main" target="cu-4"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

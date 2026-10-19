@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe Mockup - Modal Editar Usuario (Playa Azul)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Comic Neue & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .wf-font {
+      font-family: 'Comic Neue', 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-200 text-slate-900 min-h-screen p-4 md:p-8 flex flex-col items-center wf-font">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR -->
+  <div class="w-full max-w-[1000px] mb-4 flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 rounded-xl border-2 border-slate-800 shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold uppercase tracking-wide bg-slate-900 text-white px-2.5 py-1 rounded">Wireframe / Boceto</span>
+      <span class="text-xs text-slate-700 font-semibold">Prototipo Exacto al Código · Formulario Modal Editar Usuario (<code class="bg-slate-100 px-1 py-0.5 rounded font-mono">UserModal / Users/index.jsx</code>)</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold text-slate-600 bg-slate-100 border border-slate-300 px-3 py-1 rounded-lg">Fiel al Sistema Real</span>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR WIREFRAME ESTILO BALSAMIQ -->
+  <div id="wireframe-container" class="w-full max-w-[1000px] bg-white border-2 border-slate-900 shadow-2xl p-0 overflow-hidden relative">
+    
+    <!-- BARRA DE NAVEGADOR WIREFRAME -->
+    <div class="border-b-2 border-slate-900 bg-slate-100 px-3 py-2 flex items-center justify-between gap-3 text-slate-800 select-none">
+      <div class="flex items-center gap-3">
+        <span class="text-lg font-bold">&larr;</span>
+        <span class="text-lg font-bold">&rarr;</span>
+        <span class="text-base font-bold">&#x21bb;</span>
+        <svg class="w-4 h-4 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      </div>
+
+      <div class="flex-1 bg-white border-2 border-slate-800 px-3 py-1 rounded text-xs flex items-center justify-between">
+        <span class="font-mono text-slate-800">http://sistema-piscina.playa-azul/users?action=edit&id=2</span>
+        <span class="text-[10px] text-slate-500 font-bold">100%</span>
+      </div>
+
+      <div class="hidden sm:block text-xs font-bold text-slate-800">
+        [ Playa Azul - Editar Usuario ]
+      </div>
+    </div>
+
+    <!-- CUERPO PRINCIPAL CON FONDO DE ADMINISTRACIÓN DE USUARIOS ATENUADO -->
+    <div class="relative min-h-[600px]">
+      
+      <!-- FONDO ATENUADO: ESTRUCTURA REAL DE USERS/INDEX.JSX -->
+      <div class="flex flex-col md:flex-row opacity-35 select-none pointer-events-none">
+        
+        <!-- Sidebar atenuado -->
+        <aside class="w-48 border-r-2 border-slate-400 bg-white p-3 space-y-4 shrink-0 hidden md:block">
+          <div class="border-2 border-slate-400 p-2 text-center rounded bg-slate-50">
+            <div class="font-black text-xs">[ PLAYA AZUL ]</div>
+            <div class="text-[8px] text-slate-500">Control & IoT</div>
+          </div>
+          <div class="space-y-1 text-[11px]">
+            <div class="p-1.5 border border-slate-300 rounded">📊 Dashboard</div>
+            <div class="p-1.5 border border-slate-300 rounded">🎟️ Caja</div>
+            <div class="p-1.5 border border-slate-300 rounded">📦 Inventario</div>
+            <div class="p-1.5 border-2 border-slate-500 bg-slate-200 font-bold rounded">👥 Usuarios</div>
+            <div class="p-1.5 border border-slate-300 rounded">📑 Auditoría</div>
+          </div>
+        </aside>
+
+        <!-- Contenido atenuado: Lista de usuarios -->
+        <main class="flex-1 p-6 space-y-5 bg-slate-50">
+          <div class="flex items-center justify-between border-b-2 border-slate-300 pb-3">
+            <div>
+              <h2 class="text-xl font-black text-slate-700">Administración de Usuarios</h2>
+              <p class="text-[11px] text-slate-500">Gestiona los accesos y permisos del equipo operativo.</p>
+            </div>
+            <span class="px-3 py-1.5 rounded bg-blue-400 text-white text-xs font-bold">+ Nuevo Usuario</span>
+          </div>
+
+          <!-- Tabla de usuarios atenuada -->
+          <div class="border-2 border-slate-300 rounded-xl p-4 bg-white space-y-3">
+            <div class="flex justify-between text-xs font-bold text-slate-600">
+              <span>Lista de Usuarios</span>
+              <span>3 usuarios</span>
+            </div>
+            
+            <div class="space-y-2 text-xs">
+              <div class="flex items-center justify-between p-2 border-b border-slate-200">
+                <span class="font-bold">Shakira Orosco (shakira@playa-azul.com)</span>
+                <span class="text-slate-500">Administrador (ADM)</span>
+                <span class="text-emerald-600 font-bold">Activo</span>
+                <span class="text-blue-600 font-bold">Editar | Eliminar</span>
+              </div>
+              <div class="flex items-center justify-between p-2 border-2 border-blue-400 bg-blue-50/50 rounded">
+                <span class="font-bold text-slate-900">Carlos Mendoza Vargas (carlos.mendoza@playa-azul.com)</span>
+                <span class="font-bold text-slate-700">Operador (OPE)</span>
+                <span class="text-emerald-600 font-bold">Activo</span>
+                <span class="text-blue-700 font-bold underline">[ EDITANDO... ]</span>
+              </div>
+              <div class="flex items-center justify-between p-2 border-b border-slate-200">
+                <span class="font-bold">Rodrigo Flores (rodrigo.caja@playa-azul.com)</span>
+                <span class="text-slate-500">Cajero (CAJ)</span>
+                <span class="text-emerald-600 font-bold">Activo</span>
+                <span class="text-blue-600 font-bold">Editar | Eliminar</span>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <!-- MODAL FLOTANTE CENTRADO (UserModal - Modo Editar) -->
+      <div class="absolute inset-0 z-50 bg-slate-900/50 backdrop-blur-[2px] flex items-center justify-center p-4">
+        
+        <div class="w-full max-w-lg bg-white border-2 border-slate-900 rounded-3xl p-7 shadow-2xl relative space-y-5">
+          
+          <!-- Encabezado del Modal -->
+          <div class="flex items-center justify-between pb-3.5 border-b-2 border-slate-800">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl border-2 border-slate-900 bg-slate-100 flex items-center justify-center text-lg">
+                👤
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-slate-900 leading-tight">
+                  Editar Usuario
+                </h3>
+                <p class="text-[11px] text-slate-500 font-medium">
+                  Actualización de credenciales y permisos de acceso
+                </p>
+              </div>
+            </div>
+            <button type="button" class="w-8 h-8 rounded-full border-2 border-slate-800 bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-xs transition-all">
+              ✕
+            </button>
+          </div>
+
+          <!-- Formulario (Líneas 172-213 de Users/index.jsx) -->
+          <form class="space-y-4 text-xs">
+            
+            <!-- Campo: Nombre -->
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1 flex items-center justify-between">
+                <span>Nombre</span>
+                <span class="text-[10px] text-slate-400 lowercase font-normal">* obligatorio</span>
+              </label>
+              <div class="w-full border-2 border-slate-900 bg-white rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-mono font-bold shadow-sm">
+                Carlos
+              </div>
+            </div>
+
+            <!-- Campos: Primer Apellido y Segundo Apellido (2 Columnas) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1 flex items-center justify-between">
+                  <span>Primer Apellido</span>
+                  <span class="text-[10px] text-slate-400 lowercase font-normal">* obligatorio</span>
+                </label>
+                <div class="w-full border-2 border-slate-900 bg-white rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-mono font-bold shadow-sm">
+                  Mendoza
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1 flex items-center justify-between">
+                  <span>Segundo Apellido</span>
+                  <span class="text-[10px] text-slate-400 lowercase font-normal">opcional</span>
+                </label>
+                <div class="w-full border-2 border-slate-900 bg-white rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-mono font-bold shadow-sm">
+                  Vargas
+                </div>
+              </div>
+            </div>
+
+            <!-- Campo: Correo Electrónico -->
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1 flex items-center justify-between">
+                <span>Correo Electrónico (Acceso)</span>
+                <span class="text-[10px] text-slate-400 lowercase font-normal">* obligatorio</span>
+              </label>
+              <div class="w-full border-2 border-slate-900 bg-white rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-mono font-bold shadow-sm">
+                carlos.mendoza@playa-azul.com
+              </div>
+            </div>
+
+            <!-- Campo: Rol de Acceso (Select) -->
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1 flex items-center justify-between">
+                <span>Rol de Acceso</span>
+                <span class="text-[10px] text-slate-400 lowercase font-normal">* obligatorio</span>
+              </label>
+              <div class="w-full border-2 border-slate-900 bg-white rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-bold flex items-center justify-between shadow-sm">
+                <span class="flex items-center gap-2">
+                  <span class="px-1.5 py-0.5 rounded border border-slate-800 bg-slate-100 text-[10px] font-mono font-bold">OPE</span>
+                  <span>Operador de Mantenimiento</span>
+                </span>
+                <span class="text-slate-600 text-xs font-bold">▼</span>
+              </div>
+              <div class="mt-1 text-[10px] text-slate-500 font-medium">
+                Roles disponibles: Administrador (ADM) · Operador (OPE) · Cajero (CAJ)
+              </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="flex items-center gap-3 pt-3 border-t border-slate-200">
+              <button type="button" class="w-1/3 py-2.5 rounded-xl border-2 border-slate-800 text-slate-700 font-bold bg-slate-100 hover:bg-slate-200 transition-all text-xs">
+                Cancelar
+              </button>
+              <button type="button" class="w-2/3 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs border-2 border-slate-900 shadow-md transition-all flex items-center justify-center gap-1.5">
+                <span>Guardar Cambios</span>
+                <span>→</span>
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PIE DEL WIREFRAME -->
+    <div class="border-t-2 border-slate-900 bg-slate-100 p-2 text-center text-[10px] text-slate-700 font-bold">
+      Figura: Prototipo de Interfaz de Usuario (Wireframe) · Formulario Modal de Edición de Usuario (UserModal / Users/index.jsx)
+    </div>
+
+  </div>
+
+</body>
+</html>

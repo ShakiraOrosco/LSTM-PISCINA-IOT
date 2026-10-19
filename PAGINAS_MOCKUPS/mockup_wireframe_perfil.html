@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe Mockup - Perfil de Usuario (Profile/index.jsx - Playa Azul)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Comic Neue & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .wf-font {
+      font-family: 'Comic Neue', 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-200 text-slate-900 min-h-screen p-4 md:p-8 flex flex-col items-center wf-font">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR -->
+  <div class="w-full max-w-[1150px] mb-4 flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 rounded-xl border-2 border-slate-800 shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold uppercase tracking-wide bg-slate-900 text-white px-2.5 py-1 rounded">Wireframe / Boceto</span>
+      <span class="text-xs text-slate-700 font-semibold">Prototipo Exacto al Código · Perfil de Usuario (<code class="bg-slate-100 px-1 py-0.5 rounded font-mono">Profile/index.jsx</code>)</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold text-slate-600 bg-slate-100 border border-slate-300 px-3 py-1 rounded-lg">Fiel al Sistema Real</span>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR WIREFRAME ESTILO BALSAMIQ -->
+  <div id="wireframe-container" class="w-full max-w-[1150px] bg-white border-2 border-slate-900 shadow-2xl p-0 overflow-hidden relative">
+    
+    <!-- 1. BARRA DE NAVEGADOR WIREFRAME -->
+    <div class="border-b-2 border-slate-900 bg-slate-100 px-3 py-2 flex items-center justify-between gap-3 text-slate-800 select-none">
+      <div class="flex items-center gap-3">
+        <span class="text-lg font-bold">&larr;</span>
+        <span class="text-lg font-bold">&rarr;</span>
+        <span class="text-base font-bold">&#x21bb;</span>
+        <svg class="w-4 h-4 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      </div>
+
+      <div class="flex-1 bg-white border-2 border-slate-800 px-3 py-1 rounded text-xs flex items-center justify-between">
+        <span class="font-mono text-slate-800">http://sistema-piscina.playa-azul/profile</span>
+        <span class="text-[10px] text-slate-500 font-bold">100%</span>
+      </div>
+
+      <div class="hidden sm:block text-xs font-bold text-slate-800">
+        [ Playa Azul - Perfil de Usuario ]
+      </div>
+    </div>
+
+    <!-- 2. BARRA DE ENCABEZADO SUPERIOR DEL SISTEMA (Header.jsx) -->
+    <div class="border-b-2 border-slate-800 bg-white px-4 py-2.5 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <button class="w-8 h-8 border-2 border-slate-800 rounded flex items-center justify-center font-bold text-slate-800">
+          ☰
+        </button>
+        <div class="relative hidden sm:flex items-center">
+          <span class="absolute left-2.5 text-slate-500 text-xs">🔍</span>
+          <div class="border-2 border-slate-800 rounded px-2 pl-7 py-1 text-xs text-slate-500 w-64 bg-slate-50 flex items-center justify-between">
+            <span>Buscar o comando...</span>
+            <span class="border border-slate-400 bg-white px-1 py-0.2 rounded text-[9px] font-mono">⌘K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 text-xs">
+        <div class="w-7 h-7 border-2 border-slate-800 rounded-full flex items-center justify-center font-bold">
+          ☀️
+        </div>
+        <div class="w-7 h-7 border-2 border-slate-800 rounded-full flex items-center justify-center font-bold relative">
+          🔔
+          <span class="w-2 h-2 bg-slate-900 rounded-full absolute -top-0.5 -right-0.5"></span>
+        </div>
+        <!-- Menú de usuario Header.jsx: Abre Perfil -->
+        <div class="border-l-2 border-slate-800 pl-3 flex items-center gap-2 bg-slate-100 py-1 px-2 rounded-lg border-2 border-slate-800">
+          <div class="w-7 h-7 rounded-full border-2 border-slate-900 bg-slate-900 text-white flex items-center justify-center font-black text-xs">
+            S
+          </div>
+          <div class="text-left hidden md:block leading-tight">
+            <div class="font-black text-slate-900 text-xs">Shakira Orosco</div>
+            <div class="text-[9px] text-slate-600 font-bold">Mi Perfil &bull; Activo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. CUERPO PRINCIPAL (SIDEBAR + MAIN CONTENT) -->
+    <div class="flex flex-col md:flex-row min-h-[620px]">
+      
+      <!-- SIDEBAR EXACTO DEL SISTEMA (Sidebar/index.jsx líneas 8-135) -->
+      <aside class="w-full md:w-56 border-b-2 md:border-b-0 md:border-r-2 border-slate-900 bg-white p-3 flex flex-col justify-between shrink-0">
+        <div>
+          <!-- Logo Playa Azul -->
+          <div class="border-2 border-slate-800 p-2 text-center rounded mb-4 bg-slate-50 flex items-center justify-center gap-2">
+            <div class="w-7 h-7 border-2 border-slate-900 bg-slate-900 text-white rounded flex items-center justify-center font-black text-sm">
+              ≋
+            </div>
+            <div class="text-left">
+              <div class="font-black text-sm tracking-wide uppercase leading-none">PLAYA AZUL</div>
+              <div class="text-[9px] text-slate-600 font-bold mt-0.5">Control & IoT</div>
+            </div>
+          </div>
+
+          <!-- Navegación real: Menú de 5 ítems exactos -->
+          <div class="space-y-1.5 text-xs">
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 px-1">MENÚ</div>
+            
+            <!-- Dashboard -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2 text-slate-700">
+              <span>📊 Dashboard</span>
+            </div>
+
+            <!-- Caja -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2 text-slate-700">
+              <span>🎟️ Caja</span>
+            </div>
+
+            <!-- Inventario -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2 text-slate-700">
+              <span>📦 Inventario</span>
+            </div>
+
+            <!-- Usuarios -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2 text-slate-700">
+              <span>👥 Usuarios</span>
+            </div>
+
+            <!-- Auditoría -->
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2 text-slate-700">
+              <span>📑 Auditoría</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Usuario al pie del sidebar -->
+        <div class="mt-6 border-2 border-slate-800 p-2 rounded text-[11px] bg-slate-50">
+          <div class="font-black text-slate-900">Shakira Orosco</div>
+          <div class="text-[10px] text-slate-600">shakira@playa-azul.com</div>
+          <div class="text-[9px] text-slate-500 font-bold mt-1">Rol: Administrador (ADM)</div>
+        </div>
+      </aside>
+
+      <!-- CONTENIDO PRINCIPAL: EXACTO A PROFILE/INDEX.JSX LÍNEAS 47-118 -->
+      <main class="flex-1 p-6 md:p-8 bg-slate-50/60 space-y-6">
+        
+        <!-- Header de página (Profile/index.jsx líneas 49-52) -->
+        <div class="space-y-1">
+          <h2 class="text-2xl font-bold text-slate-800">
+            Perfil de Usuario
+          </h2>
+          <p class="text-sm font-medium text-slate-500">
+            Gestiona tus datos personales y ajustes de seguridad.
+          </p>
+        </div>
+
+        <!-- Grid de 2 Columnas (Profile/index.jsx línea 54) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- TARJETA 1: Información Personal (Profile/index.jsx líneas 57-83) -->
+          <div class="rounded-2xl border-2 border-slate-900 bg-white shadow-sm overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="border-b-2 border-slate-800 px-6 py-4 bg-slate-50">
+                <h3 class="text-base font-bold text-slate-800">
+                  Información Personal
+                </h3>
+              </div>
+
+              <div class="flex flex-col gap-5 p-6">
+                <!-- Nombre Completo (líneas 63-67) -->
+                <div>
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-700">
+                    Nombre Completo
+                  </label>
+                  <div class="w-full rounded-xl border-2 border-slate-800 bg-slate-50 px-4 py-2.5 text-slate-800 font-bold text-sm">
+                    Shakira Orosco Perez
+                  </div>
+                </div>
+
+                <!-- Correo Electrónico (líneas 69-74) -->
+                <div>
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-700">
+                    Correo Electrónico
+                  </label>
+                  <div class="w-full rounded-xl border-2 border-slate-800 bg-slate-50 px-4 py-2.5 text-slate-800 font-bold text-sm font-mono">
+                    shakira@playa-azul.com
+                  </div>
+                </div>
+
+                <!-- Rol de Acceso (líneas 76-81) -->
+                <div>
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-700">
+                    Rol de Acceso
+                  </label>
+                  <div class="w-full rounded-xl border-2 border-slate-800 bg-slate-50 px-4 py-2.5 text-slate-800 font-bold text-sm">
+                    Administrador
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-6 py-3 bg-slate-50 border-t border-slate-200 text-[10px] text-slate-500 font-bold">
+              Datos registrados por el Administrador de TI
+            </div>
+          </div>
+
+          <!-- TARJETA 2: Seguridad (Profile/index.jsx líneas 86-115) -->
+          <div class="rounded-2xl border-2 border-slate-900 bg-white shadow-sm overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="border-b-2 border-slate-800 px-6 py-4 bg-slate-50">
+                <h3 class="text-base font-bold text-slate-800">
+                  Seguridad
+                </h3>
+              </div>
+
+              <div class="flex flex-col gap-6 p-6">
+                <!-- Título y descripción 2FA (líneas 91-94) -->
+                <div>
+                  <h4 class="mb-1 text-sm font-bold text-slate-800">
+                    Autenticación de Dos Factores (2FA)
+                  </h4>
+                  <p class="text-xs font-medium text-slate-500 leading-relaxed">
+                    Protege tu cuenta con un código temporal enviado a tu correo en cada inicio de sesión.
+                  </p>
+                </div>
+
+                <!-- Box Estado del 2FA con switch (líneas 96-113) -->
+                <div class="flex items-center justify-between rounded-xl border-2 border-slate-800 bg-slate-50 p-4">
+                  <div>
+                    <p class="font-bold text-xs text-slate-800 uppercase tracking-wider">
+                      Estado del 2FA
+                    </p>
+                    <p class="text-sm font-bold text-slate-900 mt-0.5">
+                      Activado
+                    </p>
+                  </div>
+
+                  <!-- Toggle switch (Peer checked Tailwind toggle) -->
+                  <div class="flex items-center gap-2">
+                    <span class="text-[10px] font-bold text-slate-600">ON</span>
+                    <div class="w-12 h-6 border-2 border-slate-900 bg-slate-900 rounded-full p-0.5 flex items-center justify-end cursor-pointer">
+                      <div class="w-4 h-4 rounded-full bg-white border border-slate-800 shadow"></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="px-6 py-3 bg-slate-50 border-t border-slate-200 text-[10px] text-slate-500 font-bold">
+              Seguridad de acceso reforzada vía correo electrónico
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+
+    <!-- 4. PIE DEL WIREFRAME -->
+    <div class="border-t-2 border-slate-900 bg-white p-2 text-center text-[10px] text-slate-700 font-bold">
+      Figura: Prototipo de Interfaz de Usuario (Wireframe) · Perfil de Usuario y Seguridad 2FA (Profile/index.jsx)
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe Mockup - Autenticación 2FA (TwoFactor.jsx - Playa Azul)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Comic Neue & Georgia -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .wf-font {
+      font-family: 'Comic Neue', 'Plus Jakarta Sans', sans-serif;
+    }
+    .wf-serif {
+      font-family: 'Georgia', serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-200 text-slate-900 min-h-screen p-4 md:p-8 flex flex-col items-center wf-font">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR -->
+  <div class="w-full max-w-[850px] mb-4 flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 rounded-xl border-2 border-slate-800 shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold uppercase tracking-wide bg-slate-900 text-white px-2.5 py-1 rounded">Wireframe / Boceto</span>
+      <span class="text-xs text-slate-700 font-semibold">Prototipo Exacto al Código · <code class="bg-slate-100 px-1 py-0.5 rounded font-mono">TwoFactor.jsx</code> + <code class="bg-slate-100 px-1 py-0.5 rounded font-mono">App.css</code></span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold text-slate-600 bg-slate-100 border border-slate-300 px-3 py-1 rounded-lg">Fiel al Sistema Real</span>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR WIREFRAME ESTILO BALSAMIQ -->
+  <div id="wireframe-container" class="w-full max-w-[850px] bg-white border-2 border-slate-900 shadow-2xl p-0 overflow-hidden relative">
+    
+    <!-- BARRA DE NAVEGADOR WIREFRAME -->
+    <div class="border-b-2 border-slate-900 bg-slate-100 px-3 py-2 flex items-center justify-between gap-3 text-slate-800 select-none">
+      <div class="flex items-center gap-3">
+        <span class="text-lg font-bold">&larr;</span>
+        <span class="text-lg font-bold">&rarr;</span>
+        <span class="text-base font-bold">&#x21bb;</span>
+        <svg class="w-4 h-4 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      </div>
+
+      <div class="flex-1 bg-white border-2 border-slate-800 px-3 py-1 rounded text-xs flex items-center justify-between">
+        <span class="font-mono text-slate-800">http://sistema-piscina.playa-azul/auth/verify-2fa</span>
+        <span class="text-[10px] text-slate-500 font-bold">100%</span>
+      </div>
+
+      <div class="hidden sm:block text-xs font-bold text-slate-800">
+        [ Playa Azul - Verificar 2FA ]
+      </div>
+    </div>
+
+    <!-- CUERPO REAL: login-shell single (App.css líneas 5, 10, 11, 12) -->
+    <div class="min-h-[580px] bg-slate-100/60 p-6 md:p-12 flex items-center justify-center">
+      
+      <!-- section.login-card (App.css max-w: 620px) -->
+      <div class="w-full max-w-[480px] bg-white border-2 border-slate-900 rounded-2xl p-8 md:p-10 shadow-xl space-y-6">
+        
+        <!-- Brand: .brand .login-brand (TwoFactor.jsx líneas 36-42) -->
+        <div class="flex items-center gap-3 border-b-2 border-slate-800 pb-5">
+          <div class="w-10 h-10 border-2 border-slate-900 rounded bg-slate-900 text-white flex items-center justify-center font-black text-sm">
+            PA
+          </div>
+          <div>
+            <strong class="text-base font-black text-slate-900 block leading-tight">Playa Azul</strong>
+            <small class="text-[10px] text-slate-500 font-bold uppercase tracking-widest block">CONTROL CENTER</small>
+          </div>
+        </div>
+
+        <!-- Formulario exacto (TwoFactor.jsx líneas 43-56) -->
+        <form class="space-y-5" onsubmit="return false;">
+          
+          <!-- Encabezado del Formulario -->
+          <div class="space-y-1">
+            <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 block">
+              VERIFICACIÓN DE SEGURIDAD
+            </span>
+            <h2 class="text-3xl font-bold wf-serif text-slate-900">
+              Confirma tu acceso
+            </h2>
+            <p class="text-xs text-slate-600 font-medium leading-relaxed">
+              Enviamos un código de 6 dígitos a <span class="font-bold text-slate-800 font-mono">s***@playa-azul.com</span>.
+            </p>
+          </div>
+
+          <!-- Campo Código: label + input (TwoFactor.jsx líneas 49-52) -->
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+              Código de verificación
+            </label>
+            <div class="w-full border-2 border-slate-800 bg-white rounded p-3 text-base text-slate-900 font-mono font-bold tracking-widest flex items-center justify-between">
+              <span>482915</span>
+              <span class="text-xs text-slate-400 font-sans font-normal">(6 dígitos)</span>
+            </div>
+          </div>
+
+          <!-- Botones de Acción (TwoFactor.jsx líneas 53-54) -->
+          <div class="space-y-2.5 pt-2">
+            <!-- button.primary -->
+            <button type="button" class="w-full py-3 px-4 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded border-2 border-slate-900 shadow flex items-center justify-center gap-3 tracking-wide">
+              <span>Verificar código</span>
+              <span class="text-sm font-bold">&rarr;</span>
+            </button>
+
+            <!-- button.secondary -->
+            <button type="button" class="w-full py-2.5 px-4 bg-white hover:bg-slate-100 text-slate-800 font-bold text-xs rounded border-2 border-slate-800 tracking-wide">
+              Volver al inicio
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    <!-- PIE DEL WIREFRAME -->
+    <div class="border-t-2 border-slate-900 bg-white p-2 text-center text-[10px] text-slate-700 font-bold">
+      Figura: Prototipo de Interfaz de Usuario (Wireframe) · Autenticación de Dos Pasos 2FA (TwoFactor.jsx)
+    </div>
+
+  </div>
+
+</body>
+</html>

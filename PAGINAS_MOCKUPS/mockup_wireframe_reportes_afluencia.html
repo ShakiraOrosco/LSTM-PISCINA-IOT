@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe Mockup - Reportes: Afluencia de Bañistas (Playa Azul)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Comic Neue & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .wf-font {
+      font-family: 'Comic Neue', 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-200 text-slate-900 min-h-screen p-4 md:p-8 flex flex-col items-center wf-font">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR -->
+  <div class="w-full max-w-[1100px] mb-4 flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 rounded-xl border-2 border-slate-800 shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold uppercase tracking-wide bg-slate-900 text-white px-2.5 py-1 rounded">Wireframe / Boceto</span>
+      <span class="text-xs text-slate-700 font-semibold">Prototipo Fiel al Sistema · Filtro de Afluencia de Bañistas (<code class="bg-slate-100 px-1 py-0.5 rounded font-mono">Reportes/index.jsx</code>)</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-bold text-slate-600 bg-slate-100 border border-slate-300 px-3 py-1 rounded-lg">Fiel al Sistema Real</span>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR WIREFRAME ESTILO BALSAMIQ -->
+  <div id="wireframe-container" class="w-full max-w-[1100px] bg-white border-2 border-slate-900 shadow-2xl p-0 overflow-hidden relative">
+    
+    <!-- 1. BARRA DE NAVEGADOR WIREFRAME -->
+    <div class="border-b-2 border-slate-900 bg-slate-100 px-3 py-2 flex items-center justify-between gap-3 text-slate-800 select-none">
+      <div class="flex items-center gap-3">
+        <span class="text-lg font-bold">&larr;</span>
+        <span class="text-lg font-bold">&rarr;</span>
+        <span class="text-base font-bold">&#x21bb;</span>
+        <svg class="w-4 h-4 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      </div>
+
+      <div class="flex-1 bg-white border-2 border-slate-800 px-3 py-1 rounded text-xs flex items-center justify-between">
+        <span class="font-mono text-slate-800">http://sistema-piscina.playa-azul/reportes?tipo=afluencia&rango=personalizado</span>
+        <span class="text-[10px] text-slate-500 font-bold">100%</span>
+      </div>
+
+      <div class="hidden sm:block text-xs font-bold text-slate-800">
+        [ Playa Azul - Reporte de Afluencia y Taquilla ]
+      </div>
+    </div>
+
+    <!-- 2. CUERPO PRINCIPAL (SIDEBAR + MAIN) -->
+    <div class="flex flex-col md:flex-row min-h-[760px]">
+      
+      <!-- SIDEBAR -->
+      <aside class="w-full md:w-56 border-b-2 md:border-b-0 md:border-r-2 border-slate-900 bg-white p-3 flex flex-col justify-between shrink-0">
+        <div>
+          <!-- Logo Playa Azul -->
+          <div class="border-2 border-slate-800 p-2 text-center rounded mb-4 bg-slate-50">
+            <div class="font-black text-sm tracking-wide uppercase">[ PLAYA AZUL ]</div>
+            <div class="text-[9px] text-slate-600 font-bold">Control & Monitoreo IoT</div>
+          </div>
+
+          <!-- Menú -->
+          <div class="space-y-1 text-xs">
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">MENÚ</div>
+            
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>📊 Dashboard</span>
+            </div>
+
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>🎟️ Caja</span>
+            </div>
+
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>📦 Inventario</span>
+            </div>
+
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>👥 Usuarios</span>
+            </div>
+
+            <!-- Reportes (ACTIVO) -->
+            <div class="p-2 border-2 border-slate-900 bg-slate-200 font-black rounded flex items-center justify-between">
+              <span>📑 Reportes</span>
+              <span>&blacktriangleright;</span>
+            </div>
+
+            <div class="p-2 border border-slate-300 hover:bg-slate-50 font-bold rounded flex items-center gap-2">
+              <span>📋 Auditoría</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Usuario al pie -->
+        <div class="mt-6 border-2 border-slate-800 p-2 rounded text-[11px] bg-slate-50">
+          <div class="font-bold">Shakira Orosco</div>
+          <div class="text-[9px] text-slate-600">Rol: Administrador</div>
+        </div>
+      </aside>
+
+      <!-- CONTENIDO PRINCIPAL -->
+      <main class="flex-1 p-6 bg-slate-50/50 space-y-6">
+        
+        <!-- HEADER DE PÁGINA -->
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between border-b-2 border-slate-800 pb-4">
+          <div>
+            <div class="flex items-center gap-1.5 mb-0.5">
+              <span class="w-2 h-2 rounded-full bg-slate-900"></span>
+              <p class="text-[10px] font-bold tracking-widest uppercase text-slate-500">Piscina Playa Azul — Reyes, Beni</p>
+            </div>
+            <h1 class="text-xl md:text-2xl font-black text-slate-900 flex items-center gap-2">
+              <span>📊 Módulo de Reportes Institucionales</span>
+            </h1>
+            <p class="text-xs text-slate-600 font-medium mt-0.5">
+              Afluencia de bañistas, horarios de concurrencia y recaudación económica de taquilla.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <button type="button" class="bg-white hover:bg-slate-100 text-slate-800 px-3 py-2 rounded-lg font-bold text-xs border-2 border-slate-800 shadow-sm flex items-center gap-1.5">
+              <span>🔄 Actualizar</span>
+            </button>
+            <button type="button" class="bg-slate-900 text-white px-4 py-2 rounded-lg font-bold text-xs border-2 border-slate-900 shadow flex items-center gap-1.5">
+              <span>📥 Exportar a PDF</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- BARRA DE PESTAÑAS Y FILTRO TEMPORAL (RANGO LIBRE ACTIVO) -->
+        <div class="bg-white border-2 border-slate-900 rounded-xl p-3 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+          
+          <!-- Pestañas de Tipo de Reporte -->
+          <div class="flex flex-wrap items-center gap-1.5">
+            <div class="border border-slate-300 bg-white hover:bg-slate-50 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 flex items-center gap-1.5 cursor-pointer">
+              <span>💧 Calidad del Agua</span>
+            </div>
+            <div class="border border-slate-300 bg-white hover:bg-slate-50 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 flex items-center gap-1.5 cursor-pointer">
+              <span>🧪 Químicos y Dosis</span>
+            </div>
+            <!-- Afluencia Bañistas (ACTIVA) -->
+            <div class="border-2 border-slate-900 bg-slate-200 px-3 py-1.5 rounded-lg text-xs font-black flex items-center gap-1.5 shadow-sm">
+              <span>👥 Afluencia Bañistas</span>
+              <span class="text-[9px] text-slate-600 font-bold">(Taquilla & Aforo)</span>
+            </div>
+            <div class="border border-slate-300 bg-white hover:bg-slate-50 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 flex items-center gap-1.5 cursor-pointer">
+              <span>📑 Consolidado Global</span>
+            </div>
+          </div>
+
+          <!-- Selector de Rango Temporal y Fechas Personalizadas -->
+          <div class="flex flex-wrap items-center gap-2">
+            <div class="flex items-center gap-1 bg-slate-100 border border-slate-300 p-1 rounded-lg text-xs">
+              <span class="px-2 py-1 rounded text-slate-500 font-semibold cursor-pointer">Hoy</span>
+              <span class="px-2 py-1 rounded text-slate-500 font-semibold cursor-pointer">7 Días</span>
+              <span class="px-2 py-1 rounded text-slate-500 font-semibold cursor-pointer">30 Días</span>
+              <!-- Rango Libre ACTIVO -->
+              <span class="px-2 py-1 rounded bg-white border border-slate-400 font-black text-slate-900 shadow-xs">Rango libre</span>
+            </div>
+
+            <!-- Inputs de Fecha del Rango Libre -->
+            <div class="flex items-center gap-1.5 text-xs font-bold">
+              <span class="bg-white border-2 border-slate-800 px-2 py-1 rounded font-mono text-[11px] flex items-center gap-1">
+                📅 01/10/2026
+              </span>
+              <span class="text-slate-500 font-bold text-[10px]">a</span>
+              <span class="bg-white border-2 border-slate-800 px-2 py-1 rounded font-mono text-[11px] flex items-center gap-1">
+                📅 18/10/2026
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- TARJETAS KPI DE AFLUENCIA Y TAQUILLA -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          
+          <!-- KPI 1: Total Bañistas -->
+          <div class="bg-white p-4 rounded-xl border-2 border-slate-900 shadow-sm flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Total Bañistas</span>
+                <div class="text-3xl font-black text-slate-900 mt-1">1,280</div>
+              </div>
+              <span class="border border-slate-800 bg-slate-100 px-2 py-0.5 rounded text-[9px] font-bold text-slate-800">
+                18 días
+              </span>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 flex items-center justify-between text-xs">
+              <span class="text-[10px] text-slate-500 font-bold">Período:</span>
+              <span class="font-bold text-slate-800">01/10 al 18/10</span>
+            </div>
+          </div>
+
+          <!-- KPI 2: Recaudación Taquilla -->
+          <div class="bg-white p-4 rounded-xl border-2 border-slate-900 shadow-sm flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Recaudación Taquilla</span>
+                <div class="text-3xl font-black text-slate-900 mt-1">Bs. 12,800</div>
+              </div>
+              <span class="border border-slate-800 bg-slate-100 px-2 py-0.5 rounded text-[9px] font-bold text-slate-800">
+                Ingresos
+              </span>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 flex items-center justify-between text-xs">
+              <span class="text-[10px] text-slate-500 font-bold">Venta de boletos:</span>
+              <span class="font-black text-slate-900 bg-slate-100 px-1.5 py-0.5 rounded border border-slate-300">100% Caja</span>
+            </div>
+          </div>
+
+          <!-- KPI 3: Promedio Diario -->
+          <div class="bg-white p-4 rounded-xl border-2 border-slate-900 shadow-sm flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Promedio Diario</span>
+                <div class="text-3xl font-black text-slate-900 mt-1">71</div>
+              </div>
+              <span class="border border-slate-800 bg-slate-100 px-2 py-0.5 rounded text-[9px] font-bold text-slate-800">
+                Media
+              </span>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 flex items-center justify-between text-xs">
+              <span class="text-[10px] text-slate-500 font-bold">Concurrencia:</span>
+              <span class="font-bold text-slate-700">personas por jornada</span>
+            </div>
+          </div>
+
+          <!-- KPI 4: Horario Pico -->
+          <div class="bg-slate-900 text-white p-4 rounded-xl border-2 border-slate-900 shadow-sm flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Horario Pico</span>
+                <div class="text-2xl font-black text-white mt-1">16:00 - 17:00</div>
+              </div>
+              <span class="border border-slate-400 bg-slate-800 px-2 py-0.5 rounded text-[9px] font-bold text-slate-200">
+                Máximo
+              </span>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-700 text-[10px] text-slate-300">
+              142 personas registradas en esa franja
+            </div>
+          </div>
+
+        </div>
+
+        <!-- GRÁFICA DE DISTRIBUCIÓN HORARIA DE AFLUENCIA -->
+        <div class="bg-white p-5 rounded-xl border-2 border-slate-900 shadow-sm space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-200 pb-3 gap-2">
+            <div>
+              <h3 class="font-black text-sm text-slate-900">Curva de Afluencia por Horario del Día</h3>
+              <p class="text-[11px] text-slate-500">Permite correlacionar el flujo de personas con el consumo de cloro y aumento de turbidez</p>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-bold">
+              <span class="w-3.5 h-3.5 bg-slate-800 border border-slate-900 rounded-xs"></span>
+              <span>Bañistas ingresados por hora</span>
+            </div>
+          </div>
+
+          <!-- Contenedor del Gráfico Wireframe -->
+          <div class="border-2 border-dashed border-slate-300 rounded-xl p-4 bg-slate-50/50 space-y-2">
+            
+            <!-- Área del gráfico (Y-axis + Plot area con grid y barras) -->
+            <div class="relative h-60 flex">
+              
+              <!-- Eje Y (Labels) -->
+              <div class="w-10 flex flex-col justify-between text-[10px] font-mono font-bold text-slate-500 pb-1 text-right pr-2 select-none">
+                <span>150</span>
+                <span>100</span>
+                <span>50</span>
+                <span>0</span>
+              </div>
+
+              <!-- Plot area con líneas guía horizontales y barras -->
+              <div class="flex-1 relative border-b-2 border-slate-900">
+                
+                <!-- Líneas de cuadrícula (Grid lines) -->
+                <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+                  <div class="border-b border-dashed border-slate-300 w-full"></div>
+                  <div class="border-b border-dashed border-slate-300 w-full"></div>
+                  <div class="border-b border-dashed border-slate-300 w-full"></div>
+                  <div class="w-full"></div>
+                </div>
+
+                <!-- Contenedor de Barras alineadas al fondo -->
+                <div class="absolute inset-0 flex items-end justify-around px-4">
+                  
+                  <!-- 08:00 (18 personas -> 12%) -->
+                  <div class="flex flex-col items-center justify-end w-12 h-full">
+                    <div class="w-10 bg-slate-200 border-2 border-slate-800 rounded-t flex items-center justify-center pt-1 shadow-xs" style="height: 12%;">
+                      <span class="text-[9px] font-black text-slate-900">18</span>
+                    </div>
+                  </div>
+
+                  <!-- 10:00 (45 personas -> 30%) -->
+                  <div class="flex flex-col items-center justify-end w-12 h-full">
+                    <div class="w-10 bg-slate-300 border-2 border-slate-800 rounded-t flex items-center justify-center pt-1 shadow-xs" style="height: 30%;">
+                      <span class="text-[9px] font-black text-slate-900">45</span>
+                    </div>
+                  </div>
+
+                  <!-- 12:00 (62 personas -> 41.3%) -->
+                  <div class="flex flex-col items-center justify-end w-12 h-full">
+                    <div class="w-10 bg-slate-400 border-2 border-slate-900 rounded-t flex items-center justify-center pt-1 shadow-xs" style="height: 41.3%;">
+                      <span class="text-[9px] font-black text-white">62</span>
+                    </div>
+                  </div>
+
+                  <!-- 14:00 (98 personas -> 65.3%) -->
+                  <div class="flex flex-col items-center justify-end w-12 h-full">
+                    <div class="w-10 bg-slate-600 text-white border-2 border-slate-900 rounded-t flex items-center justify-center pt-1 shadow-xs" style="height: 65.3%;">
+                      <span class="text-[9px] font-black text-white">98</span>
+                    </div>
+                  </div>
+
+                  <!-- 16:00 (142 personas -> 94.7% - PICO MÁXIMO) -->
+                  <div class="flex flex-col items-center justify-end w-12 h-full relative">
+                    <div class="w-11 bg-slate-900 text-white border-2 border-slate-900 rounded-t flex items-center justify-center pt-1 shadow-md" style="height: 94.7%;">
+                      <span class="text-[10px] font-black text-white">142</span>
+                    </div>
+                  </div>
+
+                  <!-- 18:00 (112 personas -> 74.7%) -->
+                  <div class="flex flex-col items-center justify-end w-12 h-full">
+                    <div class="w-10 bg-slate-700 text-white border-2 border-slate-900 rounded-t flex items-center justify-center pt-1 shadow-xs" style="height: 74.7%;">
+                      <span class="text-[9px] font-black text-white">112</span>
+                    </div>
+                  </div>
+
+                  <!-- 20:00 (32 personas -> 21.3%) -->
+                  <div class="flex flex-col items-center justify-end w-12 h-full">
+                    <div class="w-10 bg-slate-200 border-2 border-slate-800 rounded-t flex items-center justify-center pt-1 shadow-xs" style="height: 21.3%;">
+                      <span class="text-[9px] font-black text-slate-900">32</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Eje X (Etiquetas de horas debajo del eje) -->
+            <div class="flex ml-10">
+              <div class="flex-1 flex justify-around px-4 text-[11px] font-mono font-bold text-slate-800">
+                <span class="w-12 text-center">08:00</span>
+                <span class="w-12 text-center">10:00</span>
+                <span class="w-12 text-center">12:00</span>
+                <span class="w-12 text-center">14:00</span>
+                <span class="w-12 text-center font-black underline text-slate-900">16:00</span>
+                <span class="w-12 text-center">18:00</span>
+                <span class="w-12 text-center">20:00</span>
+              </div>
+            </div>
+
+            <!-- Franjas explicativas inferiores -->
+            <div class="ml-10 pt-2 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-600 font-bold">
+              <span>🌅 Mañana (Baja concurrencia: 18 a 62 personas)</span>
+              <span class="bg-slate-200 border border-slate-400 px-2.5 py-0.5 rounded font-black text-slate-900">☀️ Tarde Pico 15:00 - 18:00 (98 a 142 personas)</span>
+              <span>🌙 Noche (Cierre a las 21:00)</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TABLA RESUMEN DE AFLUENCIA POR FECHA -->
+        <div class="bg-white rounded-xl border-2 border-slate-900 shadow-sm overflow-hidden">
+          <div class="px-5 py-3 border-b-2 border-slate-900 bg-slate-100 flex items-center justify-between">
+            <div>
+              <h3 class="font-black text-xs text-slate-900">Resumen Diario de Taquilla y Concurrencia</h3>
+              <p class="text-[10px] text-slate-600">Desglose de boletos vendidos y total recaudado por día</p>
+            </div>
+            <span class="text-[10px] font-mono font-bold bg-white border border-slate-300 px-2 py-0.5 rounded">
+              Total: 18 jornadas
+            </span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 border-b border-slate-200 text-slate-700 font-bold">
+                <tr>
+                  <th class="px-4 py-2 uppercase text-[10px]">Fecha</th>
+                  <th class="px-4 py-2 uppercase text-[10px]">Día</th>
+                  <th class="px-4 py-2 uppercase text-[10px]">Bañistas Registrados</th>
+                  <th class="px-4 py-2 uppercase text-[10px]">Recaudación (Bs.)</th>
+                  <th class="px-4 py-2 uppercase text-[10px]">Hora Mayor Afluencia</th>
+                  <th class="px-4 py-2 uppercase text-[10px] text-center">Estado Aforo</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200">
+                <tr class="hover:bg-slate-50">
+                  <td class="px-4 py-2 font-mono text-[11px] font-bold">18/10/2026</td>
+                  <td class="px-4 py-2 font-bold text-slate-800">Domingo</td>
+                  <td class="px-4 py-2 font-mono font-bold">142 personas</td>
+                  <td class="px-4 py-2 font-bold">Bs. 1,420.00</td>
+                  <td class="px-4 py-2 text-slate-700">16:00</td>
+                  <td class="px-4 py-2 text-center">
+                    <span class="border border-slate-800 bg-slate-200 px-2 py-0.5 rounded text-[10px] font-bold">ALTO</span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="px-4 py-2 font-mono text-[11px] font-bold">17/10/2026</td>
+                  <td class="px-4 py-2 font-bold text-slate-800">Sábado</td>
+                  <td class="px-4 py-2 font-mono font-bold">128 personas</td>
+                  <td class="px-4 py-2 font-bold">Bs. 1,280.00</td>
+                  <td class="px-4 py-2 text-slate-700">17:00</td>
+                  <td class="px-4 py-2 text-center">
+                    <span class="border border-slate-800 bg-slate-200 px-2 py-0.5 rounded text-[10px] font-bold">ALTO</span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="px-4 py-2 font-mono text-[11px] font-bold">16/10/2026</td>
+                  <td class="px-4 py-2 font-bold text-slate-800">Viernes</td>
+                  <td class="px-4 py-2 font-mono font-bold">75 personas</td>
+                  <td class="px-4 py-2 font-bold">Bs. 750.00</td>
+                  <td class="px-4 py-2 text-slate-700">15:00</td>
+                  <td class="px-4 py-2 text-center">
+                    <span class="border border-slate-400 bg-slate-100 px-2 py-0.5 rounded text-[10px] font-bold">NORMAL</span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="px-4 py-2 font-mono text-[11px] font-bold">15/10/2026</td>
+                  <td class="px-4 py-2 font-bold text-slate-800">Jueves</td>
+                  <td class="px-4 py-2 font-mono font-bold">58 personas</td>
+                  <td class="px-4 py-2 font-bold">Bs. 580.00</td>
+                  <td class="px-4 py-2 text-slate-700">16:00</td>
+                  <td class="px-4 py-2 text-center">
+                    <span class="border border-slate-400 bg-slate-100 px-2 py-0.5 rounded text-[10px] font-bold">NORMAL</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Paginación -->
+          <div class="px-4 py-2 bg-slate-50 border-t border-slate-300 flex items-center justify-between text-[11px] font-bold">
+            <span class="border border-slate-800 px-2 py-0.5 rounded bg-white text-slate-400 cursor-not-allowed">&larr; Anterior</span>
+            <span class="text-slate-600 font-mono">Página 1 de 5</span>
+            <span class="border border-slate-800 px-2 py-0.5 rounded bg-white text-slate-900 cursor-pointer">Siguiente &rarr;</span>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+
+    <!-- PIE DEL WIREFRAME -->
+    <div class="border-t-2 border-slate-900 bg-slate-100 p-2 text-center text-[10px] text-slate-700 font-bold">
+      Figura: Prototipo de Interfaz de Usuario (Wireframe) · Módulo de Reportes: Afluencia de Bañistas y Taquilla (Reportes/index.jsx)
+    </div>
+
+  </div>
+
+</body>
+</html>

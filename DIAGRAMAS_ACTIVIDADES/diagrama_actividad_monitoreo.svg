@@ -71,8 +71,8 @@
   </g>
 
   <!-- Flecha de Col 1 a Col 2 (Transmisión WiFi) -->
-  <path d="M 232 282 L 285 282 L 285 340 L 372 340" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
-  <text x="260" y="274" font-size="10" font-weight="700" fill="#555555" font-style="italic">WiFi / HTTP POST</text>
+  <path d="M 232 282 L 372 282 L 372 340" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="305" y="274" text-anchor="middle" font-size="10" font-weight="700" fill="#555555" font-style="italic">WiFi / HTTP POST</text>
 
   <!-- Actividad 3: Guardar en BD (Backend) -->
   <g id="act-3">
@@ -91,30 +91,22 @@
   </g>
 
   <!-- RAMA SÍ (Alerta Crítica / Fuera de rango) -->
-  <line x1="302" y1="465" x2="275" y2="465" stroke="#222222" stroke-width="1.8" />
-  <line x1="275" y1="465" x2="275" y2="550" stroke="#222222" stroke-width="1.8" />
-  <line x1="275" y1="550" x2="295" y2="550" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
-  <text x="250" y="485" font-size="11" font-weight="800" fill="#b91c1c">[ Sí ]</text>
+  <line x1="372" y1="500" x2="372" y2="525" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="382" y="516" font-size="11" font-weight="800" fill="#b91c1c">[ Sí ]</text>
 
   <!-- Actividad 4A: Generar Alerta -->
   <g id="act-4a">
-    <rect x="295" y="525" width="175" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
-    <text x="382" y="546" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Emitir alerta crítica y</text>
-    <text x="382" y="561" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">registrar tipo de incidencia</text>
+    <rect x="285" y="525" width="175" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="372" y="546" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Emitir alerta crítica y</text>
+    <text x="372" y="561" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">registrar tipo de incidencia</text>
   </g>
 
-  <!-- RAMA NO (Parámetros Normales) -->
-  <line x1="442" y1="465" x2="475" y2="465" stroke="#222222" stroke-width="1.8" />
-  <line x1="475" y1="465" x2="475" y2="550" stroke="#222222" stroke-width="1.8" />
-  <line x1="475" y1="550" x2="455" y2="550" stroke="#222222" stroke-width="1.8" />
-  <text x="448" y="485" font-size="11" font-weight="800" fill="#15803d">[ No ]</text>
+  <!-- Flujo desde 4A hacia Frontend Alerta (5A) -->
+  <line x1="460" y1="550" x2="520" y2="550" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
-  <!-- Actividad 4B: Estado Óptimo -->
-  <!-- Flujo hacia Frontend Estado Óptimo -->
-  <path d="M 475 550 L 525 550 L 525 615 L 545 615" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
-
-  <!-- Flujo desde 4A hacia Frontend Alerta -->
-  <path d="M 382 575 L 382 615 L 515 615" fill="none" stroke="#222222" stroke-width="1.8" />
+  <!-- RAMA NO (Parámetros Normales): bordea por la izquierda de 4A hacia 5B -->
+  <path d="M 302 465 L 270 465 L 270 642 L 520 642" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <text x="266" y="457" font-size="11" font-weight="800" fill="#15803d">[ No ]</text>
 
   <!-- Actividad 5A (Frontend): Desplegar Alerta Roja -->
   <g id="act-5a">
@@ -122,7 +114,6 @@
     <text x="610" y="546" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Desplegar banner de alerta</text>
     <text x="610" y="561" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">y resaltar KPI en rojo</text>
   </g>
-  <line x1="470" y1="550" x2="520" y2="550" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- Actividad 5B (Frontend): Actualizar Dashboard Normal -->
   <g id="act-5b">
@@ -132,30 +123,31 @@
   </g>
 
   <!-- Flujo 5A -> Operador Acción Correctiva -->
-  <line x1="700" y1="550" x2="745" y2="550" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <line x1="700" y1="550" x2="742" y2="550" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- Actividad 6A (Operador): Revisar Alerta -->
   <g id="act-6a">
-    <rect x="745" y="525" width="165" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
-    <text x="827" y="546" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Revisar alerta y ejecutar</text>
-    <text x="827" y="561" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">protocolo correctivo</text>
+    <rect x="742" y="525" width="162" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="823" y="546" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Revisar alerta y ejecutar</text>
+    <text x="823" y="561" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">protocolo correctivo</text>
   </g>
 
   <!-- Flujo 5B -> Operador Visualización -->
-  <line x1="700" y1="642" x2="745" y2="642" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <line x1="700" y1="642" x2="742" y2="642" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- Actividad 6B (Operador): Monitorear Normal -->
   <g id="act-6b">
-    <rect x="745" y="617" width="165" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
-    <text x="827" y="638" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Verificar estado óptimo</text>
-    <text x="827" y="653" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">del agua en el panel</text>
+    <rect x="742" y="617" width="162" height="50" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="823" y="638" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">Verificar estado óptimo</text>
+    <text x="823" y="653" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">del agua en el panel</text>
   </g>
 
   <!-- Rombo de Fusión / Join (Merge Node) -->
   <polygon points="827,715 852,735 827,755 802,735" fill="#ffffff" stroke="#222222" stroke-width="2" />
 
-  <line x1="827" y1="575" x2="827" y2="715" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
-  <line x1="827" y1="667" x2="827" y2="715" stroke="#222222" stroke-width="1.8" />
+  <!-- Conexiones al Rombo de Fusión sin cruzar 6B -->
+  <path d="M 904 550 L 917 550 L 917 735 L 852 735" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <line x1="827" y1="667" x2="827" y2="715" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <line x1="827" y1="755" x2="827" y2="795" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 

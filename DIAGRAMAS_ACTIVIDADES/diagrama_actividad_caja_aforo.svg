@@ -32,7 +32,7 @@
 
     <!-- Col 4: Backend / Cámara IA -->
     <rect x="690" y="55" width="240" height="38" fill="#f8fafc" stroke="#222222" stroke-width="2" />
-    <text x="810" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">BACKEND & CÁMARA IA</text>
+    <text x="810" y="79" text-anchor="middle" font-size="12" font-weight="800" fill="#222222">BACKEND &amp; CÁMARA IA</text>
   </g>
 
   <!-- Líneas divisorias -->
@@ -115,7 +115,7 @@
 
   <!-- Proceso paralelo de Cámara IA (Fork bar) -->
   <line x1="715" y1="520" x2="905" y2="520" stroke="#222222" stroke-width="5" />
-  <line x1="810" y1="487" x2="810" y2="520" stroke="#222222" stroke-width="1.8" />
+  <line x1="810" y1="487" x2="810" y2="517" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <line x1="760" y1="520" x2="760" y2="560" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
   <line x1="860" y1="520" x2="860" y2="560" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
@@ -135,8 +135,8 @@
   </g>
 
   <!-- Join bar -->
-  <line x1="757" y1="610" x2="757" y2="640" stroke="#222222" stroke-width="1.8" />
-  <line x1="867" y1="610" x2="867" y2="640" stroke="#222222" stroke-width="1.8" />
+  <line x1="757" y1="610" x2="757" y2="637" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <line x1="867" y1="610" x2="867" y2="637" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
   <line x1="715" y1="640" x2="905" y2="640" stroke="#222222" stroke-width="5" />
 
   <!-- Flujo a Frontend -->

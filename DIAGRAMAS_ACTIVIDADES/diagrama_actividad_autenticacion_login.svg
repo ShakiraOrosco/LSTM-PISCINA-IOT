@@ -86,7 +86,7 @@
   </g>
 
   <!-- Retorno a Backend para validación hash -->
-  <path d="M 745 208 L 675 208 L 675 255 L 590 255" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <path d="M 822 222 L 822 238 L 590 238 L 590 255" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- Decisión 1: ¿Credenciales correctas? -->
   <g id="dec-1">
@@ -137,6 +137,9 @@
     <text x="822" y="506" text-anchor="middle" font-size="10" font-weight="700" fill="#222222">o cambio de clave</text>
   </g>
 
+  <!-- Flujo tras completar 2FA/clave hacia acceso -->
+  <path d="M 822 520 L 822 555 L 352 555 L 352 522" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
   <!-- Rama No: Acceso directo -->
   <line x1="522" y1="495" x2="440" y2="495" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
   <text x="475" y="487" font-size="11" font-weight="800" fill="#15803d">[ No ]</text>
@@ -153,20 +156,18 @@
 
   <!-- Actividad 7 (Usuario): Acceso concedido -->
   <g id="act-7">
-    <rect x="48" y="470" width="170" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
-    <text x="133" y="492" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Visualizar módulos</text>
-    <text x="133" y="508" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">autorizados en el menú</text>
+    <rect x="52" y="470" width="166" height="52" rx="12" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <text x="135" y="492" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">Visualizar módulos</text>
+    <text x="135" y="508" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">autorizados en el menú</text>
   </g>
-
-  <!-- Merge y fin -->
-  <line x1="133" y1="522" x2="133" y2="600" stroke="#222222" stroke-width="1.8" />
-  <line x1="352" y1="390" x2="352" y2="600" stroke="#222222" stroke-width="1.8" />
-  <line x1="133" y1="600" x2="352" y2="600" stroke="#222222" stroke-width="1.8" />
-
-  <line x1="133" y1="600" x2="133" y2="650" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- Rombo de Unión -->
   <polygon points="133,650 158,670 133,690 108,670" fill="#ffffff" stroke="#222222" stroke-width="2" />
+
+  <!-- Conectar acceso concedido y error al Rombo de Unión sin sobreposiciones -->
+  <line x1="133" y1="522" x2="133" y2="650" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <path d="M 352 390 L 352 425 L 38 425 L 38 670 L 108 670" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
   <line x1="133" y1="690" x2="133" y2="740" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- NODO FINAL -->

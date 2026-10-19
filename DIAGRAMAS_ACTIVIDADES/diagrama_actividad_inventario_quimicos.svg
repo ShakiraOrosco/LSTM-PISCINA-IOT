@@ -66,7 +66,7 @@
   </g>
 
   <!-- Flujo a Usuario -->
-  <path d="M 265 210 L 132 210 L 132 255" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <path d="M 352 222 L 352 238 L 133 238 L 133 255" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- Actividad 3 (Usuario): Seleccionar químico y cantidad -->
   <g id="act-3">
@@ -124,7 +124,7 @@
   </g>
 
   <!-- Retorno a Backend verificación de mínimos -->
-  <path d="M 745 461 L 675 461 L 675 520 L 590 520" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <path d="M 745 461 L 590 461 L 590 520" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- Decisión 1: ¿Stock >= Mínimo? -->
   <g id="dec-1">
@@ -155,13 +155,13 @@
     <text x="352" y="651" text-anchor="middle" font-size="10.5" font-weight="700" fill="#222222">"Stock Bajo" de insumo</text>
   </g>
 
-  <!-- Merge y fin -->
-  <line x1="265" y1="555" x2="133" y2="555" stroke="#222222" stroke-width="1.8" />
-  <line x1="265" y1="640" x2="133" y2="640" stroke="#222222" stroke-width="1.8" />
-  <line x1="133" y1="555" x2="133" y2="700" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
-
   <!-- Rombo de Unión -->
   <polygon points="133,700 158,720 133,740 108,720" fill="#ffffff" stroke="#222222" stroke-width="2" />
+
+  <!-- Conexiones independientes al Rombo de Unión -->
+  <path d="M 265 555 L 133 555 L 133 700" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+  <path d="M 352 665 L 352 720 L 158 720" fill="none" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
+
   <line x1="133" y1="740" x2="133" y2="790" stroke="#222222" stroke-width="1.8" marker-end="url(#arrow)" />
 
   <!-- NODO FINAL -->

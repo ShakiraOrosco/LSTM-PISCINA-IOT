@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suite de Diagramas HU-021 · Adquisición de Datos IoT desde ESP32</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', Arial, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen p-4 md:p-8 flex flex-col items-center">
+
+  <!-- CABECERA PRINCIPAL -->
+  <header class="w-full max-w-6xl mb-6 bg-slate-900 border border-slate-800 p-6 md:p-8 rounded-3xl shadow-2xl">
+    <div class="flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">Actividad 4</span>
+          <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-black px-3 py-1 rounded-full">HU-021 / RF-21</span>
+          <span class="text-xs text-slate-400 font-semibold">Estimación: 8 SP · Prioridad: Alta</span>
+        </div>
+        <h1 class="text-2xl md:text-3xl font-black text-white">Adquisición y Transmisión Inalámbrica de Datos IoT</h1>
+        <p class="text-sm text-slate-300 mt-2 max-w-3xl">
+          Paquete completo de diagramas técnicos (UML 2.5) para documentar la lectura de sensores (pH, turbidez, temperatura), validación de datos en backend, persistencia en base de datos y actualización en tiempo real del dashboard.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="diagramas_completos_hu021.drawio" download="diagramas_completos_hu021.drawio" class="px-5 py-3 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 font-black text-xs md:text-sm rounded-2xl shadow-xl transition-all flex items-center gap-2">
+          <span>📐 Descargar Draw.io Completo (3 en 1)</span>
+        </a>
+        <button onclick="descargarPNGActual()" class="px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-xs md:text-sm rounded-2xl shadow-xl shadow-blue-500/20 transition-all flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Descargar Diagrama Actual en PNG HD (300 DPI)
+        </button>
+      </div>
+    </div>
+
+    <!-- TARJETA RESUMEN DE LA HISTORIA DE USUARIO -->
+    <div class="mt-6 pt-6 border-t border-slate-800 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+      <div class="bg-slate-800/60 p-4 rounded-2xl border border-slate-700/60">
+        <span class="text-slate-400 font-bold uppercase tracking-wider block mb-1">Historia de Usuario (HU-021):</span>
+        <p class="text-slate-200 text-sm font-semibold italic">
+          "Como Operador, quiero que el ESP32 lea los sensores de pH, turbidez y temperatura, para obtener datos del agua en tiempo real."
+        </p>
+      </div>
+      <div class="bg-slate-800/60 p-4 rounded-2xl border border-slate-700/60">
+        <span class="text-slate-400 font-bold uppercase tracking-wider block mb-1">Criterios de Aceptación Cubiertos:</span>
+        <ul class="text-slate-300 space-y-1 list-disc list-inside">
+          <li>Lecturas periódicas de sensores analógicos y digitales (ESP32).</li>
+          <li>Transmisión inalámbrica segura y estructurada al backend.</li>
+          <li>Validación de rangos físicos antes de almacenar.</li>
+          <li>Persistencia en base de datos y actualización de tarjetas del dashboard.</li>
+          <li>Descarte de valores anómalos/corruptos y registro de aviso de error.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- SELECTOR DE DIAGRAMAS (TABS) -->
+  <div class="w-full max-w-6xl mb-6 flex flex-wrap gap-3">
+    <button onclick="seleccionarDiagrama('secuencia')" id="tab-secuencia" class="px-5 py-3 rounded-2xl font-black text-xs md:text-sm bg-blue-600 text-white shadow-lg transition-all flex items-center gap-2">
+      <span>⚡ 1. Diagrama de Secuencia (Recomendado Principal)</span>
+    </button>
+    <button onclick="seleccionarDiagrama('actividades')" id="tab-actividades" class="px-5 py-3 rounded-2xl font-black text-xs md:text-sm bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all flex items-center gap-2">
+      <span>🔄 2. Diagrama de Actividades (Swimlanes)</span>
+    </button>
+    <button onclick="seleccionarDiagrama('despliegue')" id="tab-despliegue" class="px-5 py-3 rounded-2xl font-black text-xs md:text-sm bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all flex items-center gap-2">
+      <span>🏗️ 3. Diagrama de Despliegue &amp; Arquitectura IoT</span>
+    </button>
+  </div>
+
+  <!-- CONTENEDOR DEL DIAGRAMA SELECCIONADO -->
+  <main class="w-full max-w-6xl bg-white rounded-3xl shadow-2xl p-4 md:p-8 border border-slate-200 text-slate-800 flex flex-col items-center">
+    
+    <div class="w-full flex flex-wrap items-center justify-between pb-4 mb-4 border-b border-slate-200">
+      <div>
+        <h2 id="diagTitulo" class="text-lg md:text-xl font-black text-slate-900">1. Diagrama de Secuencia UML (HU-021)</h2>
+        <p id="diagSubtitulo" class="text-xs text-slate-500 font-semibold">Intercambio cronológico de mensajes entre Sensores, ESP32, Backend FastAPI, Validador, Base de Datos y Dashboard.</p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="toggleGrid()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg border border-slate-300 transition-all">
+          <span id="gridText">Quitar Cuadrícula</span>
+        </button>
+        <a id="btnDescargarDrawio" href="diagrama_secuencia_hu021.drawio" download class="px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-800 text-xs font-bold rounded-lg border border-amber-300 transition-all flex items-center gap-1">
+          <span>📐 Descargar .drawio</span>
+        </a>
+        <a id="btnDescargarSVG" href="diagrama_secuencia_hu021.svg" download class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg border border-slate-300 transition-all">
+          Descargar SVG
+        </a>
+      </div>
+    </div>
+
+    <!-- ÁREA DE RENDER DEL SVG -->
+    <div id="svgContainer" class="w-full flex justify-center overflow-x-auto py-2">
+      <!-- SVG cargado dinámicamente -->
+    </div>
+
+    <!-- PIE DEL DIAGRAMA -->
+    <div class="w-full mt-6 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between text-xs text-slate-500 font-semibold">
+      <span id="diagPie">Figura: Diagrama de Secuencia · Adquisición IoT y Validación (UML 2.5)</span>
+      <span>Sistema de Control y Calidad del Agua "Playa Azul" · 2026</span>
+    </div>
+
+  </main>
+
+  <!-- SCRIPT INTERACTIVO -->
+  <script>
+    const diagramas = {
+      secuencia: {
+        titulo: "1. Diagrama de Secuencia UML (HU-021)",
+        subtitulo: "Intercambio cronológico de mensajes entre Sensores, ESP32, Backend FastAPI, Validador, Base de Datos y Dashboard.",
+        pie: "Figura: Diagrama de Secuencia · Adquisición IoT y Validación (UML 2.5)",
+        archivo: "diagrama_secuencia_hu021.svg",
+        drawio: "diagrama_secuencia_hu021.drawio",
+        nombreDescarga: "Diagrama_Secuencia_IoT_HU021.png"
+      },
+      actividades: {
+        titulo: "2. Diagrama de Actividades UML con Swimlanes (HU-021)",
+        subtitulo: "Flujo procedimental con carriles para Sensores Físicos, ESP32, Backend & Validador, y Base de Datos & Dashboard.",
+        pie: "Figura: Diagrama de Actividades con Calles de Responsabilidad (UML 2.5)",
+        archivo: "diagrama_actividad_hu021.svg",
+        drawio: "diagrama_actividad_hu021.drawio",
+        nombreDescarga: "Diagrama_Actividades_IoT_HU021.png"
+      },
+      despliegue: {
+        titulo: "3. Diagrama de Despliegue y Arquitectura IoT (HU-021)",
+        subtitulo: "Topología física y de comunicaciones: Sondas de agua, ESP32, Red WiFi, Servidor Linux Docker y SPA React.",
+        pie: "Figura: Diagrama de Despliegue y Arquitectura de Dispositivos IoT (UML 2.5)",
+        archivo: "diagrama_despliegue_hu021.svg",
+        drawio: "diagrama_despliegue_hu021.drawio",
+        nombreDescarga: "Diagrama_Despliegue_IoT_HU021.png"
+      }
+    };
+
+    let actual = 'secuencia';
+    let conCuadricula = true;
+
+    async function cargarSVG(archivo) {
+      try {
+        const resp = await fetch(archivo);
+        const svgContent = await resp.text();
+        document.getElementById('svgContainer').innerHTML = svgContent;
+      } catch (err) {
+        console.error('Error al cargar SVG:', err);
+      }
+    }
+
+    function seleccionarDiagrama(key) {
+      actual = key;
+      const data = diagramas[key];
+
+      // Actualizar estilos tabs
+      ['secuencia', 'actividades', 'despliegue'].forEach(k => {
+        const btn = document.getElementById('tab-' + k);
+        if (k === key) {
+          btn.className = "px-5 py-3 rounded-2xl font-black text-xs md:text-sm bg-blue-600 text-white shadow-lg transition-all flex items-center gap-2";
+        } else {
+          btn.className = "px-5 py-3 rounded-2xl font-black text-xs md:text-sm bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all flex items-center gap-2";
+        }
+      });
+
+      // Actualizar textos
+      document.getElementById('diagTitulo').innerText = data.titulo;
+      document.getElementById('diagSubtitulo').innerText = data.subtitulo;
+      document.getElementById('diagPie').innerText = data.pie;
+      document.getElementById('btnDescargarSVG').href = data.archivo;
+      document.getElementById('btnDescargarDrawio').href = data.drawio;
+      document.getElementById('btnDescargarDrawio').setAttribute('download', data.drawio);
+      document.getElementById('btnDescargarSVG').setAttribute('download', data.archivo);
+
+      // Cargar SVG
+      cargarSVG(data.archivo);
+    }
+
+    function toggleGrid() {
+      conCuadricula = !conCuadricula;
+      const svg = document.querySelector('#svgContainer svg');
+      if (!svg) return;
+      const rect = svg.querySelector('#bgRect');
+      const text = document.getElementById('gridText');
+      if (rect) {
+        if (conCuadricula) {
+          rect.style.display = 'block';
+          text.innerText = 'Quitar Cuadrícula';
+        } else {
+          rect.style.display = 'none';
+          text.innerText = 'Poner Cuadrícula';
+        }
+      }
+    }
+
+    function descargarPNGActual() {
+      const data = diagramas[actual];
+      const svg = document.querySelector('#svgContainer svg');
+      if (!svg) return;
+
+      const viewBox = svg.getAttribute('viewBox').split(' ');
+      const vbWidth = parseFloat(viewBox[2]);
+      const vbHeight = parseFloat(viewBox[3]);
+
+      const svgData = new XMLSerializer().serializeToString(svg);
+      const canvas = document.createElement('canvas');
+      const scale = 2.5; // Alta definición 300 DPI
+      canvas.width = vbWidth * scale;
+      canvas.height = vbHeight * scale;
+      const ctx = canvas.getContext('2d');
+
+      const img = new Image();
+      const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(svgBlob);
+
+      img.onload = function() {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(url);
+
+        const enlace = document.createElement('a');
+        enlace.download = data.nombreDescarga;
+        enlace.href = canvas.toDataURL('image/png');
+        enlace.click();
+      };
+
+      img.src = url;
+    }
+
+    window.onload = function() {
+      seleccionarDiagrama('secuencia');
+    };
+  </script>
+
+</body>
+</html>

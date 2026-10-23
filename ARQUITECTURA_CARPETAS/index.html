@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suite de Diagramas de Arquitectura (Opciones para Word) · Playa Azul</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', Arial, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen p-4 md:p-8 flex flex-col items-center">
+
+  <!-- CABECERA -->
+  <header class="w-full max-w-6xl mb-6 bg-slate-900 border border-slate-800 p-6 md:p-8 rounded-3xl shadow-2xl">
+    <div class="flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">Diseño para Word</span>
+          <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-black px-3 py-1 rounded-full">Formato Compacto</span>
+          <span class="text-xs text-slate-400 font-semibold">Media Página · 100% Legible</span>
+        </div>
+        <h1 class="text-2xl md:text-3xl font-black text-white">Selector de Diagramas de Arquitectura para el Informe</h1>
+        <p class="text-sm text-slate-300 mt-2 max-w-3xl">
+          Diseñados en proporción vertical y compacta para que al insertarlos en tu documento de tesis ocupen <b>media página sin reducir el tamaño de las letras</b>.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <a href="diagramas_arquitectura_opciones.drawio" download="diagramas_arquitectura_opciones.drawio" class="px-5 py-3 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 font-black text-xs md:text-sm rounded-2xl shadow-xl transition-all flex items-center gap-2">
+          <span>📐 Descargar Draw.io (3 Opciones en 1)</span>
+        </a>
+        <button onclick="descargarPNGActual()" class="px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-xs md:text-sm rounded-2xl shadow-xl shadow-blue-500/20 transition-all flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Descargar PNG HD (Word 300 DPI)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SELECTOR DE LAS 3 OPCIONES (TABS) -->
+  <div class="w-full max-w-6xl mb-6 flex flex-wrap gap-3">
+    <button onclick="seleccionarOpcion(1)" id="tab-1" class="px-5 py-3 rounded-2xl font-black text-xs md:text-sm bg-blue-600 text-white shadow-lg transition-all flex items-center gap-2">
+      <span>📄 Opción 1: Paquetes UML Vertical (Recomendada)</span>
+    </button>
+    <button onclick="seleccionarOpcion(2)" id="tab-2" class="px-5 py-3 rounded-2xl font-black text-xs md:text-sm bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all flex items-center gap-2">
+      <span>📦 Opción 2: Contenedores C4 (Estándar Industria)</span>
+    </button>
+    <button onclick="seleccionarOpcion(3)" id="tab-3" class="px-5 py-3 rounded-2xl font-black text-xs md:text-sm bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all flex items-center gap-2">
+      <span>🔌 Opción 3: Componentes UML 2.5 (Interfaces y Puertos)</span>
+    </button>
+  </div>
+
+  <!-- CONTENEDOR DEL DIAGRAMA -->
+  <main class="w-full max-w-6xl bg-white rounded-3xl shadow-2xl p-4 md:p-8 border border-slate-200 text-slate-800 flex flex-col items-center">
+    
+    <div class="w-full flex flex-wrap items-center justify-between pb-4 mb-4 border-b border-slate-200">
+      <div>
+        <h2 id="diagTitulo" class="text-lg md:text-xl font-black text-slate-900">Opción 1: Diagrama de Paquetes UML Vertical Compacto</h2>
+        <p id="diagDesc" class="text-xs text-slate-500 font-semibold">Conserva las carpetas formales (/frontend, /backend, /iot, /lstm) apiladas verticalmente en media página.</p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a id="btnDescargarDrawio" href="opcion1_paquetes_vertical.drawio" download class="px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-800 text-xs font-bold rounded-lg border border-amber-300 transition-all flex items-center gap-1">
+          <span>📐 Descargar .drawio</span>
+        </a>
+        <a id="btnDescargarSVG" href="opcion1_paquetes_vertical.svg" download class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg border border-slate-300 transition-all">
+          <span>Descargar SVG</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ÁREA DE RENDER -->
+    <div id="svgContainer" class="w-full flex justify-center overflow-x-auto py-2">
+      <!-- SVG cargado -->
+    </div>
+
+    <div class="w-full mt-6 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between text-xs text-slate-500 font-semibold">
+      <span id="diagPie">Figura: Diagrama de Arquitectura Cliente - Servidor · Sistema Playa Azul</span>
+      <span>Elaboración propia, 2026</span>
+    </div>
+
+  </main>
+
+  <script>
+    const opciones = {
+      1: {
+        titulo: "Opción 1: Diagrama de Paquetes UML Vertical Compacto",
+        desc: "Conserva las carpetas formales (/frontend, /backend, /iot, /lstm) apiladas verticalmente en media página de Word con letras grandes.",
+        svg: "opcion1_paquetes_vertical.svg",
+        drawio: "opcion1_paquetes_vertical.drawio",
+        nombrePNG: "Arquitectura_Opcion1_Paquetes_Vertical.png"
+      },
+      2: {
+        titulo: "Opción 2: Diagrama de Contenedores de Software (Modelo C4)",
+        desc: "Ultra-limpio y sintético. Muestra los 5 contenedores ejecutables (SPA, API FastAPI, ESP32, LSTM y PostgreSQL) sin saturación.",
+        svg: "opcion2_contenedores_c4.svg",
+        drawio: "opcion2_contenedores_c4.drawio",
+        nombrePNG: "Arquitectura_Opcion2_Contenedores_C4.png"
+      },
+      3: {
+        titulo: "Opción 3: Diagrama de Componentes UML 2.5",
+        desc: "Representación formal con simbología UML de componentes, puertos e interfaces provistas/requeridas (Lollipops & Sockets).",
+        svg: "opcion3_componentes_uml.svg",
+        drawio: "opcion3_componentes_uml.drawio",
+        nombrePNG: "Arquitectura_Opcion3_Componentes_UML.png"
+      }
+    };
+
+    let actual = 1;
+
+    async function cargarSVG(archivo) {
+      try {
+        const resp = await fetch(archivo);
+        const svgContent = await resp.text();
+        document.getElementById('svgContainer').innerHTML = svgContent;
+      } catch (err) {
+        console.error('Error al cargar SVG:', err);
+      }
+    }
+
+    function seleccionarOpcion(num) {
+      actual = num;
+      const data = opciones[num];
+
+      [1, 2, 3].forEach(n => {
+        const btn = document.getElementById('tab-' + n);
+        if (n === num) {
+          btn.className = "px-5 py-3 rounded-2xl font-black text-xs md:text-sm bg-blue-600 text-white shadow-lg transition-all flex items-center gap-2";
+        } else {
+          btn.className = "px-5 py-3 rounded-2xl font-black text-xs md:text-sm bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all flex items-center gap-2";
+        }
+      });
+
+      document.getElementById('diagTitulo').innerText = data.titulo;
+      document.getElementById('diagDesc').innerText = data.desc;
+      document.getElementById('btnDescargarSVG').href = data.svg;
+      document.getElementById('btnDescargarSVG').setAttribute('download', data.svg);
+      document.getElementById('btnDescargarDrawio').href = data.drawio;
+      document.getElementById('btnDescargarDrawio').setAttribute('download', data.drawio);
+
+      cargarSVG(data.svg);
+    }
+
+    function descargarPNGActual() {
+      const data = opciones[actual];
+      const svg = document.querySelector('#svgContainer svg');
+      if (!svg) return;
+
+      const viewBox = svg.getAttribute('viewBox').split(' ');
+      const vbWidth = parseFloat(viewBox[2]);
+      const vbHeight = parseFloat(viewBox[3]);
+
+      const svgData = new XMLSerializer().serializeToString(svg);
+      const canvas = document.createElement('canvas');
+      const scale = 2.5; // Alta resolución (300 DPI) para Word
+      canvas.width = vbWidth * scale;
+      canvas.height = vbHeight * scale;
+      const ctx = canvas.getContext('2d');
+
+      const img = new Image();
+      const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(svgBlob);
+
+      img.onload = function() {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(url);
+
+        const enlace = document.createElement('a');
+        enlace.download = data.nombrePNG;
+        enlace.href = canvas.toDataURL('image/png');
+        enlace.click();
+      };
+
+      img.src = url;
+    }
+
+    window.onload = function() {
+      seleccionarOpcion(1);
+    };
+  </script>
+
+</body>
+</html>

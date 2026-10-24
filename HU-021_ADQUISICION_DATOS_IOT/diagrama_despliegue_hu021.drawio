@@ -1,0 +1,104 @@
+<mxfile host="app.diagrams.net" modified="2026-10-20T14:00:00.000Z" agent="Antigravity" version="24.7.17" type="device">
+<diagram id="dep-hu021" name="3. Despliegue &amp; Arquitectura IoT (HU-021)">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1550" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Header -->
+        <mxCell id="dep-hdr-box" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#0284c7;fillColor=#f0f9ff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1470" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dep-hdr-txt" value="&lt;b style=&quot;font-size:17px; color:#0369a1;&quot;&gt;DIAGRAMA DE DESPLIEGUE Y ARQUITECTURA IOT UML · HU-021&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:12px; color:#475569;&quot;&gt;Topología de Hardware, Red WiFi, Servidor Central FastAPI y Dashboard en Tiempo Real · Playa Azul&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="50" y="25" width="1450" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- NODO 1: INSTRUMENTACIÓN FÍSICA -->
+        <mxCell id="node-sensores" value="&amp;lt;&amp;lt;device: Sensores de Agua&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Instrumentación Física (Piscina)&lt;/b&gt;" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;strokeWidth=2;strokeColor=#334155;fillColor=#ffffff;size=15;fontSize=11;verticalAlign=top;spacingTop=15;" vertex="1" parent="1">
+          <mxGeometry x="40" y="130" width="300" height="420" as="geometry" />
+        </mxCell>
+
+        <mxCell id="art-ph" value="&lt;b&gt;Sonda pH Analógica&lt;/b&gt;&lt;br&gt;• Rango: 0.0 - 14.0 pH&lt;br&gt;• Señal: Voltaje ADC 0-3.3V&lt;br&gt;• Precisión: ±0.1 pH" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#64748b;strokeWidth=1.5;align=left;spacingLeft=12;fontSize=10;" vertex="1" parent="node-sensores">
+          <mxGeometry x="25" y="75" width="250" height="75" as="geometry" />
+        </mxCell>
+
+        <mxCell id="art-turb" value="&lt;b&gt;Sensor Óptico Turbidez&lt;/b&gt;&lt;br&gt;• Rango: 0 - 1000 NTU&lt;br&gt;• Señal: Fototransistor IR&lt;br&gt;• Lectura analógica filtrada" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#64748b;strokeWidth=1.5;align=left;spacingLeft=12;fontSize=10;" vertex="1" parent="node-sensores">
+          <mxGeometry x="25" y="165" width="250" height="75" as="geometry" />
+        </mxCell>
+
+        <mxCell id="art-temp" value="&lt;b&gt;Sensor Temp DS18B20&lt;/b&gt;&lt;br&gt;• Protocolo: Dallas OneWire Digital&lt;br&gt;• Sumergible IP68 / Acero inox.&lt;br&gt;• Rango: -10 °C a +85 °C" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#64748b;strokeWidth=1.5;align=left;spacingLeft=12;fontSize=10;" vertex="1" parent="node-sensores">
+          <mxGeometry x="25" y="255" width="250" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- NODO 2: MICROCONTROLADOR ESP32 -->
+        <mxCell id="node-esp32" value="&amp;lt;&amp;lt;device: Nodo IoT&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;ESP32 DevKit V1 (Xtensa Dual-Core)&lt;/b&gt;" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;strokeWidth=2;strokeColor=#334155;fillColor=#ffffff;size=15;fontSize=11;verticalAlign=top;spacingTop=15;" vertex="1" parent="1">
+          <mxGeometry x="400" y="130" width="310" height="420" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cmp-fw" value="&amp;lt;&amp;lt;component&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Firmware FreeRTOS / C++&lt;/b&gt;&lt;br&gt;• Tarea cíclica de muestreo (10s)&lt;br&gt;• Filtro promedio móvil ADC&lt;br&gt;• Conversión de curvas de calibración" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#2563eb;strokeWidth=1.5;align=left;spacingLeft=12;fontSize=10;" vertex="1" parent="node-esp32">
+          <mxGeometry x="25" y="75" width="260" height="85" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cmp-wifi" value="&amp;lt;&amp;lt;component&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Cliente WiFi 802.11 b/g/n&lt;/b&gt;&lt;br&gt;• Peticiones HTTPS seguras&lt;br&gt;• Payload JSON con timestamp&lt;br&gt;• Reintento automático ante caídas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#2563eb;strokeWidth=1.5;align=left;spacingLeft=12;fontSize=10;" vertex="1" parent="node-esp32">
+          <mxGeometry x="25" y="175" width="260" height="85" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cmp-sec" value="&amp;lt;&amp;lt;security&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Gestor de Credenciales &amp; Token&lt;/b&gt;&lt;br&gt;• Cabecera API-Key autenticada" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#64748b;strokeWidth=1.5;align=left;spacingLeft=12;fontSize=10;" vertex="1" parent="node-esp32">
+          <mxGeometry x="25" y="275" width="260" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- NODO 3: SERVIDOR CENTRAL BACKEND -->
+        <mxCell id="node-server" value="&amp;lt;&amp;lt;executionEnvironment: Linux Server / Docker&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Servidor Central Backend &amp; Base de Datos&lt;/b&gt;" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;strokeWidth=2;strokeColor=#334155;fillColor=#ffffff;size=15;fontSize=11;verticalAlign=top;spacingTop=15;" vertex="1" parent="1">
+          <mxGeometry x="780" y="130" width="350" height="420" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cmp-api" value="&amp;lt;&amp;lt;service&amp;gt;&amp;gt; &lt;b&gt;FastAPI Backend (Python)&lt;/b&gt;&lt;br&gt;• Endpoint: POST /api/v1/telemetria/iot&lt;br&gt;• Validación Pydantic (pH [0-14], Turb, Temp)&lt;br&gt;• Controlador de anomalías y descartes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#059669;strokeWidth=1.5;align=left;spacingLeft=12;fontSize=10;" vertex="1" parent="node-server">
+          <mxGeometry x="25" y="75" width="300" height="75" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cmp-db" value="&amp;lt;&amp;lt;database&amp;gt;&amp;gt; &lt;b&gt;PostgreSQL 15 Database&lt;/b&gt;&lt;br&gt;• Tabla mediciones_sensores (Histórico)&lt;br&gt;• Tabla logs_anomalias_iot (Auditoría C5)&lt;br&gt;• Índices temporales y particionado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#059669;strokeWidth=1.5;align=left;spacingLeft=12;fontSize=10;" vertex="1" parent="node-server">
+          <mxGeometry x="25" y="165" width="300" height="75" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cmp-ws" value="&amp;lt;&amp;lt;service&amp;gt;&amp;gt; &lt;b&gt;WebSocket Gateway Server&lt;/b&gt;&lt;br&gt;• Canal en vivo: /ws/telemetria&lt;br&gt;• Emisión reactiva ante nueva lectura válida&lt;br&gt;• Notificación a todos los navegadores activos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#059669;strokeWidth=1.5;align=left;spacingLeft=12;fontSize=10;" vertex="1" parent="node-server">
+          <mxGeometry x="25" y="255" width="300" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- NODO 4: ESTACIÓN OPERADOR (FRONTEND) -->
+        <mxCell id="node-client" value="&amp;lt;&amp;lt;device: Cliente Operador&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Estación de Trabajo / Navegador Web&lt;/b&gt;" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;strokeWidth=2;strokeColor=#334155;fillColor=#ffffff;size=15;fontSize=11;verticalAlign=top;spacingTop=15;" vertex="1" parent="1">
+          <mxGeometry x="1190" y="130" width="320" height="420" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cmp-ui" value="&amp;lt;&amp;lt;component&amp;gt;&amp;gt; &lt;b&gt;Dashboard Operador (React + Tailwind)&lt;/b&gt;&lt;br&gt;• &lt;b&gt;Tarjeta pH:&lt;/b&gt; Lectura digital + badge de estado&lt;br&gt;• &lt;b&gt;Tarjeta Turbidez:&lt;/b&gt; Indicador NTU de claridad&lt;br&gt;• &lt;b&gt;Tarjeta Temperatura:&lt;/b&gt; Grados Celsius en vivo&lt;br&gt;• Socket Listener: actualización inmediata sin recargar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#4338ca;strokeWidth=1.5;align=left;spacingLeft=12;fontSize=10;" vertex="1" parent="node-client">
+          <mxGeometry x="20" y="75" width="280" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cmp-alert" value="&amp;lt;&amp;lt;component&amp;gt;&amp;gt; &lt;b&gt;Módulo de Alertas Visuales&lt;/b&gt;&lt;br&gt;• Banners rojos ante parámetros anómalos&lt;br&gt;• Sonido de aviso y registro de operador" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#4338ca;strokeWidth=1.5;align=left;spacingLeft=12;fontSize=10;" vertex="1" parent="node-client">
+          <mxGeometry x="20" y="200" width="280" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ENLACES DE COMUNICACIÓN (CONEXIONES ENTRE NODOS) -->
+        <mxCell id="link-hw" value="GPIO / ADC / OneWire&lt;br&gt;&lt;span style=&quot;font-size:9px; color:#64748b;&quot;&gt;(Cable apantallado)&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#1e293b;endArrow=block;endFill=1;fontSize=10;fontStyle=1;" edge="1" parent="1" source="node-sensores" target="node-esp32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="link-wifi" value="WiFi 2.4 GHz WPA2/3&lt;br&gt;&lt;b style=&quot;color:#2563eb;&quot;&gt;HTTPS / JSON REST&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.5;strokeColor=#2563eb;dashed=1;endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1" source="node-esp32" target="node-server">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="link-ws" value="Red LAN / Internet&lt;br&gt;&lt;b style=&quot;color:#059669;&quot;&gt;WebSocket / TCP&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.5;strokeColor=#059669;endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1" source="node-server" target="node-client">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- CAJA DE PROTOCOLOS Y SEGURIDAD -->
+        <mxCell id="info-box" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.8;strokeColor=#334155;fillColor=#f8fafc;" vertex="1" parent="1">
+          <mxGeometry x="40" y="580" width="1470" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="info-txt" value="&lt;b style=&quot;font-size:12px; color:#1e293b;&quot;&gt;ESPECIFICACIÓN TÉCNICA DEL FLUJO DE ADQUISICIÓN Y SEGURIDAD (HU-021):&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10.5px; color:#334155;&quot;&gt;• &lt;b&gt;Frecuencia de Muestreo:&lt;/b&gt; Muestras analógicas tomadas cada 10 segundos por el ADC del ESP32 con filtrado pasa-bajos contra ruido eléctrico.&lt;br&gt;• &lt;b&gt;Protocolo de Red:&lt;/b&gt; Transmisión mediante peticiones HTTP POST sobre TLS (WiFi WPA2/WPA3 empresarial) hacia el endpoint seguro de FastAPI.&lt;br&gt;• &lt;b&gt;Reglas de Validación:&lt;/b&gt; El validador descarta automáticamente lecturas NaN, voltajes saturados y valores biológicamente imposibles, registrando alertas en PostgreSQL.&lt;br&gt;• &lt;b&gt;Latencia de Visualización:&lt;/b&gt; Desde la lectura en piscina hasta la visualización en las tarjetas del dashboard del operador transcurren menos de 250 ms.&lt;/span&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="55" y="585" width="1440" height="80" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

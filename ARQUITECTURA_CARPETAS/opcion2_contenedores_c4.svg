@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 920" width="860" height="920" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <pattern id="grid2" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f1f5f9" stroke-width="0.8" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#e2e8f0" stroke-width="1.2" />
+    </pattern>
+    <marker id="arr-c4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#grid2)" />
+
+  <!-- ENCABEZADO C4 -->
+  <g transform="translate(30, 20)">
+    <rect width="800" height="65" rx="8" fill="#0f172a" />
+    <text x="20" y="28" font-size="10" font-weight="800" fill="#38bdf8" letter-spacing="1">OPCIÓN 2 · MODELO C4 (CONTAINER DIAGRAM)</text>
+    <text x="20" y="48" font-size="15" font-weight="900" fill="#ffffff">Diagrama de Contenedores de Software · Sistema "Playa Azul"</text>
+    <rect x="670" y="20" width="110" height="25" rx="5" fill="#1e293b" />
+    <text x="725" y="36" text-anchor="middle" font-size="9.5" font-weight="800" fill="#38bdf8">C4 LEVEL 2</text>
+  </g>
+
+  <!-- ACTOR HUMANO -->
+  <g transform="translate(300, 105)">
+    <rect width="260" height="75" rx="8" fill="#08427b" stroke="#06325d" stroke-width="1.5" />
+    <text x="130" y="25" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">👤 Operador / Administrador</text>
+    <text x="130" y="42" text-anchor="middle" font-size="9" font-weight="600" fill="#93c5fd">[Persona / Usuario del Sistema]</text>
+    <text x="130" y="58" text-anchor="middle" font-size="8.5" font-weight="500" fill="#e0f2fe">Monitorea calidad del agua, caja y dosificación</text>
+  </g>
+
+  <!-- Flecha Actor -> Web App -->
+  <path d="M 430 180 L 430 220" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arr-c4)" />
+  <text x="440" y="205" font-size="9" font-weight="700" fill="#475569">Usa mediante navegador [HTTPS]</text>
+
+  <!-- CONTENEDOR 1: SPA REACT -->
+  <g transform="translate(250, 220)">
+    <rect width="360" height="95" rx="10" fill="#1168bd" stroke="#0e569c" stroke-width="2" />
+    <text x="180" y="26" text-anchor="middle" font-size="13" font-weight="900" fill="#ffffff">Single-Page Application (SPA)</text>
+    <text x="180" y="42" text-anchor="middle" font-size="10" font-weight="700" fill="#93c5fd">[Container: React, Vite, Tailwind CSS]</text>
+    <text x="180" y="62" text-anchor="middle" font-size="9" font-weight="500" fill="#e0f2fe">Provee interfaz visual de monitoreo en tiempo real,</text>
+    <text x="180" y="76" text-anchor="middle" font-size="9" font-weight="500" fill="#e0f2fe">gráficas de parámetros, control de caja y stock químico</text>
+  </g>
+
+  <!-- Flecha SPA -> API Server -->
+  <path d="M 430 315 L 430 375" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arr-c4)" />
+  <rect x="340" y="332" width="180" height="22" rx="4" fill="#ffffff" stroke="#475569" stroke-width="1.2" />
+  <text x="430" y="347" text-anchor="middle" font-size="8.5" font-weight="800" fill="#1e293b">JSON REST &amp; WebSocket [WSS]</text>
+
+  <!-- CONTENEDOR 2: API SERVER (FASTAPI) -->
+  <g transform="translate(210, 375)">
+    <rect width="440" height="110" rx="10" fill="#1168bd" stroke="#0e569c" stroke-width="2" />
+    <text x="220" y="28" text-anchor="middle" font-size="13.5" font-weight="900" fill="#ffffff">API Application Server</text>
+    <text x="220" y="45" text-anchor="middle" font-size="10" font-weight="700" fill="#93c5fd">[Container: Python, FastAPI]</text>
+    <text x="220" y="66" text-anchor="middle" font-size="9" font-weight="500" fill="#e0f2fe">Expone endpoints de negocio, valida límites físicos fisicoquímicos,</text>
+    <text x="220" y="80" text-anchor="middle" font-size="9" font-weight="500" fill="#e0f2fe">descarta datos corruptos y despacha eventos WebSocket</text>
+    <text x="220" y="96" text-anchor="middle" font-size="8.5" font-weight="600" fill="#bae6fd">Incluye detector de aforo por visión artificial con YOLOv8</text>
+  </g>
+
+  <!-- CONTENEDOR 3: DISPOSITIVO IOT (ESP32) -->
+  <g transform="translate(30, 530)">
+    <rect width="240" height="115" rx="10" fill="#0284c7" stroke="#0369a1" stroke-width="2" />
+    <text x="120" y="26" text-anchor="middle" font-size="12" font-weight="900" fill="#ffffff">Dispositivo Edge IoT</text>
+    <text x="120" y="42" text-anchor="middle" font-size="9.5" font-weight="700" fill="#bae6fd">[Container: ESP32 / FreeRTOS]</text>
+    <text x="120" y="64" text-anchor="middle" font-size="8.5" font-weight="500" fill="#f0f9ff">Muestrea sensores de agua</text>
+    <text x="120" y="78" text-anchor="middle" font-size="8.5" font-weight="500" fill="#f0f9ff">(pH, turbidez, temp DS18B20)</text>
+    <text x="120" y="94" text-anchor="middle" font-size="8.5" font-weight="700" fill="#ffffff">Transmite por WiFi WPA2</text>
+  </g>
+
+  <!-- Flecha IoT -> API Server -->
+  <path d="M 150 530 L 150 430 L 210 430" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arr-c4)" />
+  <rect x="50" y="460" width="160" height="22" rx="4" fill="#ffffff" stroke="#475569" stroke-width="1" />
+  <text x="130" y="475" text-anchor="middle" font-size="8" font-weight="800" fill="#0369a1">POST /telemetria [WiFi]</text>
+
+  <!-- CONTENEDOR 4: SERVICIO ML (LSTM) -->
+  <g transform="translate(590, 530)">
+    <rect width="240" height="115" rx="10" fill="#7c3aed" stroke="#6d28d9" stroke-width="2" />
+    <text x="120" y="26" text-anchor="middle" font-size="12" font-weight="900" fill="#ffffff">Servicio Predictivo IA</text>
+    <text x="120" y="42" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ddd6fe">[Container: TensorFlow / Keras]</text>
+    <text x="120" y="64" text-anchor="middle" font-size="8.5" font-weight="500" fill="#f5f3ff">Red Neuronal Recurrente LSTM</text>
+    <text x="120" y="78" text-anchor="middle" font-size="8.5" font-weight="500" fill="#f5f3ff">Calcula dosis recomendada de</text>
+    <text x="120" y="94" text-anchor="middle" font-size="8.5" font-weight="700" fill="#ffffff">Cloro y pH- reductor en g/m³</text>
+  </g>
+
+  <!-- Flecha API Server <-> LSTM -->
+  <path d="M 650 430 L 710 430 L 710 530" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr-c4)" />
+  <rect x="650" y="460" width="150" height="22" rx="4" fill="#ffffff" stroke="#475569" stroke-width="1" />
+  <text x="725" y="475" text-anchor="middle" font-size="8" font-weight="800" fill="#6d28d9">Inferencia In-Process</text>
+
+  <!-- Flecha API Server -> Database -->
+  <path d="M 430 485 L 430 690" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arr-c4)" />
+  <rect x="340" y="580" width="180" height="22" rx="4" fill="#ffffff" stroke="#475569" stroke-width="1.2" />
+  <text x="430" y="595" text-anchor="middle" font-size="8.5" font-weight="800" fill="#16a34a">Lectura / Escritura [SQLAlchemy]</text>
+
+  <!-- CONTENEDOR 5: BASE DE DATOS POSTGRESQL -->
+  <g transform="translate(260, 690)">
+    <rect width="340" height="110" rx="12" fill="#15803d" stroke="#166534" stroke-width="2" />
+    <text x="170" y="28" text-anchor="middle" font-size="13.5" font-weight="900" fill="#ffffff">🛢️ Base de Datos Relacional</text>
+    <text x="170" y="45" text-anchor="middle" font-size="10" font-weight="700" fill="#bbf7d0">[Container: PostgreSQL 15 Database]</text>
+    <text x="170" y="66" text-anchor="middle" font-size="9" font-weight="500" fill="#f0fdf4">Almacena series de telemetría de agua, aforo en vivo,</text>
+    <text x="170" y="80" text-anchor="middle" font-size="9" font-weight="500" fill="#f0fdf4">usuarios del sistema, inventario de químicos y bitácoras</text>
+    <text x="170" y="96" text-anchor="middle" font-size="8.5" font-weight="700" fill="#dcfce7">Garantía de integridad y transacciones ACID</text>
+  </g>
+
+  <!-- LEYENDA C4 -->
+  <g transform="translate(30, 835)">
+    <rect width="800" height="50" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+    <text x="20" y="22" font-size="9.5" font-weight="800" fill="#0f172a">Convenciones del Modelo C4:</text>
+    
+    <rect x="20" y="28" width="12" height="12" fill="#08427b" rx="2" />
+    <text x="38" y="38" font-size="8.5" font-weight="600" fill="#334155">Persona / Usuario</text>
+
+    <rect x="150" y="28" width="12" height="12" fill="#1168bd" rx="2" />
+    <text x="168" y="38" font-size="8.5" font-weight="600" fill="#334155">Contenedor Web / API</text>
+
+    <rect x="300" y="28" width="12" height="12" fill="#0284c7" rx="2" />
+    <text x="318" y="38" font-size="8.5" font-weight="600" fill="#334155">Contenedor IoT</text>
+
+    <rect x="420" y="28" width="12" height="12" fill="#7c3aed" rx="2" />
+    <text x="438" y="38" font-size="8.5" font-weight="600" fill="#334155">Contenedor IA</text>
+
+    <rect x="540" y="28" width="12" height="12" fill="#15803d" rx="2" />
+    <text x="558" y="38" font-size="8.5" font-weight="600" fill="#334155">Base de Datos</text>
+  </g>
+
+  <text x="430" y="905" text-anchor="middle" font-size="10" font-weight="700" fill="#64748b">
+    Figura: Diagrama de Contenedores de Software (Modelo C4 Nivel 2) · Sistema Playa Azul · 2026
+  </text>
+</svg>

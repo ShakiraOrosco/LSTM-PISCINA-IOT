@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 820" width="1050" height="820" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <!-- Patrón de cuadrícula técnica -->
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ebebeb" stroke-width="0.8" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#d8d8d8" stroke-width="1.2" />
+    </pattern>
+
+    <!-- Flecha -->
+    <marker id="arrow-dep" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#222222" />
+    </marker>
+  </defs>
+
+  <!-- Fondo cuadrícula -->
+  <rect id="bgRect" width="100%" height="100%" fill="url(#grid)" />
+
+  <!-- ENCABEZADO -->
+  <g id="header-dep">
+    <rect x="35" y="25" width="980" height="65" rx="8" fill="#f8fafc" stroke="#222222" stroke-width="2" />
+    <text x="55" y="50" font-size="11" font-weight="800" fill="#2563eb" letter-spacing="1">UML 2.5 · DIAGRAMA DE DESPLIEGUE &amp; ARQUITECTURA IOT</text>
+    <text x="55" y="72" font-size="15" font-weight="900" fill="#1e293b">Arquitectura de Dispositivos IoT, Red y Servidor · HU-021</text>
+  </g>
+
+  <!-- ─── NODO 1: NODO SENSOR FÍSICO (Piscina) ─── -->
+  <g id="node-sensores">
+    <rect x="35" y="130" width="250" height="340" rx="8" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <!-- Cabecera 3D cubo de nodo UML -->
+    <polygon points="35,130 50,115 295,115 285,130" fill="#e2e8f0" stroke="#222222" stroke-width="1.8" />
+    <polygon points="285,130 295,115 295,455 285,470" fill="#cbd5e1" stroke="#222222" stroke-width="1.8" />
+    <text x="160" y="152" text-anchor="middle" font-size="10" font-weight="700" fill="#64748b">&lt;&lt;device: Sensores de Agua&gt;&gt;</text>
+    <text x="160" y="170" text-anchor="middle" font-size="12" font-weight="800" fill="#1e293b">Instrumentación Física</text>
+
+    <!-- Artefacto Sensor pH -->
+    <rect x="55" y="195" width="210" height="65" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" />
+    <text x="70" y="215" font-size="11" font-weight="800" fill="#1e293b">Sonda pH Analógica</text>
+    <text x="70" y="232" font-size="9.5" font-weight="600" fill="#64748b">• Rango: 0.0 - 14.0 pH</text>
+    <text x="70" y="247" font-size="9.5" font-weight="600" fill="#64748b">• Salida: Voltaje analógico (0-3.3V)</text>
+
+    <!-- Artefacto Sensor Turbidez -->
+    <rect x="55" y="275" width="210" height="65" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" />
+    <text x="70" y="295" font-size="11" font-weight="800" fill="#1e293b">Sensor Óptico Turbidez</text>
+    <text x="70" y="312" font-size="9.5" font-weight="600" fill="#64748b">• Rango: 0 - 1000 NTU</text>
+    <text x="70" y="327" font-size="9.5" font-weight="600" fill="#64748b">• Salida: Voltaje analógico (0-4.5V)</text>
+
+    <!-- Artefacto Sensor Temperatura -->
+    <rect x="55" y="355" width="210" height="65" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" />
+    <text x="70" y="375" font-size="11" font-weight="800" fill="#1e293b">Sensor Temp DS18B20</text>
+    <text x="70" y="392" font-size="9.5" font-weight="600" fill="#64748b">• Protocolo: OneWire Digital</text>
+    <text x="70" y="407" font-size="9.5" font-weight="600" fill="#64748b">• Sumergible IP68 (-10 a 85 °C)</text>
+  </g>
+
+  <!-- Enlace Físico Sensores -> ESP32 -->
+  <line x1="295" y1="300" x2="365" y2="300" stroke="#222222" stroke-width="2" marker-end="url(#arrow-dep)" />
+  <text x="330" y="285" text-anchor="middle" font-size="9.5" font-weight="800" fill="#222222">GPIO / ADC</text>
+  <text x="330" y="297" text-anchor="middle" font-size="8.5" font-weight="600" fill="#64748b">(Cables blindados)</text>
+
+  <!-- ─── NODO 2: MICROCONTROLADOR ESP32 ─── -->
+  <g id="node-esp32">
+    <rect x="365" y="130" width="260" height="340" rx="8" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <!-- Cabecera 3D -->
+    <polygon points="365,130 380,115 635,115 625,130" fill="#e2e8f0" stroke="#222222" stroke-width="1.8" />
+    <polygon points="625,130 635,115 635,455 625,470" fill="#cbd5e1" stroke="#222222" stroke-width="1.8" />
+    <text x="495" y="152" text-anchor="middle" font-size="10" font-weight="700" fill="#64748b">&lt;&lt;device: Nodo IoT&gt;&gt;</text>
+    <text x="495" y="170" text-anchor="middle" font-size="12" font-weight="800" fill="#1e293b">ESP32 DevKit V1</text>
+
+    <!-- Componente Firmware -->
+    <rect x="385" y="195" width="220" height="80" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" />
+    <text x="400" y="217" font-size="11" font-weight="800" fill="#1e293b">&lt;&lt;component&gt;&gt;</text>
+    <text x="400" y="233" font-size="11" font-weight="800" fill="#2563eb">Firmware FreeRTOS / C++</text>
+    <text x="400" y="249" font-size="9" font-weight="600" fill="#64748b">• Muestreo periódico (Tick timer)</text>
+    <text x="400" y="262" font-size="9" font-weight="600" fill="#64748b">• Conversión matemática de curvas</text>
+
+    <!-- Componente WiFi Client -->
+    <rect x="385" y="290" width="220" height="75" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" />
+    <text x="400" y="312" font-size="11" font-weight="800" fill="#1e293b">&lt;&lt;component&gt;&gt;</text>
+    <text x="400" y="328" font-size="11" font-weight="800" fill="#2563eb">Módulo WiFi 802.11 b/g/n</text>
+    <text x="400" y="344" font-size="9" font-weight="600" fill="#64748b">• Cliente HTTPS / REST</text>
+    <text x="400" y="357" font-size="9" font-weight="600" fill="#64748b">• Autenticación por Token / Header</text>
+  </g>
+
+  <!-- Enlace Inalámbrico WiFi -->
+  <line x1="635" y1="300" x2="715" y2="300" stroke="#2563eb" stroke-width="2.2" stroke-dasharray="6,4" marker-end="url(#arrow-dep)" />
+  <text x="675" y="280" text-anchor="middle" font-size="9.5" font-weight="800" fill="#2563eb">WiFi 2.4 GHz</text>
+  <text x="675" y="293" text-anchor="middle" font-size="8.5" font-weight="600" fill="#64748b">WPA2/WPA3</text>
+  <text x="675" y="320" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1e293b">HTTPS / JSON</text>
+
+  <!-- ─── NODO 3: SERVIDOR BACKEND (Cloud / On-Premise) ─── -->
+  <g id="node-servidor">
+    <rect x="715" y="130" width="300" height="340" rx="8" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <!-- Cabecera 3D -->
+    <polygon points="715,130 730,115 1025,115 1015,130" fill="#e2e8f0" stroke="#222222" stroke-width="1.8" />
+    <polygon points="1015,130 1025,115 1025,455 1015,470" fill="#cbd5e1" stroke="#222222" stroke-width="1.8" />
+    <text x="865" y="152" text-anchor="middle" font-size="10" font-weight="700" fill="#64748b">&lt;&lt;executionEnvironment: Linux Docker&gt;&gt;</text>
+    <text x="865" y="170" text-anchor="middle" font-size="12" font-weight="800" fill="#1e293b">Servidor Central Backend</text>
+
+    <!-- Componente FastAPI -->
+    <rect x="735" y="195" width="260" height="65" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" />
+    <text x="750" y="215" font-size="10.5" font-weight="800" fill="#1e293b">&lt;&lt;service&gt;&gt; API FastAPI (Python)</text>
+    <text x="750" y="231" font-size="9" font-weight="600" fill="#64748b">• Endpoint: /api/v1/telemetria/iot</text>
+    <text x="750" y="246" font-size="9" font-weight="600" fill="#64748b">• Validador de esquemas Pydantic &amp; Filtros</text>
+
+    <!-- Componente PostgreSQL -->
+    <rect x="735" y="270" width="260" height="65" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" />
+    <text x="750" y="290" font-size="10.5" font-weight="800" fill="#1e293b">&lt;&lt;database&gt;&gt; PostgreSQL 15</text>
+    <text x="750" y="306" font-size="9" font-weight="600" fill="#64748b">• Tabla: mediciones_sensores (Histórico)</text>
+    <text x="750" y="321" font-size="9" font-weight="600" fill="#64748b">• Tabla: logs_anomalias_iot (Auditoría)</text>
+
+    <!-- Componente WebSocket Server -->
+    <rect x="735" y="345" width="260" height="65" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" />
+    <text x="750" y="365" font-size="10.5" font-weight="800" fill="#1e293b">&lt;&lt;service&gt;&gt; WebSocket Gateway</text>
+    <text x="750" y="381" font-size="9" font-weight="600" fill="#64748b">• Transmisión bidireccional / Eventos push</text>
+    <text x="750" y="396" font-size="9" font-weight="600" fill="#64748b">• Despacho inmediato de telemetría a frontend</text>
+  </g>
+
+  <!-- ─── NODO 4: ESTACIÓN OPERADOR (Frontend React) ─── -->
+  <g id="node-cliente">
+    <rect x="540" y="525" width="475" height="190" rx="8" fill="#ffffff" stroke="#222222" stroke-width="2" />
+    <polygon points="540,525 555,510 1025,510 1015,525" fill="#e2e8f0" stroke="#222222" stroke-width="1.8" />
+    <polygon points="1015,525 1025,510 1025,700 1015,715" fill="#cbd5e1" stroke="#222222" stroke-width="1.8" />
+    <text x="777" y="545" text-anchor="middle" font-size="10" font-weight="700" fill="#64748b">&lt;&lt;device: Cliente Operador&gt;&gt;</text>
+    <text x="777" y="562" text-anchor="middle" font-size="12" font-weight="800" fill="#1e293b">Navegador Web / Dashboard Operativo</text>
+
+    <rect x="560" y="580" width="435" height="110" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" />
+    <text x="580" y="605" font-size="11" font-weight="800" fill="#1e293b">&lt;&lt;component&gt;&gt; SPA React + Tailwind CSS</text>
+    <text x="580" y="625" font-size="9.5" font-weight="600" fill="#334155">• <tspan font-weight="800">Tarjeta pH:</tspan> Medidor digital en tiempo real con indicador de rango óptimo (7.2 - 7.8)</text>
+    <text x="580" y="643" font-size="9.5" font-weight="600" fill="#334155">• <tspan font-weight="800">Tarjeta Turbidez:</tspan> Indicador NTU de claridad y transparencia del agua</text>
+    <text x="580" y="661" font-size="9.5" font-weight="600" fill="#334155">• <tspan font-weight="800">Tarjeta Temperatura:</tspan> Monitoreo térmico continuo del agua de piscina</text>
+    <text x="580" y="679" font-size="9.5" font-weight="600" fill="#334155">• Actualización en tiempo real vía canal WebSocket sin recargar página</text>
+  </g>
+
+  <!-- Enlace Servidor -> Cliente (WebSocket) -->
+  <line x1="865" y1="470" x2="865" y2="510" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-dep)" />
+  <text x="875" y="495" font-size="9.5" font-weight="800" fill="#2563eb">WebSocket / TCP</text>
+
+  <!-- Recuadro explicativo de la arquitectura -->
+  <g id="box-info">
+    <rect x="35" y="525" width="470" height="190" rx="8" fill="#f8fafc" stroke="#222222" stroke-width="1.8" />
+    <text x="55" y="555" font-size="11" font-weight="800" fill="#1e293b">RESUMEN DE ARQUITECTURA DE ADQUISICIÓN (HU-021):</text>
+    <text x="55" y="580" font-size="9.5" font-weight="600" fill="#334155">1. <tspan font-weight="800">Capa de Percepción:</tspan> Sondas físicas sumergidas en piscina conectadas a entradas analógicas y digitales del ESP32.</text>
+    <text x="55" y="610" font-size="9.5" font-weight="600" fill="#334155">2. <tspan font-weight="800">Capa de Borde (Edge IoT):</tspan> ESP32 muestrea a intervalos regulares, aplica calibraciones de fabricante y estructura paquetes seguros.</text>
+    <text x="55" y="640" font-size="9.5" font-weight="600" fill="#334155">3. <tspan font-weight="800">Capa de Red:</tspan> Conexión WiFi segura WPA2/WPA3 transmitiendo peticiones HTTPS hacia la API.</text>
+    <text x="55" y="670" font-size="9.5" font-weight="600" fill="#334155">4. <tspan font-weight="800">Capa de Servicio y Aplicación:</tspan> Backend FastAPI valida y persiste en PostgreSQL, transmitiendo actualización instantánea al dashboard del operador.</text>
+  </g>
+
+  <!-- Pie técnico -->
+  <text x="525" y="760" text-anchor="middle" font-size="11" font-weight="700" fill="#64748b">
+    Figura: Diagrama de Despliegue y Arquitectura IoT · Adquisición y Transmisión Inalámbrica (UML 2.5) · Sistema Playa Azul
+  </text>
+</svg>

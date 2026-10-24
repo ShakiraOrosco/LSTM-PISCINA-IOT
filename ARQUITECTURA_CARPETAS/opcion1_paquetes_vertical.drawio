@@ -1,0 +1,133 @@
+<mxfile host="app.diagrams.net" agent="Antigravity" version="24.7.17" type="device">
+  <diagram id="opc1-paquetes-vertical" name="Opción 1 - Paquetes Vertical">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="1150" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- HEADER -->
+        <mxCell id="h1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#1e293b;fillColor=#f8fafc;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="840" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="h1-txt" value="&lt;b style=&quot;font-size:16px; color:#0f172a;&quot;&gt;DIAGRAMA DE PAQUETES UML · ARQUITECTURA CLIENTE - SERVIDOR&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11.5px; color:#475569;&quot;&gt;Formato Vertical Compacto optimizado para insertar en Media Página de Word · Sistema Playa Azul&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="23" width="820" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- 1. CAPA CLIENTE -->
+        <mxCell id="t1-cli" value="&lt;b&gt;1. CAPA CLIENTE (CLIENT TIER - FRONTEND WEB SPA)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeWidth=2;strokeColor=#3b82f6;fillColor=#eff6ff;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontSize=11;fontColor=#1d4ed8;" vertex="1" parent="1">
+          <mxGeometry x="30" y="105" width="840" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1-fe" value="&amp;lt;&amp;lt;package&amp;gt;&amp;gt; &lt;b&gt;/frontend&lt;/b&gt; (React + Vite + Tailwind CSS)" style="shape=folder;tabWidth=140;tabHeight=22;strokeWidth=1.8;strokeColor=#1e293b;fillColor=#ffffff;fontSize=10.5;verticalAlign=top;spacingTop=24;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="135" width="800" height="105" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1-pages" value="📁 &lt;b&gt;src/pages/&lt;/b&gt;&lt;br&gt;Vistas: Monitoreo, Caja,&lt;br&gt;Inventario, Aforo, Usuarios" style="rounded=1;strokeColor=#64748b;fillColor=#f8fafc;fontSize=9.5;" vertex="1" parent="1">
+          <mxGeometry x="65" y="175" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1-comp" value="📁 &lt;b&gt;src/components/&lt;/b&gt;&lt;br&gt;Widgets: Tarjetas KPI,&lt;br&gt;Gráficas, Modales y Alertas" style="rounded=1;strokeColor=#64748b;fillColor=#f8fafc;fontSize=9.5;" vertex="1" parent="1">
+          <mxGeometry x="260" y="175" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1-serv" value="📁 &lt;b&gt;src/services/&lt;/b&gt;&lt;br&gt;Conectividad API:&lt;br&gt;Axios REST y WebSockets" style="rounded=1;strokeColor=#2563eb;fillColor=#f8fafc;fontSize=9.5;fontColor=#1d4ed8;" vertex="1" parent="1">
+          <mxGeometry x="455" y="175" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1-ctx" value="📁 &lt;b&gt;src/context &amp;amp; hooks/&lt;/b&gt;&lt;br&gt;Estado: Auth JWT,&lt;br&gt;Telemetría viva y Alertas" style="rounded=1;strokeColor=#64748b;fillColor=#f8fafc;fontSize=9.5;" vertex="1" parent="1">
+          <mxGeometry x="650" y="175" width="185" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- CANAL DE COMUNICACIÓN -->
+        <mxCell id="p1-proto-rest" value="🌐 &lt;b&gt;HTTPS / JSON REST API&lt;/b&gt;" style="rounded=1;strokeWidth=1.5;strokeColor=#2563eb;fillColor=#ffffff;fontSize=10;fontColor=#1d4ed8;" vertex="1" parent="1">
+          <mxGeometry x="180" y="270" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-proto-ws" value="⚡ &lt;b&gt;WebSockets WSS (Telemetría)&lt;/b&gt;" style="rounded=1;strokeWidth=1.5;strokeColor=#7c3aed;fillColor=#ffffff;fontSize=10;fontColor=#6d28d9;" vertex="1" parent="1">
+          <mxGeometry x="460" y="270" width="220" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l1-down" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#2563eb;endArrow=block;endFill=1;" edge="1" parent="1" source="p1-serv" target="p1-proto-rest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l1-down2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#2563eb;endArrow=block;endFill=1;" edge="1" parent="1" source="p1-proto-rest" target="p1-routers">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 2. CAPA SERVIDOR -->
+        <mxCell id="t1-srv" value="&lt;b&gt;2. CAPA SERVIDOR (SERVER TIER - FASTAPI, IOT &amp;amp; IA)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeWidth=2;strokeColor=#0f172a;fillColor=#f8fafc;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontSize=11;fontColor=#0f172a;" vertex="1" parent="1">
+          <mxGeometry x="30" y="320" width="840" height="490" as="geometry" />
+        </mxCell>
+
+        <!-- /backend -->
+        <mxCell id="p1-back" value="&amp;lt;&amp;lt;package&amp;gt;&amp;gt; &lt;b&gt;/backend&lt;/b&gt; (Servidor FastAPI)" style="shape=folder;tabWidth=130;tabHeight=22;strokeWidth=1.8;strokeColor=#1e293b;fillColor=#ffffff;fontSize=10.5;verticalAlign=top;spacingTop=24;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="350" width="480" height="440" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1-routers" value="📁 &lt;b&gt;app/routers/ (Controladores API)&lt;/b&gt;&lt;br&gt;• Ingesta telemetría IoT y Gateway WebSocket&lt;br&gt;• Endpoints: auth.py, caja.py, inventario.py, auditoria.py" style="rounded=1;strokeColor=#2563eb;fillColor=#f1f5f9;fontSize=9.5;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="65" y="390" width="450" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1-services" value="📁 &lt;b&gt;app/services/ (Lógica de Negocio &amp;amp; Validación)&lt;/b&gt;&lt;br&gt;• piscina_service.py: Validación física (pH, turb) y descarte (C5)&lt;br&gt;• auth_service.py: Hashing Bcrypt, roles y tokens JWT" style="rounded=1;strokeColor=#334155;fillColor=#f1f5f9;fontSize=9.5;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="65" y="465" width="450" height="65" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1-models" value="📁 &lt;b&gt;app/models/ (Schemas Pydantic &amp;amp; ORM SQLAlchemy)&lt;/b&gt;&lt;br&gt;• Schemas de validación I/O y modelos declarativos ACID" style="rounded=1;strokeColor=#16a34a;fillColor=#f1f5f9;fontSize=9.5;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="65" y="545" width="450" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1-vision" value="👁️ &lt;b&gt;Visión Artificial Aforo (YOLOv8):&lt;/b&gt; detector_camara.py + yolov8n.pt&lt;br&gt;⚙️ &lt;b&gt;Módulos Base:&lt;/b&gt; main.py (FastAPI CORS/WS) | db.py (Engine) | config.py (.env)" style="rounded=1;strokeColor=#64748b;fillColor=#f8fafc;fontSize=9.5;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="65" y="610" width="450" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- /iot -->
+        <mxCell id="p1-iot" value="&amp;lt;&amp;lt;package&amp;gt;&amp;gt; &lt;b&gt;/iot&lt;/b&gt; (Telemetría)" style="shape=folder;tabWidth=110;tabHeight=22;strokeWidth=1.8;strokeColor=#059669;fillColor=#ffffff;fontSize=10;verticalAlign=top;spacingTop=24;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="550" y="350" width="300" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-esp" value="📁 &lt;b&gt;esp32/ (Firmware FreeRTOS)&lt;/b&gt;&lt;br&gt;• Muestreo analógico/digital (pH, turb, temp)&lt;br&gt;• Calibración y envío seguro WiFi POST" style="rounded=1;strokeColor=#059669;fillColor=#f0fdf4;fontSize=9.5;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="565" y="390" width="270" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-sim" value="📄 &lt;b&gt;simulador_api.py (Pruebas)&lt;/b&gt;&lt;br&gt;• Generación sintética y paquetes corruptos" style="rounded=1;strokeColor=#64748b;fillColor=#f8fafc;fontSize=9.5;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="565" y="470" width="270" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- /lstm -->
+        <mxCell id="p1-lstm" value="&amp;lt;&amp;lt;package&amp;gt;&amp;gt; &lt;b&gt;/lstm&lt;/b&gt; (IA Predictivo)" style="shape=folder;tabWidth=110;tabHeight=22;strokeWidth=1.8;strokeColor=#7c3aed;fillColor=#ffffff;fontSize=10;verticalAlign=top;spacingTop=24;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="550" y="570" width="300" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-lstmsrc" value="📁 &lt;b&gt;lstm/src/ (Inferencia)&lt;/b&gt;&lt;br&gt;• predictor.py: Dosis sugerida cloro y pH-&lt;br&gt;• model_trainer.py y preprocessor.py" style="rounded=1;strokeColor=#7c3aed;fillColor=#faf5ff;fontSize=9.5;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="565" y="610" width="270" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-lstmmod" value="📁 &lt;b&gt;models/ &amp;amp; data/&lt;/b&gt;&lt;br&gt;• model_best.keras y scaler.pkl" style="rounded=1;strokeColor=#7c3aed;fillColor=#faf5ff;fontSize=9.5;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="565" y="690" width="270" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- 3. CAPA PERSISTENCIA -->
+        <mxCell id="t1-db" value="&lt;b&gt;3. CAPA PERSISTENCIA (DATABASE TIER - POSTGRESQL 15)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeWidth=2;strokeColor=#16a34a;fillColor=#f0fdf4;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontSize=11;fontColor=#15803d;" vertex="1" parent="1">
+          <mxGeometry x="30" y="830" width="840" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1-tb1" value="&lt;b&gt;mediciones_sensores&lt;/b&gt;&lt;br&gt;pH, turb, temp, fecha" style="rounded=1;strokeColor=#16a34a;fillColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="50" y="865" width="150" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-tb2" value="&lt;b&gt;aforo &amp;amp; caja&lt;/b&gt;&lt;br&gt;Conteo, tickets, ventas" style="rounded=1;strokeColor=#16a34a;fillColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="215" y="865" width="150" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-tb3" value="&lt;b&gt;usuarios &amp;amp; roles&lt;/b&gt;&lt;br&gt;Credenciales Bcrypt, rol" style="rounded=1;strokeColor=#16a34a;fillColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="380" y="865" width="150" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-tb4" value="&lt;b&gt;inventario_quimicos&lt;/b&gt;&lt;br&gt;Stock de insumos, dosis" style="rounded=1;strokeColor=#16a34a;fillColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="545" y="865" width="150" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-tb5" value="&lt;b style=&quot;color:#b91c1c;&quot;&gt;auditoria &amp;amp; logs_iot&lt;/b&gt;&lt;br&gt;Eventos y paquetes C5" style="rounded=1;strokeColor=#b91c1c;fillColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="710" y="865" width="145" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- FOOTER -->
+        <mxCell id="f1-txt" value="&lt;b&gt;Figura:&lt;/b&gt; Diagrama de Paquetes UML (Arquitectura Cliente - Servidor en Formato Vertical) · Sistema Playa Azul" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="30" y="980" width="840" height="25" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

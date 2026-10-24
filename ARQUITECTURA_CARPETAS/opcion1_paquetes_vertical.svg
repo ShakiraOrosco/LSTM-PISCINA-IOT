@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 1020" width="860" height="1020" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <pattern id="grid1" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f1f5f9" stroke-width="0.8" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#e2e8f0" stroke-width="1.2" />
+    </pattern>
+    <marker id="arr-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb" />
+    </marker>
+    <marker id="arr-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#7c3aed" />
+    </marker>
+    <marker id="arr-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#16a34a" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#grid1)" />
+
+  <!-- ENCABEZADO -->
+  <g id="hdr1" transform="translate(30, 20)">
+    <rect width="800" height="65" rx="8" fill="#f8fafc" stroke="#1e293b" stroke-width="2" />
+    <text x="20" y="28" font-size="10.5" font-weight="800" fill="#2563eb" letter-spacing="1">OPCIÓN 1 · PAQUETES Y CAPAS UML (FORMATO VERTICAL)</text>
+    <text x="20" y="48" font-size="14.5" font-weight="900" fill="#0f172a">Arquitectura Cliente - Servidor y Organización Modular</text>
+    <rect x="670" y="20" width="110" height="25" rx="5" fill="#0f172a" />
+    <text x="725" y="36" text-anchor="middle" font-size="9.5" font-weight="800" fill="#ffffff">MEDIA PÁGINA</text>
+  </g>
+
+  <!-- 1. CAPA CLIENTE -->
+  <g id="c-tier" transform="translate(30, 100)">
+    <rect width="800" height="150" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6,4" />
+    <rect x="15" y="-12" width="220" height="24" rx="5" fill="#3b82f6" />
+    <text x="125" y="4" text-anchor="middle" font-size="10.5" font-weight="900" fill="#ffffff">1. CAPA CLIENTE (CLIENT TIER)</text>
+
+    <!-- Paquete /frontend -->
+    <g transform="translate(15, 20)">
+      <path d="M 0 0 L 130 0 L 142 18 L 0 18 Z" fill="#ffffff" stroke="#1e293b" stroke-width="1.8" />
+      <text x="65" y="13" text-anchor="middle" font-size="9.5" font-weight="800" fill="#2563eb">&lt;&lt;package&gt;&gt; /frontend</text>
+      <rect x="0" y="18" width="770" height="95" rx="6" fill="#ffffff" stroke="#1e293b" stroke-width="1.8" />
+      <text x="15" y="36" font-size="11" font-weight="800" fill="#0f172a">Cliente Web SPA (React + Vite + Tailwind CSS)</text>
+
+      <!-- 4 Subcarpetas en 1 fila compacta -->
+      <g transform="translate(15, 45)">
+        <rect width="175" height="55" rx="4" fill="#f8fafc" stroke="#64748b" stroke-width="1.2" />
+        <text x="8" y="18" font-size="10" font-weight="800" fill="#1e293b">📁 src/pages/</text>
+        <text x="8" y="34" font-size="8.5" font-weight="600" fill="#475569">Vistas: Monitoreo Agua, Caja,</text>
+        <text x="8" y="46" font-size="8.5" font-weight="600" fill="#475569">Inventario, Aforo y Usuarios</text>
+      </g>
+
+      <g transform="translate(200, 45)">
+        <rect width="180" height="55" rx="4" fill="#f8fafc" stroke="#64748b" stroke-width="1.2" />
+        <text x="8" y="18" font-size="10" font-weight="800" fill="#1e293b">📁 src/components/</text>
+        <text x="8" y="34" font-size="8.5" font-weight="600" fill="#475569">Widgets: Tarjetas KPI de agua,</text>
+        <text x="8" y="46" font-size="8.5" font-weight="600" fill="#475569">Gráficas, Modales y Alertas</text>
+      </g>
+
+      <g transform="translate(390, 45)">
+        <rect width="180" height="55" rx="4" fill="#f8fafc" stroke="#2563eb" stroke-width="1.2" />
+        <text x="8" y="18" font-size="10" font-weight="800" fill="#2563eb">📁 src/services/</text>
+        <text x="8" y="34" font-size="8.5" font-weight="600" fill="#475569">Clientes de Conectividad:</text>
+        <text x="8" y="46" font-size="8.5" font-weight="600" fill="#475569">API REST Axios y WebSockets</text>
+      </g>
+
+      <g transform="translate(580, 45)">
+        <rect width="175" height="55" rx="4" fill="#f8fafc" stroke="#64748b" stroke-width="1.2" />
+        <text x="8" y="18" font-size="10" font-weight="800" fill="#1e293b">📁 src/context &amp; hooks/</text>
+        <text x="8" y="34" font-size="8.5" font-weight="600" fill="#475569">Estado Global: Auth JWT,</text>
+        <text x="8" y="46" font-size="8.5" font-weight="600" fill="#475569">Telemetría en vivo y Alertas</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- CANAL DE COMUNICACIÓN -->
+  <g id="comm-tier" transform="translate(30, 260)">
+    <path d="M 280 0 L 280 40" fill="none" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arr-b)" />
+    <path d="M 540 40 L 540 0" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-dasharray="5,3" marker-end="url(#arr-p)" />
+
+    <rect x="150" y="8" width="240" height="24" rx="5" fill="#ffffff" stroke="#2563eb" stroke-width="1.5" />
+    <text x="270" y="24" text-anchor="middle" font-size="9.5" font-weight="800" fill="#1d4ed8">🌐 HTTPS / JSON REST API</text>
+
+    <rect x="430" y="8" width="240" height="24" rx="5" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5" />
+    <text x="550" y="24" text-anchor="middle" font-size="9.5" font-weight="800" fill="#6d28d9">⚡ WebSockets WSS (Telemetría)</text>
+  </g>
+
+  <!-- 2. CAPA SERVIDOR -->
+  <g id="s-tier" transform="translate(30, 310)">
+    <rect width="800" height="490" rx="10" fill="#f8fafc" stroke="#0f172a" stroke-width="2" stroke-dasharray="6,4" />
+    <rect x="15" y="-12" width="270" height="24" rx="5" fill="#0f172a" />
+    <text x="150" y="4" text-anchor="middle" font-size="10.5" font-weight="900" fill="#ffffff">2. CAPA SERVIDOR (SERVER TIER)</text>
+
+    <!-- Subbloque Izquierdo: /backend (FastAPI) -->
+    <g transform="translate(15, 20)">
+      <path d="M 0 0 L 130 0 L 142 18 L 0 18 Z" fill="#ffffff" stroke="#1e293b" stroke-width="1.8" />
+      <text x="65" y="13" text-anchor="middle" font-size="9.5" font-weight="800" fill="#0f172a">&lt;&lt;package&gt;&gt; /backend</text>
+      <rect x="0" y="18" width="460" height="435" rx="6" fill="#ffffff" stroke="#1e293b" stroke-width="1.8" />
+      <text x="15" y="38" font-size="11.5" font-weight="800" fill="#0f172a">Servidor Central FastAPI (Python 3.10+)</text>
+
+      <!-- routers -->
+      <g transform="translate(15, 50)">
+        <rect width="430" height="75" rx="5" fill="#f1f5f9" stroke="#2563eb" stroke-width="1.2" />
+        <text x="12" y="20" font-size="10.5" font-weight="800" fill="#2563eb">📁 app/routers/ (Capa Controladores)</text>
+        <text x="12" y="38" font-size="9.5" font-weight="600" fill="#334155">• Ingesta Telemetría IoT y Gateway WebSocket en tiempo real</text>
+        <text x="12" y="52" font-size="9.5" font-weight="600" fill="#334155">• Endpoints de Autenticación JWT, Caja, Inventario y Auditoría</text>
+        <text x="12" y="66" font-size="9.5" font-weight="600" fill="#64748b">Archivos: monitoring.py, auth.py, caja.py, inventario.py, auditoria.py</text>
+      </g>
+
+      <!-- services -->
+      <g transform="translate(15, 135)">
+        <rect width="430" height="85" rx="5" fill="#f1f5f9" stroke="#334155" stroke-width="1.2" />
+        <text x="12" y="20" font-size="10.5" font-weight="800" fill="#0f172a">📁 app/services/ (Lógica del Negocio &amp; Reglas)</text>
+        <text x="12" y="38" font-size="9.5" font-weight="600" fill="#334155">• Validación física de rangos fisicoquímicos (pH, turbidez, temp)</text>
+        <text x="12" y="52" font-size="9.5" font-weight="600" fill="#334155">• Descarte y registro de anomalías (Criterio 5 de HU-021)</text>
+        <text x="12" y="66" font-size="9.5" font-weight="600" fill="#334155">• Hashing Bcrypt, control de roles y reglas de alerta de calidad</text>
+        <text x="12" y="80" font-size="9.5" font-weight="600" fill="#64748b">Archivos: piscina_service.py, auth_service.py</text>
+      </g>
+
+      <!-- models -->
+      <g transform="translate(15, 230)">
+        <rect width="430" height="75" rx="5" fill="#f1f5f9" stroke="#16a34a" stroke-width="1.2" />
+        <text x="12" y="20" font-size="10.5" font-weight="800" fill="#15803d">📁 app/models/ (Schemas Pydantic &amp; ORM)</text>
+        <text x="12" y="38" font-size="9.5" font-weight="600" fill="#334155">• Validación de esquemas de entrada/salida (DTOs con Pydantic)</text>
+        <text x="12" y="52" font-size="9.5" font-weight="600" fill="#334155">• Modelos Declarativos SQLAlchemy para persistencia relacional ACID</text>
+        <text x="12" y="66" font-size="9.5" font-weight="600" fill="#64748b">Tipado estricto de telemetría, aforo, usuarios y relaciones</text>
+      </g>
+
+      <!-- vision & config -->
+      <g transform="translate(15, 315)">
+        <rect width="430" height="120" rx="5" fill="#f8fafc" stroke="#64748b" stroke-width="1.2" />
+        <text x="12" y="20" font-size="10.5" font-weight="800" fill="#b45309">👁️ Visión Artificial (Aforo con YOLOv8):</text>
+        <text x="12" y="38" font-size="9" font-weight="600" fill="#334155">• detector_camara.py: Inferencia continua de flujo de personas en ROI</text>
+        <text x="12" y="52" font-size="9" font-weight="600" fill="#334155">• Pesos: yolov8n.pt / yolov8s.pt optimizados para borde</text>
+        <line x1="12" y1="62" x2="418" y2="62" stroke="#e2e8f0" stroke-width="1" />
+        <text x="12" y="80" font-size="10.5" font-weight="800" fill="#0f172a">⚙️ Configuración e Inicialización:</text>
+        <text x="12" y="96" font-size="9" font-weight="600" fill="#334155">• main.py (App FastAPI, CORS y WebSockets) | db.py (Pool SQLAlchemy)</text>
+        <text x="12" y="110" font-size="9" font-weight="600" fill="#334155">• config.py (Lectura de variables .env: DATABASE_URL, SECRET_KEY)</text>
+      </g>
+    </g>
+
+    <!-- Subbloque Derecho: /iot y /lstm (Ubicados en el Servidor) -->
+    <!-- PAQUETE /iot -->
+    <g transform="translate(490, 20)">
+      <path d="M 0 0 L 110 0 L 122 18 L 0 18 Z" fill="#ffffff" stroke="#1e293b" stroke-width="1.8" />
+      <text x="55" y="13" text-anchor="middle" font-size="9.5" font-weight="800" fill="#059669">&lt;&lt;package&gt;&gt; /iot</text>
+      <rect x="0" y="18" width="295" height="205" rx="6" fill="#ffffff" stroke="#1e293b" stroke-width="1.8" />
+      <text x="12" y="38" font-size="11" font-weight="800" fill="#0f172a">Subsistema de Telemetría IoT</text>
+
+      <g transform="translate(12, 50)">
+        <rect width="270" height="70" rx="4" fill="#f0fdf4" stroke="#059669" stroke-width="1.2" />
+        <text x="10" y="18" font-size="10" font-weight="800" fill="#15803d">📁 esp32/ (Firmware FreeRTOS)</text>
+        <text x="10" y="34" font-size="9" font-weight="600" fill="#334155">• Muestreo periódico de sensores</text>
+        <text x="10" y="48" font-size="9" font-weight="600" fill="#334155">• Calibración analógica pH y Turbidez</text>
+        <text x="10" y="62" font-size="9" font-weight="600" fill="#334155">• Envío WiFi cifrado POST /telemetria</text>
+      </g>
+
+      <g transform="translate(12, 130)">
+        <rect width="270" height="65" rx="4" fill="#f8fafc" stroke="#64748b" stroke-width="1.2" />
+        <text x="10" y="18" font-size="10" font-weight="800" fill="#1e293b">📄 simulador_api.py</text>
+        <text x="10" y="34" font-size="9" font-weight="600" fill="#334155">• Emulación sintética de lecturas</text>
+        <text x="10" y="48" font-size="9" font-weight="600" fill="#334155">• Inyección de paquetes corruptos (C5)</text>
+      </g>
+    </g>
+
+    <!-- PAQUETE /lstm -->
+    <g transform="translate(490, 250)">
+      <path d="M 0 0 L 120 0 L 132 18 L 0 18 Z" fill="#ffffff" stroke="#1e293b" stroke-width="1.8" />
+      <text x="60" y="13" text-anchor="middle" font-size="9.5" font-weight="800" fill="#7c3aed">&lt;&lt;package&gt;&gt; /lstm</text>
+      <rect x="0" y="18" width="295" height="205" rx="6" fill="#ffffff" stroke="#1e293b" stroke-width="1.8" />
+      <text x="12" y="38" font-size="11" font-weight="800" fill="#0f172a">Red Neuronal Predictiva (LSTM)</text>
+
+      <g transform="translate(12, 50)">
+        <rect width="270" height="70" rx="4" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.2" />
+        <text x="10" y="18" font-size="10" font-weight="800" fill="#581c87">📁 lstm/src/ (Lógica de Inferencia)</text>
+        <text x="10" y="34" font-size="9" font-weight="600" fill="#334155">• predictor.py: Cálculo dosis química</text>
+        <text x="10" y="48" font-size="9" font-weight="600" fill="#334155">• model_trainer.py: Entrenamiento</text>
+        <text x="10" y="62" font-size="9" font-weight="600" fill="#334155">• preprocessor.py: Normalización MinMax</text>
+      </g>
+
+      <g transform="translate(12, 130)">
+        <rect width="270" height="65" rx="4" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.2" />
+        <text x="10" y="18" font-size="10" font-weight="800" fill="#581c87">📁 lstm/models/ &amp; data/</text>
+        <text x="10" y="34" font-size="9" font-weight="600" fill="#334155">• model_best.keras (Pesos entrenados)</text>
+        <text x="10" y="48" font-size="9" font-weight="600" fill="#334155">• scaler.pkl y series temporales de agua</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 3. CAPA PERSISTENCIA -->
+  <g id="d-tier" transform="translate(30, 825)">
+    <rect width="800" height="135" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" />
+    <rect x="15" y="-12" width="280" height="24" rx="5" fill="#16a34a" />
+    <text x="155" y="4" text-anchor="middle" font-size="10.5" font-weight="900" fill="#ffffff">3. CAPA PERSISTENCIA (POSTGRESQL)</text>
+
+    <!-- Conector Backend -> BD -->
+    <path d="M 245 -25 L 245 15" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-g)" />
+
+    <g transform="translate(15, 25)">
+      <!-- Tabla 1 -->
+      <rect x="0" y="0" width="145" height="85" rx="4" fill="#ffffff" stroke="#16a34a" stroke-width="1.2" />
+      <text x="8" y="20" font-size="9.5" font-weight="800" fill="#14532d">mediciones_sensores</text>
+      <text x="8" y="38" font-size="8.5" font-weight="600" fill="#334155">• pH, turbidez, temp</text>
+      <text x="8" y="52" font-size="8.5" font-weight="600" fill="#334155">• Timestamp e indicador</text>
+      <text x="8" y="66" font-size="8.5" font-weight="600" fill="#64748b">Histórico telemetría</text>
+      <!-- Tabla 2 -->
+      <rect x="155" y="0" width="145" height="85" rx="4" fill="#ffffff" stroke="#16a34a" stroke-width="1.2" />
+      <text x="8" y="20" font-size="9.5" font-weight="800" fill="#14532d">aforo &amp; caja</text>
+      <text x="8" y="38" font-size="8.5" font-weight="600" fill="#334155">• Conteo de personas</text>
+      <text x="8" y="52" font-size="8.5" font-weight="600" fill="#334155">• Tickets y ventas</text>
+      <text x="8" y="66" font-size="8.5" font-weight="600" fill="#64748b">Ocupación real</text>
+      <!-- Tabla 3 -->
+      <rect x="310" y="0" width="145" height="85" rx="4" fill="#ffffff" stroke="#16a34a" stroke-width="1.2" />
+      <text x="8" y="20" font-size="9.5" font-weight="800" fill="#14532d">usuarios &amp; roles</text>
+      <text x="8" y="38" font-size="8.5" font-weight="600" fill="#334155">• Credenciales Bcrypt</text>
+      <text x="8" y="52" font-size="8.5" font-weight="600" fill="#334155">• Admin, Operador, Cajero</text>
+      <text x="8" y="66" font-size="8.5" font-weight="600" fill="#64748b">Control de acceso</text>
+      <!-- Tabla 4 -->
+      <rect x="465" y="0" width="145" height="85" rx="4" fill="#ffffff" stroke="#16a34a" stroke-width="1.2" />
+      <text x="8" y="20" font-size="9.5" font-weight="800" fill="#14532d">inventario_quimicos</text>
+      <text x="8" y="38" font-size="8.5" font-weight="600" fill="#334155">• Stock de cloro y pH-</text>
+      <text x="8" y="52" font-size="8.5" font-weight="600" fill="#334155">• Umbral mínimo</text>
+      <text x="8" y="66" font-size="8.5" font-weight="600" fill="#64748b">Consumo y dosis</text>
+      <!-- Tabla 5 -->
+      <rect x="620" y="0" width="150" height="85" rx="4" fill="#ffffff" stroke="#b91c1c" stroke-width="1.2" />
+      <text x="8" y="20" font-size="9.5" font-weight="800" fill="#991b1b">auditoria &amp; logs_iot</text>
+      <text x="8" y="38" font-size="8.5" font-weight="600" fill="#334155">• Bitácora de eventos</text>
+      <text x="8" y="52" font-size="8.5" font-weight="600" fill="#334155">• Paquetes corruptos C5</text>
+      <text x="8" y="66" font-size="8.5" font-weight="600" fill="#64748b">Trazabilidad y fallos</text>
+    </g>
+  </g>
+
+  <!-- PIE -->
+  <text x="430" y="995" text-anchor="middle" font-size="10.5" font-weight="700" fill="#64748b">
+    Figura: Diagrama de Paquetes UML (Arquitectura Cliente - Servidor en Formato Vertical) · Sistema Playa Azul
+  </text>
+</svg>

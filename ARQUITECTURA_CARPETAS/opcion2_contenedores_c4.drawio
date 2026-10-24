@@ -1,0 +1,71 @@
+<mxfile host="app.diagrams.net" agent="Antigravity" version="24.7.17" type="device">
+  <diagram id="opc2-contenedores-c4" name="Opción 2 - Contenedores C4">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="1050" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- HEADER -->
+        <mxCell id="c4-hdr" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#0f172a;fillColor=#0f172a;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="840" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="c4-hdrtxt" value="&lt;b style=&quot;font-size:16px; color:#ffffff;&quot;&gt;DIAGRAMA DE CONTENEDORES DE SOFTWARE · MODELO C4&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11.5px; color:#38bdf8;&quot;&gt;Nivel 2 de Abstracción: Contenedores ejecutables, tecnologías y límites del sistema · Playa Azul&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="23" width="820" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- PERSONA / ACTOR -->
+        <mxCell id="c4-user" value="👤 &lt;b&gt;Operador / Administrador&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:9.5px; color:#93c5fd;&quot;&gt;[Persona]&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:9px;&quot;&gt;Monitorea el agua y gestiona caja y dosificación&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.5;strokeColor=#06325d;fillColor=#08427b;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="320" y="110" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- CONTENEDOR 1: SPA -->
+        <mxCell id="c4-spa" value="&lt;b style=&quot;font-size:12.5px;&quot;&gt;Single-Page Application (SPA)&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px; color:#93c5fd;&quot;&gt;[Container: React, Vite, Tailwind CSS]&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:9px;&quot;&gt;Interfaz visual interactiva con dashboards en tiempo real,&lt;br&gt;gráficas fisicoquímicas, control de aforo y módulos de caja&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#0e569c;fillColor=#1168bd;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="270" y="220" width="360" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- CONTENEDOR 2: API SERVER -->
+        <mxCell id="c4-api" value="&lt;b style=&quot;font-size:13px;&quot;&gt;API Application Server&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px; color:#93c5fd;&quot;&gt;[Container: Python, FastAPI]&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:9px;&quot;&gt;Procesa peticiones REST y despacha eventos WebSockets.&lt;br&gt;Valida rangos físicos, descarta corruptos y ejecuta YOLOv8&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#0e569c;fillColor=#1168bd;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="250" y="370" width="400" height="95" as="geometry" />
+        </mxCell>
+
+        <!-- CONTENEDOR 3: IOT -->
+        <mxCell id="c4-iot" value="&lt;b style=&quot;font-size:12px;&quot;&gt;Dispositivo Edge IoT&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:9.5px; color:#bae6fd;&quot;&gt;[Container: ESP32 / C++]&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:8.5px;&quot;&gt;Muestrea sensores de pH,&lt;br&gt;turbidez y temp. Transmite&lt;br&gt;por WiFi WPA2 al backend&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#0369a1;fillColor=#0284c7;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="510" width="220" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- CONTENEDOR 4: LSTM -->
+        <mxCell id="c4-lstm" value="&lt;b style=&quot;font-size:12px;&quot;&gt;Servicio Predictivo IA&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:9.5px; color:#ddd6fe;&quot;&gt;[Container: TensorFlow / Keras]&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:8.5px;&quot;&gt;Red Neuronal LSTM que calcula&lt;br&gt;la dosificación recomendada&lt;br&gt;de cloro y reductor pH&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#6d28d9;fillColor=#7c3aed;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="640" y="510" width="220" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- CONTENEDOR 5: DATABASE -->
+        <mxCell id="c4-db" value="🛢️ &lt;b style=&quot;font-size:13px;&quot;&gt;Base de Datos Relacional&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px; color:#bbf7d0;&quot;&gt;[Container: PostgreSQL 15 Database]&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:9px;&quot;&gt;Persiste telemetría histórica, aforo, usuarios, inventario químico y logs de error&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#166534;fillColor=#15803d;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="270" y="660" width="360" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- CONECTORES C4 -->
+        <mxCell id="c4-l1" value="Usa mediante navegador [HTTPS]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=1.8;strokeColor=#475569;endArrow=block;endFill=1;fontSize=9;" edge="1" parent="1" source="c4-user" target="c4-spa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c4-l2" value="JSON REST &amp;amp; WebSockets [WSS]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=1.8;strokeColor=#475569;endArrow=block;endFill=1;fontSize=9;" edge="1" parent="1" source="c4-spa" target="c4-api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c4-l3" value="POST /telemetria [WiFi]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=1.8;strokeColor=#475569;endArrow=block;endFill=1;fontSize=9;" edge="1" parent="1" source="c4-iot" target="c4-api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c4-l4" value="Inferencia In-Process" style="edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=1;strokeWidth=1.8;strokeColor=#475569;endArrow=block;endFill=1;fontSize=9;" edge="1" parent="1" source="c4-api" target="c4-lstm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c4-l5" value="Lectura / Escritura [SQLAlchemy]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=1.8;strokeColor=#475569;endArrow=block;endFill=1;fontSize=9;" edge="1" parent="1" source="c4-api" target="c4-db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- FOOTER C4 -->
+        <mxCell id="c4-ftr" value="&lt;b&gt;Figura:&lt;/b&gt; Diagrama de Contenedores de Software (Modelo C4 Nivel 2) · Sistema Playa Azul · 2026" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="30" y="780" width="840" height="25" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

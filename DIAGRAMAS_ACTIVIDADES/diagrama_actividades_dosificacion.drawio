@@ -1,0 +1,227 @@
+<mxfile host="app.diagrams.net" agent="Antigravity">
+  <diagram id="act-dosificacion-iot" name="Diagrama de Actividades - Dosificación IoT">
+    <mxGraphModel dx="2929" dy="1625" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1680" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#222222;" value="DIAGRAMA DE ACTIVIDADES: DOSIFICACIÓN QUÍMICA IOT CON PREDICCIÓN PREVIA (UML 2.5)" vertex="1">
+          <mxGeometry height="30" width="1020" x="30" y="15" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-1" parent="1" style="swimlane;startSize=38;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=11;fontStyle=1;strokeColor=#222222;fillColor=#f8fafc;swimlaneFillColor=#ffffff;fontColor=#222222;" value="MODELO PREDICTIVO (LSTM / CLOUD)" vertex="1">
+          <mxGeometry height="1580" width="250" x="30" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane-1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#222222;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="26" width="26" x="112" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="act1" parent="lane-1" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Monitorear telemetría piscina&#xa;(pH, ORP, Temp, Volumen)" vertex="1">
+          <mxGeometry height="52" width="190" x="30" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="act2" parent="lane-1" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Ejecutar Red LSTM:&#xa;Predecir degradación química" vertex="1">
+          <mxGeometry height="52" width="190" x="30" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="dec1" parent="lane-1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontStyle=1;fontColor=#000000;" value="¿Requiere&#xa;dosificación?" vertex="1">
+          <mxGeometry height="65" width="150" x="50" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="act_no" parent="lane-1" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Registrar parámetros normales&#xa;en base de datos" vertex="1">
+          <mxGeometry height="50" width="190" x="30" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="end_no" parent="lane-1" style="ellipse;shape=doubleEllipse;aspect=fixed;fillColor=#222222;strokeColor=#ffffff;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="26" width="26" x="112" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="act3" parent="lane-1" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Calcular volumen requerido:&lt;br&gt;V_objetivo (L)" vertex="1">
+          <mxGeometry height="52" width="190" x="30" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="act4" parent="lane-1" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Publicar orden vía MQTT&#xa;{cmd: DOSIFICAR, V_obj}" vertex="1">
+          <mxGeometry height="52" width="190" x="30" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="act19" parent="lane-1" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Recepción de telemetría final:&#xa;Persistir dosis y recirculación" vertex="1">
+          <mxGeometry height="48" width="190" x="20" y="1450" as="geometry" />
+        </mxCell>
+        <mxCell id="end_final" parent="lane-1" style="ellipse;shape=doubleEllipse;aspect=fixed;fillColor=#222222;strokeColor=#ffffff;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="26" width="26" x="102" y="1535" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-2" parent="1" style="swimlane;startSize=38;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=11;fontStyle=1;strokeColor=#222222;fillColor=#f8fafc;swimlaneFillColor=#ffffff;fontColor=#222222;" value="CONTROLADOR IOT (ESP32)" vertex="1">
+          <mxGeometry height="1580" width="500" x="280" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="act10" parent="lane-2" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Activar salida GPIO HIGH&#xa;hacia Relé de Bomba" vertex="1">
+          <mxGeometry height="50" width="190" x="140" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="act5" parent="lane-2" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Recibir orden de dosificación&#xa;y validar payload JSON" vertex="1">
+          <mxGeometry height="52" width="190" x="140" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="act6" parent="lane-2" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Inicializar variables:&#xa;V_actual = 0 y activar ISR pulsos" vertex="1">
+          <mxGeometry height="52" width="190" x="140" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="act7" parent="lane-2" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Activar salida GPIO HIGH&#xa;hacia Relé de Electroválvula" vertex="1">
+          <mxGeometry height="52" width="190" x="140" y="735" as="geometry" />
+        </mxCell>
+        <mxCell id="act13" parent="lane-2" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Contabilizar pulsos en ISR:&#xa;V_actual = pulsos × Factor_K" vertex="1">
+          <mxGeometry height="52" width="190" x="140" y="965" as="geometry" />
+        </mxCell>
+        <mxCell id="dec2" parent="lane-2" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontStyle=1;fontColor=#000000;" value="¿Flujo detectado?&#xa;(t &lt; Timeout)" vertex="1">
+          <mxGeometry height="60" width="150" x="160" y="1045" as="geometry" />
+        </mxCell>
+        <mxCell id="act_alarm" parent="lane-2" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=2;fontSize=11;fontStyle=1;fontColor=#000000;strokeDashed=1;" value="¡ALARMA DE SEGURIDAD!&#xa;Tubería seca / Fuga de químico&#xa;Paro de emergencia" vertex="1">
+          <mxGeometry height="52" width="190" x="20" y="1145" as="geometry" />
+        </mxCell>
+        <mxCell id="dec3" parent="lane-2" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontStyle=1;fontColor=#000000;" value="¿V_actual ≥&#xa;V_objetivo?" vertex="1">
+          <mxGeometry height="60" width="150" x="330" y="1125" as="geometry" />
+        </mxCell>
+        <mxCell id="act14" parent="lane-2" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Desactivar señal de Bomba&#xa;(GPIO LOW)" vertex="1">
+          <mxGeometry height="48" width="190" x="140" y="1295" as="geometry" />
+        </mxCell>
+        <mxCell id="act16" parent="lane-2" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Desenergizar Relé de Válvula&#xa;(GPIO LOW)" vertex="1">
+          <mxGeometry height="48" width="190" x="140" y="1370" as="geometry" />
+        </mxCell>
+        <mxCell id="act18" parent="lane-2" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Verificar flujo cero (F = 0)&#xa;y compilar reporte de ciclo" vertex="1">
+          <mxGeometry height="48" width="190" x="155" y="1445" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="lane-2" source="act5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act6" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="lane-2" source="act6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="lane-2" source="act13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="dec2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="lane-2" source="dec2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;strokeDashed=1;fontSize=10;fontColor=#000000;" target="act_alarm" value="[No: Sin Flujo]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="lane-2" source="dec2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dec3" value="[Sí]">
+          <mxGeometry relative="1" x="-0.1847" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="lane-2" source="dec3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act14" value="[Sí: Meta alcanzada]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e24" edge="1" parent="lane-2" source="act14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-3" parent="1" style="swimlane;startSize=38;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=11;fontStyle=1;strokeColor=#222222;fillColor=#f8fafc;swimlaneFillColor=#ffffff;fontColor=#222222;" value="ACTUADORES (RELÉ / VÁLVULA / BOMBA)" vertex="1">
+          <mxGeometry height="1580" width="260" x="780" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="act8" parent="lane-3" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Relé conmuta y energiza:&#xa;Apertura de Electroválvula" vertex="1">
+          <mxGeometry height="52" width="190" x="35" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="act9" parent="lane-3" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Electroválvula abierta:&#xa;Habilita paso de químico" vertex="1">
+          <mxGeometry height="50" width="190" x="35" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="act11" parent="lane-3" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Bomba Dosificadora arranca:&#xa;Inyecta químico a piscina" vertex="1">
+          <mxGeometry height="52" width="190" x="35" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="act15" parent="lane-3" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Bomba se detiene:&#xa;Cesa bombeo de químico" vertex="1">
+          <mxGeometry height="48" width="190" x="60" y="1300" as="geometry" />
+        </mxCell>
+        <mxCell id="act17" parent="lane-3" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Electroválvula se cierra:&#xa;Corte hermético anti-retorno" vertex="1">
+          <mxGeometry height="48" width="190" x="60" y="1375" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-4" parent="1" style="swimlane;startSize=38;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=11;fontStyle=1;strokeColor=#222222;fillColor=#f8fafc;swimlaneFillColor=#ffffff;fontColor=#222222;" value="INSTRUMENTACIÓN (SENSOR DE FLUJO)" vertex="1">
+          <mxGeometry height="1580" width="250" x="1040" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="act12" parent="lane-4" style="rounded=1;arcSize=24;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#222222;strokeWidth=1.5;fontSize=11;fontStyle=1;fontColor=#000000;" value="Sensor de flujo detecta fluido:&#xa;Emite tren de pulsos (Efecto Hall)" vertex="1">
+          <mxGeometry height="52" width="190" x="30" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="act1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="act2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="dec1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="dec1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act_no" value="[No]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="act_no" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="end_no" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="dec1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act3" value="[Sí]">
+          <mxGeometry relative="1" x="0.5245" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="352.5" />
+              <mxPoint x="270" y="520" />
+              <mxPoint x="155" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="act3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="act4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act5" value="MQTT&amp;nbsp;&lt;div&gt;Broker&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="act7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act8" value="Señal de&amp;nbsp;&lt;div&gt;Apertura&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="act8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act9" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="act9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act10" value="Válvula&amp;nbsp;&lt;div&gt;Abierta&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="act10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act11" value="Señal ON">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="970" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="act11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act12" value="Paso de&amp;nbsp;&lt;div&gt;Fluido&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="act12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" target="act13" value="Pulsos de Flujo (ISR)">
+          <mxGeometry relative="1" x="-0.058" as="geometry">
+            <Array as="points">
+              <mxPoint x="1165" y="1033" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="dec3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;strokeDashed=1;fontSize=10;fontColor=#000000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="act13" value="[No: V_act &lt; V_obj]">
+          <mxGeometry relative="1" x="-0.6778" as="geometry">
+            <Array as="points">
+              <mxPoint x="770" y="1210" />
+              <mxPoint x="770" y="1051" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e22_err" edge="1" parent="1" source="act_alarm" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;strokeDashed=1;fontSize=10;fontColor=#000000;" target="act14" value="Paro forzado">
+          <mxGeometry relative="1" x="0.1379" as="geometry">
+            <Array as="points">
+              <mxPoint x="380" y="1380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="act14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act15" value="Señal OFF">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="670" y="1384" />
+              <mxPoint x="670" y="1384" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e25" edge="1" parent="1" source="act16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act17" value="Señal de Cierre">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="725" y="1460" />
+              <mxPoint x="725" y="1459" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e26" edge="1" parent="1" source="act17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act18" value="Válvula Cerrada">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="935" y="1530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e27" edge="1" parent="1" source="act18" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="act19" value="Publicar&amp;nbsp;&lt;div&gt;Reporte&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e28" edge="1" parent="1" source="act19" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#222222;strokeWidth=1.5;fontSize=10;fontColor=#000000;" target="end_final" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
